@@ -3,13 +3,13 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="signUp_box">
+      <div class="login_box">
         <div class = "h1_title">
           <h1>
-            <span>會員註冊 </span><span>SIGN UP</span>
+            <span>會員登入 </span><span>SIGN IN</span>
           </h1>
         </div>
-        <div class="inputs_group">
+        <div class="inputs_group col">
           <div class="email_block">
             <label for="email">E-mail</label>
             <input type="email" required>
@@ -18,18 +18,22 @@
             <label for="password">Password</label>
             <input type="password" required>
           </div>
-          <div class="confirm_password_block">
-            <label for="password">Confirm Password</label>
-            <input type="password" required>
-          </div>
         </div>
 
-        <div class="button_group">
-          <router-link to="/login">
-            <div class="signUp_button">
-              SIGN UP
-            </div>
-          </router-link>
+      <div class="buttons_large_group">
+        <div class="buttons_middle_group">
+          <div class="new_account_button">
+            <router-link to="/account/signup">申請帳號</router-link>
+          </div>
+          <div class="forget_password_button">
+            <router-link to="#">忘記密碼</router-link>
+          </div>
+        </div>
+        <router-link to="/account">
+          <div class="login_button">
+            SIGN IN
+          </div>
+        </router-link>
         </div>
       </div>
     </div>
@@ -41,7 +45,7 @@
 
 </script>
 <style scoped>
-  .signUp_box {
+  .login_box {
     margin-top: 180px;
     width: 100%;
   }
@@ -50,7 +54,14 @@
     font-family: Arial Black;
     font-size: 32px;
     font-weight: bold;
-    text-align: center;
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  span {
+    display: block;
+    width: 150px;
   }
 
   .inputs_group {
@@ -64,10 +75,6 @@
   }
 
   .password_block {
-    margin-top: 50px;
-  }
-
-  .confirm_password_block {
     margin-top: 50px;
   }
 
@@ -86,11 +93,42 @@
     padding: 10px;
   }
 
-  .button_group {
+  .buttons_large_group {
     width: 800px;
-    margin: 0 auto 208px auto;
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
+    margin: 0 auto 208px auto;
+  }
+
+  .buttons_middle_group {
+    display: flex;
+  }
+
+  .new_account_button {
+    font-family: Archivo;
+    font-size: 24px;
+    width: 100px;
+    height: 26px;
+    padding-bottom: 35px;
+    margin-top: 60px;
+    margin-right: 50px;
+  }
+
+  .new_account_button:hover {
+    border-bottom: solid 2px #CC0000;
+  }
+
+  .forget_password_button {
+    font-family: Archivo;
+    font-size: 24px;
+    width: 100px;
+    height: 26px;
+    margin-top: 60px;
+    padding-bottom: 35px;
+  }
+
+  .forget_password_button:hover {
+    border-bottom: solid 2px #CC0000;
   }
 
   /* 要對router-link超連結下任何css要使用a標籤 */
@@ -99,7 +137,7 @@
     text-decoration: none;
   }
 
-  .signUp_button {
+  .login_button {
     font-family: Arial;
     font-size: 24px;
     width: 210px;
