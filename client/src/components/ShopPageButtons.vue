@@ -1,22 +1,30 @@
 <template>
-  <div class="buttons_group">
-    <div class="shop_items">
-      <span>/</span><router-link to="#">ALL</router-link>
-    </div>
-    <div class="shop_items">
-      <router-link to="#">TOP</router-link>
-    </div>
-    <div class="shop_items">
-      <router-link to="#">BOTTOM</router-link>
-    </div>
-    <div class="shop_items">
-      <router-link to="#">DRESS</router-link>
-    </div>
-    <div class="shop_items">
-      <router-link to="#">JUMPSUIT</router-link>
-    </div>
-    <div class="shop_items">
-      <router-link to="#">SALE</router-link><span>/</span>
+  <div class="container-fluid">
+    <div class="row w-50 mx-auto">
+      <div class="buttons_group">
+        <div class="h4 d-flex justify-content-center">
+          <span class="px-3 fw-bold">/</span>
+          <div class="shop_items col px-3">
+            <router-link to="#" class="link-dark fw-bold">ALL</router-link>
+          </div>
+          <div class="shop_items col px-3">
+            <router-link to="#" class="link-dark fw-bold">TOP</router-link>
+          </div>
+          <div class="shop_items col px-3">
+            <router-link to="#" class="link-dark fw-bold">BOTTOM</router-link>
+          </div>
+          <div class="shop_items col px-3">
+            <router-link to="#" class="link-dark fw-bold">DRESS</router-link>
+          </div>
+          <div class="shop_items col px-3">
+            <router-link to="#" class="link-dark fw-bold">JUMPSUIT</router-link>
+          </div>
+          <div class="shop_items col px-3">
+            <router-link to="#" class="link-dark fw-bold">SALE</router-link>
+          </div>
+          <span class="px-3 fw-bold">/</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -25,31 +33,15 @@
 </script>
 <style scoped>
   .buttons_group {
-    width: 100%;
-    display: flex;
-    justify-content: center;
     margin-top: 95px;
     margin-bottom: 127px;
-  }
-
-  .shop_items {
-    padding: 0 20px;
   }
 
   .shop_items a:hover {
     color: #CC0000;
   }
 
-  span {
-    margin: 0 30px;
-    font-size: 24px;
-    font-weight: bold;
-  }
-
   a {
     text-decoration: none;
-    font-size: 24px;
-    color: black;
-    font-weight: bold;
   }
 </style>
