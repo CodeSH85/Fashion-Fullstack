@@ -1,29 +1,40 @@
 <template>
   <div class="container-fluid">
     <div class="row w-50 mx-auto">
-      <div class="buttons_group">
-        <div class="h4 d-flex justify-content-center">
-          <span class="px-3 fw-bold">/</span>
-          <div class="shop_items col px-3">
-            <router-link to="#" class="link-dark fw-bold">ALL</router-link>
-          </div>
-          <div class="shop_items col px-3">
-            <router-link to="#" class="link-dark fw-bold">TOP</router-link>
-          </div>
-          <div class="shop_items col px-3">
-            <router-link to="#" class="link-dark fw-bold">BOTTOM</router-link>
-          </div>
-          <div class="shop_items col px-3">
-            <router-link to="#" class="link-dark fw-bold">DRESS</router-link>
-          </div>
-          <div class="shop_items col px-3">
-            <router-link to="#" class="link-dark fw-bold">JUMPSUIT</router-link>
-          </div>
-          <div class="shop_items col px-3">
-            <router-link to="#" class="link-dark fw-bold">SALE</router-link>
-          </div>
-          <span class="px-3 fw-bold">/</span>
+      <div class="buttons_group h4 d-md-flex d-sm-none justify-content-center">
+        <span class="px-3 fw-bold">/</span>
+        <div class="shop_items col px-3">
+          <router-link to="#" class="link-dark fw-bold">ALL</router-link>
         </div>
+        <div class="shop_items col px-3">
+          <router-link to="#" class="link-dark fw-bold">TOP</router-link>
+        </div>
+        <div class="shop_items col px-3">
+          <router-link to="#" class="link-dark fw-bold">BOTTOM</router-link>
+        </div>
+        <div class="shop_items col px-3">
+          <router-link to="#" class="link-dark fw-bold">DRESS</router-link>
+        </div>
+        <div class="shop_items col px-3">
+          <router-link to="#" class="link-dark fw-bold">JUMPSUIT</router-link>
+        </div>
+        <div class="shop_items col px-3">
+          <router-link to="#" class="link-dark fw-bold">SALE</router-link>
+        </div>
+        <span class="px-3 fw-bold">/</span>
+      </div>
+      <div class="dropdown d-md-none d-sm-flex justify-content-center my-4">
+        <button class="btn dropdown-toggle fw-bold" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          ALL
+        </button>
+        <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">ALL</a></li>
+          <li><a class="dropdown-item" href="#">TOP</a></li>
+          <li><a class="dropdown-item" href="#">BOTTOM</a></li>
+          <li><a class="dropdown-item" href="#">DRESS</a></li>
+          <li><a class="dropdown-item" href="#">JUMPSUIT</a></li>
+          <li><a class="dropdown-item" href="#">SALE</a></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -33,8 +44,7 @@
 </script>
 <style scoped>
   .buttons_group {
-    margin-top: 95px;
-    margin-bottom: 127px;
+    margin: 90px 0;
   }
 
   .shop_items a:hover {
@@ -44,4 +54,22 @@
   a {
     text-decoration: none;
   }
+
+  .dropdown button {
+    width: 100%;
+    border: solid 1px black;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .dropdown-menu {
+    width: 93%;
+    border-radius: 0;
+  }
+
+  .dropdown-menu li > a:hover {
+    color: white;
+    background-color: black;
+  }
+
 </style>
