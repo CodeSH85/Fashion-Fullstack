@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <div class="order_list_border">
+    <div class="order_list_border w-75">
       <ProductBox />
     </div>
 
@@ -58,7 +58,7 @@
   }
 
   .order_list_border{
-    width: 1000px;
+    /* width: 1000px; */
     border-top: solid 2px #767676;
     border-bottom: solid 2px #767676;
     margin: 0 auto 250px auto;

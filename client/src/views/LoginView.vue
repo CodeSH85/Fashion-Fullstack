@@ -1,117 +1,66 @@
 <template>
   <TopNavbar />
-
   <div class="container-fluid">
     <div class="row">
-      <div class="login_box">
-        <div class = "h1_title">
-          <h1>
-            <span>會員登入 </span><span>SIGN IN</span>
-          </h1>
-        </div>
-        <div class="inputs_group col">
-          <div class="email_block">
-            <label for="email">E-mail</label>
-            <input type="email" required>
-          </div>
-          <div class="password_block">
-            <label for="password">Password</label>
-            <input type="password" required>
-          </div>
-        </div>
-
-      <div class="buttons_large_group">
-        <div class="buttons_middle_group">
-          <div class="new_account_button">
-            <router-link to="/account/signup">申請帳號</router-link>
-          </div>
-          <div class="forget_password_button">
-            <router-link to="#">忘記密碼</router-link>
-          </div>
-        </div>
-        <router-link to="/account">
-          <div class="login_button">
-            SIGN IN
-          </div>
-        </router-link>
-        </div>
+      <div class="h1_title d-flex justify-content-center">
+        <h1 class="h3 col-md-8 fw-bolder col-sm-3 text-md-nowrap text-sm-wrap text-md-start text-sm-center">
+          會員登入 SIGN IN
+        </h1>
       </div>
+      <form action="" class="">
+        <div class="email_block col-md-8 col-sm-10 mx-auto mt-5">
+          <label for="email" class="email_title h5 mb-2">E-mail</label>
+          <input type="email" class="form-control lh-lg" id="account" placeholder="" required>
+        </div>
+        <div class="password_block col-md-8 col-sm-10 mx-auto mt-5">
+          <label for="password" class="password_title h5 mb-2">Password</label>
+          <input type="password" class="form-control lh-lg" id="password" placeholder="" required>
+        </div>
+        <div class="buttons_large_group col-8 mx-auto d-flex justify-content-md-between mt-5 
+        flex-md-row flex-sm-column-reverse flex-md-nowrap flex-sm-wrap">
+          <div class="buttons_middle_group col-md-4 d-flex col-sm-6 flex-md-nowrap flex-sm-wrap 
+          mx-md-0 mx-sm-auto mt-md-0 mt-sm-4">
+            <div class="col-md-5 col-sm-12 h5 fw-bold my-3 mb-0 text-md-start text-sm-center">
+              <router-link to="/account/signup" type="submit" class="new_account_button text-dark pb-1">
+                申請帳號
+              </router-link>
+            </div>
+            <div class="col-md-5 col-sm-12 h5 fw-bold my-3 mb-0 text-md-start text-sm-center">
+              <router-link to="#" type="submit" class="forget_password_button text-dark pb-1">
+                忘記密碼
+              </router-link>
+            </div>
+          </div>
+          <router-link to="/account" type="submit" class="d-block col-md-3 col-sm-7 mx-md-0 mx-sm-auto mt-md-0 mt-sm-3">
+            <div class="sign_in_button h4 fw-bold text-dark text-center py-3 mb-0">SIGN IN</div>
+          </router-link>
+        </div>
+      </form>
     </div>
   </div>
-
   <Footer />
 </template>
 <script>
 
+
 </script>
 <style scoped>
-  .login_box {
+  .h1_title {
     margin-top: 180px;
-    width: 100%;
-  }
-
-  h1 {
-    font-family: Arial Black;
-    font-size: 32px;
-    font-weight: bold;
-    width: 800px;
-    margin: 0 auto;
-    display: flex;
-  }
-
-  span {
-    display: block;
-    width: 150px;
-  }
-
-  .inputs_group {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .email_block {
-    margin-top: 40px;
-  }
-
-  .password_block {
-    margin-top: 50px;
-  }
-
-  label {
-    display: block;
-    font-family: Archivo;
-    font-size: 24px;
   }
 
   input {
-    display: block;
-    width: 800px;
-    height: 45px;
     background-color: #EEEEEE;
     border: solid 1px black;
-    padding: 10px;
+    border-radius: 0;
   }
 
   .buttons_large_group {
-    width: 800px;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto 208px auto;
-  }
-
-  .buttons_middle_group {
-    display: flex;
+    margin-bottom: 180px;
   }
 
   .new_account_button {
-    font-family: Archivo;
-    font-size: 24px;
-    width: 100px;
-    height: 26px;
-    padding-bottom: 35px;
-    margin-top: 60px;
-    margin-right: 50px;
+    border: solid 2px transparent;
   }
 
   .new_account_button:hover {
@@ -119,12 +68,7 @@
   }
 
   .forget_password_button {
-    font-family: Archivo;
-    font-size: 24px;
-    width: 100px;
-    height: 26px;
-    margin-top: 60px;
-    padding-bottom: 35px;
+    border: solid 2px transparent;
   }
 
   .forget_password_button:hover {
@@ -133,19 +77,14 @@
 
   /* 要對router-link超連結下任何css要使用a標籤 */
   a { 
-    color: black;
     text-decoration: none;
   }
 
-  .login_button {
-    font-family: Arial;
-    font-size: 24px;
-    width: 210px;
-    text-align: center;
-    padding: 12px 54px;
-    margin-top: 60px;
-    border-top: solid 1px black;
-    border-bottom: solid 1px black;
+  .sign_in_button {
+    border: solid 1px black;
+    border-left: none;
+    border-right: none;
+    background-color: #EEEEEE;
   }
 
 </style>

@@ -1,28 +1,31 @@
 <template>
   <AccountPageButtons />
-    <div class="account_group">
-      <div class="account_title">
-        <h4>E-mail</h4>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="account_group col-md-4 mx-sm-auto mb-md-4 d-flex justify-content-sm-between align-items-sm-center col-sm-8">
+        <div class="account_title">
+          <h4>E-mail</h4>
+        </div>
+        <div class="account_email">
+          <h4>example@test.com</h4>
+        </div>
       </div>
-      <div class="account_email">
-        <h4>example@test.com</h4>
+      <div class="buttons_center col-md-12 my-sm-5">
+        <div class="buttons_list mx-sm-auto d-flex flex-sm-wrap justify-content-sm-center col-md-4 col-sm-6">
+          <router-link to="/" class="link-dark d-md-block col-md-5 text-center my-md-0 mt-sm-5 col-sm-10">
+            <div class="log_out_button h4 py-3 px-4 mx-auto">
+              Log Out
+            </div>
+          </router-link>
+          <router-link to="#" class="link-dark d-md-block col-md-8 text-center my-md-5">
+            <div class="delete_button h4 py-3 px-4 mx-auto">
+              DELETE ACCOUNT
+            </div>
+          </router-link>
+        </div>
       </div>
     </div>
-
-    <div class="buttons_center">
-      <div class="buttons_list">
-        <router-link to="/">
-          <div class="logOut_button">
-            Log Out
-          </div>
-        </router-link>
-        <router-link to="#">
-          <div class="delete_button">
-            DELETE ACCOUNT
-          </div>
-        </router-link>
-      </div>
-    </div>
+  </div>
 </template>
 <script>
 // 引入元件(component)
@@ -35,58 +38,24 @@
   }
 </script>
 <style scoped>
-  .account_group {
-    width: 380px;
-    margin: 0 auto 154px auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .account_title h4 {
-    font-size: 24px;
-  }
-
-  .account_email h4 {
-    font-size: 24px;
-  }
-
-  .buttons_center {
-    width: 100%;
-  }
-
   .buttons_list {
-    width: 500px;
-    margin: 0 auto 120px auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin-top: 60px;
   }
 
   a { 
-    color: black;
     text-decoration: none;
   }
 
-  .logOut_button {
-    font-family: Arial;
-    font-size: 24px;
-    width: 210px;
-    text-align: center;
-    padding: 12px 54px;
-    margin: 50px auto 165px auto;
+  .log_out_button {
+    margin-top: 40px;
+    margin-bottom: 70px;
     border-top: solid 1px black;
     border-bottom: solid 1px black;
   }
 
   .delete_button {
-    font-family: Arial;
-    font-size: 24px;
-    width: 350px;
-    text-align: center;
     color: #CC0000;
-    padding: 12px 54px;
-    margin: 0 auto;
+    margin-bottom: 55px;
     border-top: solid 1px #CC0000;
     border-bottom: solid 1px #CC0000;
   }

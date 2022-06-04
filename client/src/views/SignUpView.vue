@@ -1,113 +1,64 @@
 <template>
   <TopNavbar />
-
   <div class="container-fluid">
     <div class="row">
-      <div class="signUp_box">
-        <div class = "h1_title">
-          <h1>
-            <span>會員註冊 </span><span>SIGN UP</span>
-          </h1>
+      <div class="h1_title d-flex justify-content-center">
+        <h1 class="h3 col-md-8 fw-bolder col-sm-3 text-md-nowrap text-sm-wrap text-md-start text-sm-center">
+          會員註冊 SIGN UP
+        </h1>
+      </div>
+      <form action="" class="">
+        <div class="email_block col-md-8 col-sm-10 mx-auto mt-5">
+          <label for="email" class="email_title h5 mb-2">E-mail</label>
+          <input type="email" class="form-control lh-lg" id="account" placeholder="" required>
         </div>
-        <div class="inputs_group">
-          <div class="email_block">
-            <label for="email">E-mail</label>
-            <input type="email" required>
-          </div>
-          <div class="password_block">
-            <label for="password">Password</label>
-            <input type="password" required>
-          </div>
-          <div class="confirm_password_block">
-            <label for="password">Confirm Password</label>
-            <input type="password" required>
-          </div>
+        <div class="password_block col-md-8 col-sm-10 mx-auto mt-5">
+          <label for="password" class="password_title h5 mb-2">Password</label>
+          <input type="password" class="form-control lh-lg" id="password" placeholder="" required>
         </div>
-
-        <div class="button_group">
-          <router-link to="/login">
-            <div class="signUp_button">
-              SIGN UP
-            </div>
+        <div class="confirm_password_block col-md-8 col-sm-10 mx-auto mt-5">
+          <label for="confirm_password" class="confirm_password_title h5 mb-2">Confirm Password</label>
+          <input type="password" class="form-control lh-lg" id="confirm_password" placeholder="" required>
+        </div>
+        <div class="button_group col-8 mx-auto d-flex justify-content-md-end mt-5">
+          <router-link to="/login" type="submit" class="d-block col-md-3 col-sm-7 mx-md-0 mx-sm-auto mt-md-0 mt-sm-3">
+            <div class="sign_up_button h4 fw-bold text-dark text-center py-3 mb-0">SIGN UP</div>
           </router-link>
         </div>
-      </div>
+      </form>
     </div>
   </div>
-
   <Footer />
 </template>
 <script>
 
+
 </script>
 <style scoped>
-  .signUp_box {
+  .h1_title {
     margin-top: 180px;
-    width: 100%;
-  }
-
-  h1 {
-    font-family: Arial Black;
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
-  }
-
-  .inputs_group {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .email_block {
-    margin-top: 40px;
-  }
-
-  .password_block {
-    margin-top: 50px;
-  }
-
-  .confirm_password_block {
-    margin-top: 50px;
-  }
-
-  label {
-    display: block;
-    font-family: Archivo;
-    font-size: 24px;
   }
 
   input {
-    display: block;
-    width: 800px;
-    height: 45px;
     background-color: #EEEEEE;
     border: solid 1px black;
-    padding: 10px;
+    border-radius: 0;
   }
 
   .button_group {
-    width: 800px;
-    margin: 0 auto 208px auto;
-    display: flex;
-    justify-content: right;
+    margin-bottom: 180px;
   }
 
   /* 要對router-link超連結下任何css要使用a標籤 */
   a { 
-    color: black;
     text-decoration: none;
   }
 
-  .signUp_button {
-    font-family: Arial;
-    font-size: 24px;
-    width: 210px;
-    text-align: center;
-    padding: 12px 54px;
-    margin-top: 60px;
-    border-top: solid 1px black;
-    border-bottom: solid 1px black;
+  .sign_up_button {
+    border: solid 1px black;
+    border-left: none;
+    border-right: none;
+    background-color: #EEEEEE;
   }
 
 </style>
