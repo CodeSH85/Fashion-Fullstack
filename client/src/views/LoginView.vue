@@ -1,12 +1,15 @@
 <template>
   <TopNavbar />
+  <!-- 登入頁面 -->
   <div class="container-fluid">
     <div class="row">
       <div class="h1_title d-flex justify-content-center">
-        <h1 class="h3 col-md-8 fw-bolder col-sm-3 text-md-nowrap text-sm-wrap text-md-start text-sm-center">
+        <h1 class="h3 col-md-8 fw-bolder col-sm-3 text-md-nowrap text-sm-wrap text-md-start 
+        text-sm-center">
           會員登入 SIGN IN
         </h1>
       </div>
+      <!-- 表格 -->
       <form action="" class="">
         <div class="email_block col-md-8 col-sm-10 mx-auto mt-5">
           <label for="email" class="email_title h5 mb-2">E-mail</label>
@@ -16,6 +19,7 @@
           <label for="password" class="password_title h5 mb-2">Password</label>
           <input type="password" class="form-control lh-lg" id="password" placeholder="" required>
         </div>
+        <!-- 表格按鈕 (large_group是最外面那層，middle_group是另外包申請帳號/忘記密碼的那層) -->
         <div class="buttons_large_group col-8 mx-auto d-flex justify-content-md-between mt-5 
         flex-md-row flex-sm-column-reverse flex-md-nowrap flex-sm-wrap">
           <div class="buttons_middle_group col-md-4 d-flex col-sm-6 flex-md-nowrap flex-sm-wrap 
@@ -31,8 +35,9 @@
               </router-link>
             </div>
           </div>
-          <router-link to="/account" type="submit" class="d-block col-md-3 col-sm-7 mx-md-0 mx-sm-auto mt-md-0 mt-sm-3">
-            <div class="sign_in_button h4 fw-bold text-dark text-center py-3 mb-0">SIGN IN</div>
+          <router-link to="/account" type="submit" class="d-block col-md-3 col-sm-7 
+          mx-md-0 mx-sm-auto mt-md-0 mt-sm-3">
+            <div class="sign_in_button h4 fw-bold link-dark text-center py-3 mb-0">SIGN IN</div>
           </router-link>
         </div>
       </form>
@@ -44,19 +49,21 @@
 
 
 </script>
-<style scoped>
+<style scoped lang="scss">
+  @import "../assets/scss/main.scss";
+  
   .h1_title {
     margin-top: 180px;
   }
 
   input {
-    background-color: #EEEEEE;
+    background-color: $bgColor;
     border: solid 1px black;
     border-radius: 0;
   }
 
   .buttons_large_group {
-    margin-bottom: 180px;
+    margin-bottom: 100px;
   }
 
   .new_account_button {
@@ -64,7 +71,7 @@
   }
 
   .new_account_button:hover {
-    border-bottom: solid 2px #CC0000;
+    border-bottom: solid 2px $redColor;
   }
 
   .forget_password_button {
@@ -72,7 +79,7 @@
   }
 
   .forget_password_button:hover {
-    border-bottom: solid 2px #CC0000;
+    border-bottom: solid 2px $redColor;
   }
 
   /* 要對router-link超連結下任何css要使用a標籤 */
@@ -84,7 +91,13 @@
     border: solid 1px black;
     border-left: none;
     border-right: none;
-    background-color: #EEEEEE;
+    background-color: $bgColor;
   }
 
+  .sign_in_button:hover {
+    color: $redColor;
+    border: solid 1px $redColor;
+    border-left: none;
+    border-right: none;
+  }
 </style>

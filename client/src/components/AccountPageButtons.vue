@@ -1,4 +1,5 @@
 <template>
+  <!-- 會員資料頁/檢視訂單頁上方的按鈕群組元件 -->
   <div class="container-fluid">
     <div class="row mx-md-0 mx-sm-auto">
       <div class="buttons_group d-flex justify-content-center">
@@ -18,7 +19,9 @@
 <script>
 
 </script>
-<style scoped>
+<style scoped lang="scss">
+  @import "../assets/scss/main.scss";
+
   .buttons_group {
     margin-top: 95px;
     margin-bottom: 110px;
@@ -29,6 +32,6 @@
   }
 
   a:hover {
-    color: #CC0000;
+    color: $redColor;
   }
 </style>

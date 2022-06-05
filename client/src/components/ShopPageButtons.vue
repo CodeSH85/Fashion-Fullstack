@@ -1,6 +1,8 @@
 <template>
+  <!-- 商品總覽分類頁面上方的按鈕群組元件 -->
   <div class="container-fluid">
     <div class="row w-50 mx-auto">
+      <!-- 一般頁面的頁面按鈕 -->
       <div class="buttons_group h4 d-md-flex d-sm-none justify-content-center">
         <span class="px-3 fw-bold">/</span>
         <div class="shop_items col px-3">
@@ -23,6 +25,7 @@
         </div>
         <span class="px-3 fw-bold">/</span>
       </div>
+      <!-- RWD頁面的頁面按鈕 -->
       <div class="dropdown d-md-none d-sm-flex justify-content-center my-4">
         <button class="btn dropdown-toggle fw-bold" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           ALL
@@ -42,13 +45,15 @@
 <script>
 
 </script>
-<style scoped>
+<style scoped lang="scss">
+  @import "../assets/scss/main.scss";
+
   .buttons_group {
     margin: 90px 0;
   }
 
   .shop_items a:hover {
-    color: #CC0000;
+    color: $redColor;
   }
 
   a {
@@ -71,5 +76,4 @@
     color: white;
     background-color: black;
   }
-
 </style>

@@ -1,20 +1,21 @@
 <template>
+  <!-- Footer元件 -->
   <div class="container-fluid">
     <div class="row">
       <div class="footer_border py-md-3 py-sm-5">
         <nav>
           <ul class="media_links text-center ps-0">
             <li class="d-lg-inline px-3 d-sm-block">
-              <a class="text-dark" href="https://www.facebook.com/official.JENNLEE?fref=ts" target="_blank">FACEBOOK</a>
+              <a class="link-dark" href="https://www.facebook.com/official.JENNLEE?fref=ts" target="_blank">FACEBOOK</a>
             </li>
             <li class="d-lg-inline px-3 pt-3 d-sm-block">
-              <a class="text-dark" href="https://twitter.com/jennleeofficial" target="_blank">TWITTER</a>
+              <a class="link-dark" href="https://twitter.com/jennleeofficial" target="_blank">TWITTER</a>
             </li>
             <li class="d-lg-inline px-3 pt-3 d-sm-block">
-              <a class="text-dark" href="https://www.instagram.com/jennlee_official/" target="_blank">INSTAGRAM</a>
+              <a class="link-dark" href="https://www.instagram.com/jennlee_official/" target="_blank">INSTAGRAM</a>
             </li>
             <li class="d-lg-inline px-3 pt-3 d-sm-block">
-              <a class="text-dark" href="https://www.youtube.com/channel/UCI8vjQvPvjuwp9dHIDFpNHg" target="_blank">YOUTUBE</a>
+              <a class="link-dark" href="https://www.youtube.com/channel/UCI8vjQvPvjuwp9dHIDFpNHg" target="_blank">YOUTUBE</a>
             </li>
           </ul>
         </nav>
@@ -29,9 +30,12 @@
 <script>
 
 </script>
-<style scoped>
+<style scoped lang="scss">
+  @import "../assets/scss/main.scss";
+  
   .footer_border {
-    border: solid 2px #CC0000;
+    border: solid 2px $redColor;
+    margin-top: 50px;
   }
 
   .media_links {
@@ -42,7 +46,11 @@
     text-decoration: none;
   }
 
+  .media_links > li a:hover {
+    color: $redColor;
+  }
+
   .copyright {
-    color: #767676;
+    color: $grayColor;
   }
 </style>

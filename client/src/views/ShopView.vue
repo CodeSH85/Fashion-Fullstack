@@ -1,8 +1,11 @@
 <template>
   <ShopPageButtons />
+  <!-- 商品總覽分類頁面 -->
+  <!-- 使用ProductItem元件 -->
   <ProductItem />
   <div class="container-fluid">
     <div class="row">
+      <!-- 一般頁面的頁面按鈕 -->
       <div class="page_buttons h4 text-center fw-bold mt-5 d-md-block d-sm-none">
         <a href="#" class="px-3 link-dark">＜</a>
         <a href="#" class="px-3 link-dark">1</a>
@@ -11,6 +14,7 @@
         <a href="#" class="px-3 link-dark">4</a>
         <a href="#" class="px-3 link-dark">＞</a>
       </div>
+      <!-- RWD頁面的頁面按鈕 -->
       <div class="dropdown w-50 mx-auto d-md-none d-sm-flex justify-content-center my-4">
         <button class="btn dropdown-toggle fw-bold" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           1
@@ -37,9 +41,11 @@
     }
   }
 </script>
-<style scoped>
+<style scoped lang="scss">
+  @import "../assets/scss/main.scss";
+  
   .page_buttons {
-      margin-bottom: 100px;
+      margin-bottom: 50px;
   }
 
   .page_buttons a {
@@ -47,7 +53,7 @@
   }
 
   .page_buttons a:hover {
-      color: #CC0000;
+      color: $redColor;
   }
 
   .dropdown button {
