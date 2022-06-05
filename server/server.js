@@ -11,7 +11,7 @@ const Sequelize = require('sequelize');
 
 // 自訂模組
 const database = require('./utils/dbconfig');
-const shopRouter = require('./routes/shop');
+const authRouter = require('./routes/auth');
 const Product = require('./models/product');
 const User = require('./models/user');
 const ImgUrl = require('./models/img-url');
@@ -30,12 +30,15 @@ const app = new Express();
 // 使用 cors
 app.use(cors());
 
-app.get('/test', (req, res) => {
-  res.status(200).json({success : "true"})
-});
-app.get('/', (req, res) => {
-  res.send('HI');
-});
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'views', 'index.html'));
+// });
+
+app.use(authRouter);
+
+// app.get('/test', (req, res) => {
+//   res.status(200).json({success : "true"})
+// });
 
 database.
 // sync({ force: true })

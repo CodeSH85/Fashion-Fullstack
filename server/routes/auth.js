@@ -6,6 +6,6 @@ const authController = require('../controllers/auth');
 
 const router = Express.Router();
 
-// router.get('/', authController.getIndex);
+router.get('/', authController.getIndex);
 
 module.exports = router;
