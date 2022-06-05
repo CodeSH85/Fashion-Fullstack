@@ -27,6 +27,16 @@ const routes = [
     component: () => import('../views/ShopView.vue')
   },
   {
+    path: '/shop/:id',
+    name: 'singleProduct',
+    component: () => import('../views/SingleProductView.vue')
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/LoginView.vue')
+  },
+  {
     path: '/account',
     name: 'account',
     component: () => import('../views/AccountView.vue')
@@ -35,6 +45,11 @@ const routes = [
     path: '/account/signup',
     name: 'signup',
     component: () => import('../views/SignUpView.vue')
+  },
+  {
+    path: '/account/order',
+    name: 'order',
+    component: () => import('../views/OrderView.vue')
   },
   {
     path: '/bag',
