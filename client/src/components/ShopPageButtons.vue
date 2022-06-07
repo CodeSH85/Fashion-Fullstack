@@ -1,6 +1,11 @@
 <template>
   <!-- 商品總覽分類頁面上方的按鈕群組元件 -->
   <div class="container-fluid">
+      <!-- 當判斷為登入狀態、切換成false時以下文字即會被隱藏 -->
+      <div class="unlogin_words h5 fw-bold text-center lh-lg my-3" v-if="isShow">
+        購買前請務必先加入會員並留下正資料，<br>
+        會員將能夠檢查訂單狀態和歷史紀錄。
+      </div>
     <div class="row w-50 mx-auto">
       <!-- 一般頁面的頁面按鈕 -->
       <div class="buttons_group h4 d-md-flex d-sm-none justify-content-center">
@@ -43,7 +48,16 @@
   </div>
 </template>
 <script>
+  export default {
+    data(){
+      return{
+        isShow: true,
+      }
+    },
+    methods: {
 
+    },
+  }
 </script>
 <style scoped lang="scss">
   @import "../assets/scss/main.scss";
