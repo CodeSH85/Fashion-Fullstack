@@ -16,7 +16,7 @@
       <div class="buttons_center col-md-12 my-sm-5">
         <div class="buttons_list mx-sm-auto d-flex flex-sm-wrap justify-content-sm-center 
         col-md-4 col-sm-6">
-          <router-link to="/" class="link-dark d-md-block col-md-5 text-center my-sm-5 col-sm-10">
+          <router-link to="/login" class="link-dark d-md-block col-md-5 text-center my-sm-5 col-sm-10">
             <div class="log_out_button h4 py-3 px-4 mx-auto mb-0">
               Log Out
             </div>

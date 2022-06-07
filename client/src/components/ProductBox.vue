@@ -1,31 +1,37 @@
 <template>
-  <!-- 檢視訂單頁的商品明細元件 -->
+  <!-- 訂單相關的商品明細元件 -->
   <div class="container-fluid">
     <div class="row">
-      <div class="product_border w-md-100 my-3 px-0 d-flex justify-content-between 
-      flex-md-nowrap flex-sm-wrap">
-        <div class="img_container mx-md-0 mx-sm-auto my-md-0 my-sm-4">
+      <!-- 單項商品紅色外框 -->
+      <div class="product_border col-md-12 my-3 px-0 d-flex justify-content-between flex-md-nowrap flex-sm-wrap">
+        <div class="img_container col-3 mx-md-0 mx-sm-auto my-md-0 my-sm-4">
           <img src="../../public/images/original.jpg" alt="">
         </div>
-        <div class="table w-75 my-3 d-flex flex-md-nowrap flex-sm-wrap mx-md-0 mx-sm-auto">
-          <div class="table_items col-md-6 col-sm-12">
-            <div class="table_row h4 fw-bold py-2 pt-md-2 pt-sm-1 mx-md-2 mx-sm-0">
+        <!-- 商品右半部購買資訊 -->
+        <div class="table col-9 my-3 d-flex flex-md-nowrap flex-sm-wrap ms-md-4 me-md-0 mx-sm-auto">
+          <!-- 品項和單價 -->
+          <div class="table_items col-md-4 col-sm-12">
+            <div class="table_row h4 fw-bold py-2 pt-md-2 pt-sm-1 mx-md-2 mx-sm-4">
               印花拼色拉鍊尖型洋裝
             </div>
-            <div class="table_cell h4 fw-bold py-3 mx-md-2 mx-sm-0">
+            <div class="table_cell h4 fw-bold py-3 mx-md-2 mx-sm-3">
               <span>NT$ </span>9,200
             </div>
           </div>
-          <div class="table_items col-md-3 col-sm-12">
-            <div class="table_row h5 fw-bold py-3 mx-md-2 mx-sm-0">
+          <!-- 購買數量 -->
+          <div class="table_items col-md-2 col-sm-12">
+            <div class="table_row h5 fw-bold py-3 mx-md-2 mx-sm-4">
               數量
             </div>
             <div class="table_cell h5 fw-bold py-2 text-center mx-md-2 mx-sm-0">
-              1
+              <slot name="amount">
+                <!-- 插入OrderView的購買數量 -->
+              </slot>
             </div>
           </div>
-          <div class="table_items col-md-3 col-sm-12 d-md-block d-sm-flex">
-            <div class="table_row h5 fw-bold py-3 mx-md-2 mx-sm-0">
+          <!-- 金額總計 -->
+          <div class="table_items col-md-3 col-sm-10 d-md-block d-sm-flex">
+            <div class="table_row h5 fw-bold py-3 mx-md-2 mx-sm-4">
               小計
             </div>
             <div class="table_cell_price h5 fw-bold py-md-2 text-center py-sm-3 px-md-0 px-sm-4 
@@ -33,10 +39,18 @@
               <span>NT$ </span>9,200
             </div>
           </div>
+          <!-- 刪除購物車商品按鈕 -->
+          <div class="delete_button col-md-1 col-sm-2 d-md-block d-sm-flex align-items-center">
+            <slot name="delete">
+              <!-- 插入BagView的刪除按鈕 -->
+            </slot>
+          <div>
         </div>
       </div>
     </div>
   </div>
+</div>
+</div>
 </template>
 <script>
 

@@ -64,11 +64,11 @@
               </ul>
             </div>
           </div>
-          <a href="#" class="link-dark w-75 d-block mx-md-0 mx-sm-auto">
+          <router-link to="/bag" type="submit" class="link-dark w-75 d-block mx-md-0 mx-sm-auto">
             <div class="add_cart_button h3 fw-bold text-center py-3 px-3">
               加入購物車
             </div>
-          </a>
+          </router-link>
         </div>
       </div>
       <hr class="col-10 mx-auto my-5 d-md-block d-sm-none">

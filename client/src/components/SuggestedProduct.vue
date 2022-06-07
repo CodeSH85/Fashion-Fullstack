@@ -4,21 +4,21 @@
     <div class="row">
       <div class="products_group col-9 mx-auto d-flex justify-content-evenly mb-5">
         <!-- 示意圖先放三張圖片，套{{}}之後留下一個即可；RWD時只顯示一張圖片的問題尚未解決 -->
-        <a href="">
+        <router-link to="#" class="">
           <div class="bottom_img_container">
             <img src="../../public/images/original-2.jpg" alt="">
           </div>
-        </a>
-        <a href="">
+        </router-link>
+        <router-link to="#" class="">
           <div class="bottom_img_container">
             <img src="../../public/images/original-2.jpg" alt="">
           </div>
-        </a>
-        <a href="">
+        </router-link>
+        <router-link to="#" class="">
           <div class="bottom_img_container">
             <img src="../../public/images/original-2.jpg" alt="">
           </div>
-        </a>
+        </router-link>
       </div> 
     </div>
   </div>

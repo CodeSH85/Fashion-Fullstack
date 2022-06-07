@@ -25,6 +25,7 @@
 
   body {
     background-color: $bgColor;
+    overflow-x: hidden;
   }
 
 </style>

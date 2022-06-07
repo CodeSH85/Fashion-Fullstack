@@ -55,7 +55,12 @@ const routes = [
     path: '/bag',
     name: 'bag',
     component: () => import('../views/BagView.vue')
-  }
+  },
+  {
+    path: '/bag/completed',
+    name: 'orderCompleted',
+    component: () => import('../views/OrderCompletedView.vue')
+  },
 ]
 
 const router = createRouter({
