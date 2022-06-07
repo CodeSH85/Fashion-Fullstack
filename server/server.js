@@ -8,13 +8,14 @@ const cors = require('cors');
 const session = require('express-session')
 const bodyParser = require('body-parser');
 const Sequelize = require('sequelize');
+const mysql = require('mysql2')
 
 // 自訂模組
 const database = require('./utils/dbconfig');
 const authRouter = require('./routes/auth');
-const Product = require('./models/product');
-const User = require('./models/user');
-const ImgUrl = require('./models/img-url');
+// const Product = require('./models/product');
+// const User = require('./models/user');
+// const ImgUrl = require('./models/img-url');
 
 
 
@@ -23,6 +24,20 @@ const ImgUrl = require('./models/img-url');
 // 變數
 const hostname = '127.0.0.1';
 const port = 3000;
+const db = mysql.createConnection({
+  host: '127.0.0.1',
+  user: 'root',
+  password: 'mysqlroot',
+  database: 'JENN-LEE'
+});
+
+// connect to mysql
+db.connect((err) => {
+  if(err){
+    console.log(err);
+  }
+  console.log(`Mysql connected successfully`);
+})
 
 // 使用 Express
 const app = new Express();
