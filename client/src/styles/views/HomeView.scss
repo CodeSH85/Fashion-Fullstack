@@ -1,3 +1,30 @@
-#homepage{
+#homepage {
   background-color: black;
+}
+
+//press section
+.press {
+  padding: 0rem 5rem;
+}
+
+.press-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .press-col {
+    width: 250px;
+    height: 380px;
+    width: auto;
+    height: 380px;
+    display: flex;
+    overflow: hidden;
+
+    img {
+      width: 250px;
+      height: 380px;
+      border: 1px solid #fff;
+      object-fit: contain;
+    }
+  }
 }

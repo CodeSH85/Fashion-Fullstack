@@ -15,15 +15,14 @@
     </section>
 
     <section class="press container-fluid">
-      <div class="row align-items-center g-2">
+      <div class="row">
         <div class="heading">
           <h2>PRESS</h2>
         </div>
         <div
-          class="row-fluid row-cols-2 row-cols-lg-5 g-2 g-lg-3"
-          style="justify-content: space-around"
+          class="press-row row-cols-3 row-cols-lg-5 g-2 g-lg-3"
         >
-          <div class="col" v-for="press in press" :key="press.id">
+          <div class="press-col col-md-6" v-for="press in press" :key="press.id">
             <PressCard v-bind="press"></PressCard>
           </div>
         </div>
