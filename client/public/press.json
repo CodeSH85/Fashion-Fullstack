@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "VOGUE",
+    "img": "../images/press1.jpeg"
+  },
+  {
+    "id": 2,
+    "title": "LON",
+    "img": "../images/press2.jpeg"
+  },
+  {
+    "id": 3,
+    "title": "BBC",
+    "img": "../images/press3.jpeg"
+  },
+  {
+    "id": 4,
+    "title": "IDK",
+    "img": "../images/press4.jpeg"
+  },
+  {
+    "id": 5,
+    "title": "VOGUE",
+    "img": "../images/press5.jpeg"
+  },
+  {
+    "id": 6,
+    "title": "VOGUE TW",
+    "img": "../images/press6.jpeg"
+  }
+]
