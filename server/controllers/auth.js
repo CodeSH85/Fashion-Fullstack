@@ -7,46 +7,48 @@ const db = require('../utils/database.js')
 // ===================================================
 
 const getLogin = (req, res) => {
-  const errorMessage = req.flash('errorMessage')[0];
-  res.status(200)
-    .render('auth/login', {
-      errorMessage
-    });
+  // const errorMessage = req.flash('errorMessage')[0];
+  res.status(200);
+  console.log(req.body);
 };
 
+// 會員登入
 const postLogin = (req, res) => {
-  const sql = `SELECT * FROM users WHERE email='email' AND password='password'`;
-  res.status(200);
+  const { email, password } = req.body;
+  const sql = `SELECT * FROM users WHERE name='${email}' AND password='${password}';`;
+  db.query(sql,(err, results) => {
+    if(err) throw err;
+    res.status(200).redirect('/');
+  })
 };
 
 const getSignup = (req, res) => {
-  const errorMessage = req.flash('errorMessage')[0];
-  res.status(200)
-    .render('auth/signup', {
-      errorMessage
-    });
+  // const errorMessage = req.flash('errorMessage')[0];
+  res.status(200);
+  console.log(req.body);
 };
 
+// 會員註冊
 const postSignup = (req, res) => {
-  const sql = `INSERT INTO users (email,password, createdAt, valid) VALUES 
-  ('email', 'password', 'now', 1)`;
-  const errorMessage = req.flash('errorMessage')[0];
-  res.status(200)
-    .render('auth/signup', {
-      errorMessage
-    });
+  const { email, password } = req.body;
+  const sql = `INSERT INTO users (email, password, valid) VALUES ('${email}', '${password}', 1)`;
+  // const errorMessage = req.flash('errorMessage')[0];
+  db.query(sql,(err, results) => {
+    if(err) throw err;
+    res.status(200).send(email);
+  });
 };
 
 
 const getSql = (req, res) => {
   const sql = `SELECT * FROM PRODUCT`;
-  db.execute(sql, (err, results) => {
+  db.query(sql, (err, results) => {
     if(err) throw err;
     results.forEach((res)=>{
       console.log(res.title);
     });
     res.send(results.title);
-  })
+  });
 };
 
 module.exports = {
