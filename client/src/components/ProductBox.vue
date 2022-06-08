@@ -72,6 +72,9 @@
     height: 100%;
     object-fit: cover;
   }
+  .table{
+    border-top: none!important
+  }
 
   @media screen and (min-width: 576px) and (max-width: 768px) {
     .img_container {
