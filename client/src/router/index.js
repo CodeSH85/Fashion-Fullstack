@@ -40,7 +40,7 @@ const routes = [
     path: '/bag',
     name: 'bag',
     component: () => import('../views/BagView.vue')
-  }
+  },
 ]
 
 const router = createRouter({
