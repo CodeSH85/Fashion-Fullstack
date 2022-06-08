@@ -8,4 +8,6 @@ const router = Express.Router();
 
 router.get('/', authController.getIndex);
 
+router.get('/sql', authController.getSql);
+
 module.exports = router;
