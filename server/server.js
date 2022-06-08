@@ -1,3 +1,4 @@
+// 全域環境
 require('dotenv').config();
 
 // 內建模組
@@ -11,14 +12,11 @@ const cors = require('cors');
 const session = require('express-session')
 const bodyParser = require('body-parser');
 const Sequelize = require('sequelize');
-const mysql = require('mysql2')
+const mysql = require('mysql2');
 
 // 自訂模組
 const db = require('./utils/database');
 const authRouter = require('./routes/auth');
-// const Product = require('./models/product');
-// const User = require('./models/user');
-// const ImgUrl = require('./models/img-url');
 
 
 // =====================================================================
@@ -33,8 +31,17 @@ const app = new Express();
 // 使用 cors
 app.use(cors());
 
+// ==============================================================
+// 路由
+
+// 根目錄
+app.get('/', (req, res)=>{
+  res.status(200).sendFile(path.join(__dirname, 'views', 'index.html'));
+});
+
 app.use(authRouter);
 
+// ==============================================================
 
 app.listen(port, hostname, () => {
   console.log(`server is running at http://${hostname}:${port}/`);

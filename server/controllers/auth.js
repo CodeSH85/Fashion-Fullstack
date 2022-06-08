@@ -6,28 +6,53 @@ const db = require('../utils/database.js')
 
 // ===================================================
 
-const getIndex = (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, '../views', 'index.html'));
+const getLogin = (req, res) => {
+  const errorMessage = req.flash('errorMessage')[0];
+  res.status(200)
+    .render('auth/login', {
+      errorMessage
+    });
 };
 
 const postLogin = (req, res) => {
-  const {email, password} = req.body
-  res.status()
+  const sql = `SELECT * FROM users WHERE email='email' AND password='password'`;
+  res.status(200);
 };
 
+const getSignup = (req, res) => {
+  const errorMessage = req.flash('errorMessage')[0];
+  res.status(200)
+    .render('auth/signup', {
+      errorMessage
+    });
+};
+
+const postSignup = (req, res) => {
+  const sql = `INSERT INTO users (email,password, createdAt, valid) VALUES 
+  ('email', 'password', 'now', 1)`;
+  const errorMessage = req.flash('errorMessage')[0];
+  res.status(200)
+    .render('auth/signup', {
+      errorMessage
+    });
+};
+
+
 const getSql = (req, res) => {
-  let sql = `SELECT * FROM PRODUCT WHERE product_id = 3`;
-  let query = db.execute(sql, (err, results) => {
+  const sql = `SELECT * FROM PRODUCT`;
+  db.execute(sql, (err, results) => {
     if(err) throw err;
     results.forEach((res)=>{
       console.log(res.title);
-    })
+    });
     res.send(results.title);
   })
 };
 
 module.exports = {
-  getIndex,
+  getLogin,
   postLogin,
+  getSignup,
+  postSignup,
   getSql
 };
