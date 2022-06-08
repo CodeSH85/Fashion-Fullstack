@@ -1,4 +1,4 @@
-<template>
+<template v-on:emit-text="getData">
   <ShopPageButtons />
   <!-- 商品單一詳情頁面 -->
   <div class="container-fluid">
@@ -137,6 +137,17 @@
     components: {
       ShopPageButtons,
       SuggestedProduct,
+    },
+    data() {
+      return {
+        text: '',
+      }
+    },
+    methods: {
+      getData(text) {
+        console.log('getData');
+        this.text=text;
+      } 
     }
   }
 
