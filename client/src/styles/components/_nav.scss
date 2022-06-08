@@ -74,7 +74,7 @@ nav {
   //   color: black
   // }
 
-  ul .nav-link {
+  ul li .nav-link {
     text-decoration: none;
     color: inherit;
     /* display: block; */
@@ -84,7 +84,7 @@ nav {
     &:active,
     &:visited,
     &:focus {
-      color: inherit !important
+      color: inherit
     }
 
     &:hover {
