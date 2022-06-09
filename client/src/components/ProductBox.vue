@@ -8,7 +8,8 @@
           <img src="../../public/images/original.jpg" alt="">
         </div>
         <!-- 商品右半部購買資訊 -->
-        <div class="table col-9 my-3 d-flex flex-md-nowrap flex-sm-wrap ms-md-4 me-md-0 mx-sm-auto">
+        <div class=" col-9 my-3 d-flex flex-md-nowrap flex-sm-wrap ms-md-4 me-md-0 mx-sm-auto">
+          <!-- ⬆️上面這一行 的class="table"先拿掉，因為會有預設黑線條（top-border） -->
           <!-- 品項和單價 -->
           <div class="table_items col-md-4 col-sm-12">
             <div class="table_row h4 fw-bold py-2 pt-md-2 pt-sm-1 mx-md-2 mx-sm-4">
@@ -71,6 +72,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  .table{
+    border-top: none!important
   }
 
   @media screen and (min-width: 576px) and (max-width: 768px) {

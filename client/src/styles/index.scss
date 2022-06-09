@@ -1,5 +1,5 @@
-@import './normalize.css';
-@import'./variables';
-@import'./base';
-@import'./components/index.scss';
-@import'./views/index.scss';
+// @import './normalize.css';
+@import'./_variables.scss';
+@import'./_base.scss';
+@import'./components/components.scss';
+@import'./views/views.scss';

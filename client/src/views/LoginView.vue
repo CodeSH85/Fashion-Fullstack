@@ -49,7 +49,7 @@
 
 
 </script>
-<style scoped lang="scss">
+<!-- <style scoped lang="scss">
   @import "../assets/scss/main.scss";
   
   .h1_title {
@@ -100,4 +100,4 @@
     border-left: none;
     border-right: none;
   }
-</style>
+</style> -->
