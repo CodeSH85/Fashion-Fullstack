@@ -1,4 +1,4 @@
-<template v-on:emit-text="getData">
+<template>
   <ShopPageButtons />
   <!-- 商品單一詳情頁面 -->
   <div class="container-fluid">
@@ -7,14 +7,14 @@
       <div class="main_information col-10 mx-auto d-flex justify-content-evenly 
       flex-md-nowrap flex-sm-wrap">
         <div class="img_container my-md-0 my-sm-3">
-          <img src="../../public/images/original.jpg" alt="">
+          <img :src="getProduct.imgUrl" :title="getProduct.name">
         </div>
-        <div class="product_add_cart col-md-6 col-sm-12">
+        <form action="/bag" method="post" class="product_add_cart col-md-6 col-sm-12">
           <div class="name h1 fw-bold my-3">
-            印花尖形背心洋裝
+            {{ getProduct.name }}
           </div>
           <div class="price h3 fw-bold my-3">
-            <span>NT$ </span>9,200
+            <span>NT$ </span>{{ getProduct.price }}
           </div>
           <hr class="my-4">
           <!-- 加入購物車前的選單群組 -->
@@ -22,54 +22,66 @@
             <div class="items_title h5 fw-bold">
               顏色
             </div>
+            <!-- 下拉式選單 (Bootstrap) -->
             <div class="dropdown justify-content-center mt-2 mb-3">
               <button class="btn dropdown-toggle text-start h5 fw-bold py-md-2 py-sm-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                黑
+                {{ getProduct.color[0] }}
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item my-0" href="#">黑</a></li>
-                <li><a class="dropdown-item my-0" href="#">**</a></li>
+                <li><a class="dropdown-item my-0" href="#">{{ getProduct.color }}</a></li>
               </ul>
             </div>
             <div class="items_title h5 fw-bold">
               尺寸
             </div>
+            <!-- 下拉式選單 (Bootstrap) -->
             <div class="dropdown justify-content-center mt-2 mb-3">
               <button class="btn dropdown-toggle text-start h5 fw-bold py-md-2 py-sm-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 38
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item my-0" href="#">38</a></li>
-                <li><a class="dropdown-item my-0" href="#">**</a></li>
+                <li><a class="dropdown-item my-0" href="#">{{ getProduct.clothesSize }}</a></li>
               </ul>
             </div>
             <div class="items_title h5 fw-bold">
               數量
             </div>
+            <!-- 下拉式選單 (select) -->
             <div class="dropdown justify-content-center mt-2 mb-3">
-              <button class="btn dropdown-toggle text-start h5 fw-bold py-md-2 py-sm-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                1
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item my-0" href="#">1</a></li>
-                <li><a class="dropdown-item my-0" href="#">2</a></li>
-                <li><a class="dropdown-item my-0" href="#">3</a></li>
-                <li><a class="dropdown-item my-0" href="#">4</a></li>
-                <li><a class="dropdown-item my-0" href="#">5</a></li>
+              <select v-model.number="selectedNumber" class="dropdown-list text-start fw-bold py-md-2 py-sm-3" name="" id="">
+                <option class="d-none" value="">請選擇</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              <!-- 原Bootstrap的下拉式選單 -->
+              <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item my-0" type="number" href="#">1</a></li>
+                <li><a class="dropdown-item my-0" type="number" href="#">2</a></li>
+                <li><a class="dropdown-item my-0" type="number" href="#">3</a></li>
+                <li><a class="dropdown-item my-0" type="number" href="#">4</a></li>
+                <li><a class="dropdown-item my-0" type="number" href="#">5</a></li>
                 <li><a class="dropdown-item my-0" href="#">6</a></li>
                 <li><a class="dropdown-item my-0" href="#">7</a></li>
                 <li><a class="dropdown-item my-0" href="#">8</a></li>
                 <li><a class="dropdown-item my-0" href="#">9</a></li>
                 <li><a class="dropdown-item my-0" href="#">10</a></li>
-              </ul>
+              </ul> -->
             </div>
           </div>
-          <router-link to="/bag" type="submit" class="link-dark w-75 d-block mx-md-0 mx-sm-auto">
+          <router-link to="/bag" type="submit" class="link-dark w-75 d-block mx-md-0 mx-sm-auto" @click="addCart(getProduct)">
             <div class="add_cart_button h3 fw-bold text-center py-3 px-3">
               加入購物車
             </div>
           </router-link>
-        </div>
+        </form>
       </div>
       <hr class="col-10 mx-auto my-5 d-md-block d-sm-none">
       <!-- 商品副資訊 (商品描述、Model size等) -->
@@ -79,9 +91,7 @@
             商品描述
           </div>
           <div class="items_content fw-bold my-md-0 my-sm-4">
-            高彈性的貼身面料，展露身材曲線，透氣不黏身，版型合身超顯身體曲線，前側尖銳裙擺點綴腿部曲線，展露屬於你的線條。
-            印花加入封膠質感印花增加視覺層次，由圖像創作者以邪惡氣味的頑皮風格呈現。
-            如您有其他尺寸需求，請選擇「其他」，並於備註欄說明您的胸圍/腰圍(肚臍上方三公分最細處)/肩寬以及身高體重，我們將為您服務。
+            {{ getProduct.description }}
           </div>
         </div>
         <div class="specification col-md-3 px-5 col-sm-6 mx-md-0 mx-sm-auto">
@@ -89,10 +99,7 @@
             商品規格(公分)
           </div>
           <div class="items_content col-6 fw-bold my-md-0 my-sm-4">
-            長度：77-95
-            胸圍：82
-            腰圍：70
-            袖長：19.5
+            {{ getProduct.specification }}
           </div>
         </div>
         <div class="material_and_size col-md-3 px-4 col-sm-6 mx-md-0 mx-sm-auto">
@@ -101,8 +108,7 @@
               商品成分
             </div>
             <div class="items_content col-6 fw-bold pe-5 my-md-0 my-sm-4">
-              96% POLY 
-              4% Op
+              {{ getProduct.material }}
             </div>
           </div>
           <div class="size">
@@ -110,8 +116,7 @@
               Model Size
             </div>
             <div class="items_content col-6 fw-bold my-md-0 my-sm-4">
-              高度：169 cm
-              Model is wearing 38
+              {{ getProduct.modelSize }}
             </div>
           </div>
         </div>
@@ -140,15 +145,31 @@
     },
     data() {
       return {
-        text: '',
+        selectedNumber: '',
       }
     },
     methods: {
-      getData(text) {
-        console.log('getData');
-        this.text=text;
-      } 
-    }
+      // 判斷存貨
+      addCart: function(product){
+      product.number = this.selectedNumber;
+
+      if(product.quantity - product.number < 0){
+        alert('存貨不足')
+        return;
+      }
+      this.$store.commit('addCart', {
+        product: product,
+        number: this.selectedNumber,
+      })
+      alert('已加入購物車')
+      console.log(product)
+      }
+    },
+    computed:{
+      getProduct (){
+        return this.$store.getters.getProduct(parseInt(this.$route.params.productId))
+      }
+    },
   }
 
 </script>
@@ -187,9 +208,19 @@
     box-shadow: none;
   }
 
+  .dropdown-list {
+    width: 30%;
+    border: solid 2px $redColor;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    background-color: transparent;
+  }
+
   .dropdown-menu {
     width: 30%;
     border-radius: 0;
+    background-color: $bgColor;
   }
 
   .dropdown-menu li > a:hover {

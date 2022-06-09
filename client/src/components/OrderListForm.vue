@@ -3,19 +3,12 @@
   <div class="container-fluid">
     <div class="row">
       <div class="vw-100">
-        <div class="col-10 h3 fw-bold mx-auto"><span>訂單編號：</span>1</div>
-        <div class="col-10 h4 fw-bold mx-auto my-3 d-flex justify-content-md-start 
-        justify-content-sm-between">
-          <div>
-            <span>合計：</span><span class="py-0 px-4">3件商品</span>
-          </div>
-          <div class="ps-5 pe-3">
-            <span>NT</span>27,600
-          </div>
-        </div>
+        <slot name="orderInfo">
+          <!-- 插入OrderView/OrderCompletedView當中的訂單編號、總金額等資訊 -->
+        </slot>
         <div class="order_list_border col-10 mx-auto px-0">
-          <slot>
-            <!-- 插入OrderView/BagView當中的ProductBox -->
+          <slot name="productBox">
+            <!-- 插入OrderView/BagView/OrderCompletedView當中的ProductBox -->
           </slot>
         </div>
       </div>

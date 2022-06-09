@@ -5,7 +5,6 @@
 </template>
 <script>
 export default {
-  // props: ["all"],
   props: {
     'id':Number,
     'name':String,
@@ -23,9 +22,7 @@ export default {
   },
   methods:{
     redirectProduct: function(id){
-      console.log('redirectProduct')
-      this.$router.push(`/shop/${id}`) //推送指定字串(網址)到router資料夾，並被命名為:productId
-      this.$emit('emit-text', this.id)
+      this.$router.push(`/shop/${id}`)
     }
   }
 }

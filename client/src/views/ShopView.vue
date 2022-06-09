@@ -1,8 +1,10 @@
 <template>
   <ShopPageButtons />
+  <!-- 商品總覽分類頁面 -->
   <div class="row col-10 mx-auto">
     <div class="d-flex flex-wrap justify-content-center">
-    <template v-for="product in dataDetails" :key="product.id">
+    <!-- 使用ProductItem元件 -->
+    <template v-for="product in data" :key="product.id">
       <ProductItem v-bind="product">
       </ProductItem>
     </template>
@@ -10,7 +12,7 @@
   </div>
   <div class="container-fluid">
     <div class="row">
-
+      <!-- 一般頁面的頁面按鈕 -->
       <div class="page_buttons h4 text-center fw-bold mt-5 d-md-block d-sm-none">
         <a href="#" class="px-3 link-dark">＜</a>
         <a href="#" class="px-3 link-dark">1</a>
@@ -19,7 +21,7 @@
         <a href="#" class="px-3 link-dark">4</a>
         <a href="#" class="px-3 link-dark">＞</a>
       </div>
-
+      <!-- RWD頁面的頁面按鈕 -->
       <div class="dropdown w-50 mx-auto d-md-none d-sm-flex justify-content-center my-4">
         <button class="btn dropdown-toggle fw-bold" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           1
@@ -38,7 +40,6 @@
 // 引入元件(component)
   import ShopPageButtons from "../components/ShopPageButtons.vue"
   import ProductItem from "../components/ProductItem.vue"
-  import data from "../../public/data.json"
 
   export default {
     components: {
@@ -47,7 +48,7 @@
     },
     data(){
       return{
-        dataDetails: data,
+        data: this.$store.state.data,
       }
     }
   }

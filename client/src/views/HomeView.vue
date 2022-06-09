@@ -10,6 +10,12 @@
 export default {
   name: 'HomeView',
   components: {
+  },
+  mounted() {
+    document.body.style.backgroundColor = 'black'
+  },
+  beforeUnmount () {
+    document.body.style.backgroundColor = 'transparent'
   }
 }
 </script>
