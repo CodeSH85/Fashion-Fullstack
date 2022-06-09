@@ -11,7 +11,7 @@
       <div class="buttons_group h4 d-md-flex d-sm-none justify-content-center">
         <span class="px-3 fw-bold">/</span>
         <div class="shop_items col px-3">
-          <router-link to="#" class="link-dark fw-bold">ALL</router-link>
+          <router-link to="#" class="link-dark fw-bold active">ALL</router-link>
         </div>
         <div class="shop_items col px-3">
           <router-link to="#" class="link-dark fw-bold">TOP</router-link>

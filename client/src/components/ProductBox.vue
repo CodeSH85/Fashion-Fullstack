@@ -5,7 +5,7 @@
       <!-- 單項商品紅色外框 -->
       <div class="product_border col-md-12 my-3 px-0 d-flex justify-content-between flex-md-nowrap flex-sm-wrap">
         <div class="img_container col-3 mx-md-0 mx-sm-auto my-md-0 my-sm-4">
-          <img src="../../public/images/original.jpg" alt="">
+          <img :src="imgUrl" :title="name">
         </div>
         <!-- 商品右半部購買資訊 -->
         <div class=" col-9 my-3 d-flex flex-md-nowrap flex-sm-wrap ms-md-4 me-md-0 mx-sm-auto">
@@ -13,10 +13,10 @@
           <!-- 品項和單價 -->
           <div class="table_items col-md-4 col-sm-12">
             <div class="table_row h4 fw-bold py-2 pt-md-2 pt-sm-1 mx-md-2 mx-sm-4">
-              印花拼色拉鍊尖型洋裝
+              {{ name }}
             </div>
             <div class="table_cell h4 fw-bold py-3 mx-md-2 mx-sm-3">
-              <span>NT$ </span>9,200
+              <span>NT$ </span>{{ price }}
             </div>
           </div>
           <!-- 購買數量 -->
@@ -37,7 +37,7 @@
             </div>
             <div class="table_cell_price h5 fw-bold py-md-2 text-center py-sm-3 px-md-0 px-sm-4 
             mx-md-2 mx-sm-0">
-              <span>NT$ </span>9,200
+              <span>NT$ </span>{{ sum }}
             </div>
           </div>
           <!-- 刪除購物車商品按鈕 -->
@@ -54,7 +54,30 @@
 </div>
 </template>
 <script>
+export default {
+  props: {
+    'id':Number,
+    'name':String,
+    'category':String,
+    'series':String,
+    'material':String,
+    'price':Number,
+    'description':String,
+    'color':String,
+    'specification':String,
+    'clothesSize':String,
+    'modelSize':String,
+    'quantity':Number,
+    'imgUrl':String,
+    'sum': Number,
+  },
+  methods:{
 
+  },
+  computed: {
+        
+  }
+}
 </script>
 <style scoped lang="scss">
   @import "../assets/scss/main.scss";

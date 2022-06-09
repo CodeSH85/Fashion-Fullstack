@@ -1,39 +1,51 @@
 <template>
-  <!-- 商品總覽分類頁面的商品圖片元件 -->
-  <div class="container-fluid">
-    <div class="row w-75 mx-auto d-flex flex-wrap row-cols-1 row-cols-sm-2 row-cols-md-4">
-      <router-link to="/shop/:id" class="img_container col px-0 py-2">
-        <div>
-          <img src="../../public/images/original-3.jpg" alt="">
-        </div>
-      </router-link>
-      <!-- 示意圖先放兩張圖片，套{{}}之後留下一個即可 -->
-      <router-link to="/shop/:id" class="img_container col px-0 py-2">
-        <div>
-          <img src="../../public/images/original-3.jpg" alt="">
-        </div>
-      </router-link>
+    <div class="img_container px-0 py-2" @click="redirectProduct(id)">
+      <img :src="imgUrl" :title="name">
     </div>
-  </div>
 </template>
 <script>
-
+export default {
+  props: {
+    'id':Number,
+    'name':String,
+    'category':String,
+    'series':String,
+    'material':String,
+    'price':Number,
+    'description':String,
+    'color':String,
+    'specification':String,
+    'clothesSize':String,
+    'modelSize':String,
+    'quantity':Number,
+    'imgUrl':String,
+  },
+  methods:{
+    redirectProduct: function(id){
+      this.$router.push(`/shop/${id}`)
+    }
+  }
+}
 </script>
 <style scoped>
+
   .img_container {
-      width: 25%;
-      height: 25%;
+      width: 273px;
+      height: 240px;
+      cursor: pointer;
   }
 
   .img_container img {
       width: 100%;
       height: 100%;
+      object-fit: none;
+      object-position: 50% 33%;
   }
 
   @media screen and ( max-width: 768px ) {
     .img_container {
-      width: 50%;
-      height: 50%;
+      width: 219px;
+      height: 192px;
     }
   }
 </style>

@@ -9,7 +9,7 @@
         </h1>
       </div>
       <!-- 表格 -->
-      <form action="" class="">
+      <form action="/login" method="post" class="">
         <div class="email_block col-md-8 col-sm-10 mx-auto mt-5">
           <label for="email" class="email_title h5 mb-2">E-mail</label>
           <input type="email" class=" form-control lh-lg" id="account" placeholder="" required>
@@ -46,7 +46,7 @@
   }
 
   input {
-    background-color: $bgColor;
+    background-color: transparent;
     border: solid 1px black;
     border-radius: 0;
   }
@@ -64,7 +64,7 @@
     border: solid 1px black;
     border-left: none;
     border-right: none;
-    background-color: $bgColor;
+    background-color: transparent;
   }
 
   .sign_up_button:hover {
