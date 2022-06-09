@@ -14,7 +14,7 @@
     <div class="row">
       <div class="d-flex justify-content-center my-5">
           <div class="h3 fw-bold">
-            <span>購物車內共 3 件商品</span>
+            <span>購物車內共 {{ allAmount }} 件商品</span>
           </div>
       </div>
       <!-- 使用OrderListForm元件 -->
@@ -116,6 +116,16 @@
             return p
           }
         )
+      },
+      // 計算購物車內的商品總數(從陣列中取出資料，並使用for迴圈做加總)
+      allAmount() {
+        let productsAmount = this.products.length;
+        // console.log(productsAmount);
+        let itemsTotal = 0;
+        for (var i = 0; i < productsAmount; i++ ) {
+          itemsTotal += this.products[i].number;
+        }
+        return itemsTotal
       },
       // 目前購物車中所有商品的總金額
       total() {
