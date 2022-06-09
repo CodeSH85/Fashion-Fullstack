@@ -9,7 +9,7 @@
         </h1>
       </div>
       <!-- 表格 -->
-      <form action="" class="">
+      <form action="/signup" method="POST" class="">
         <div class="email_block col-md-8 col-sm-10 mx-auto mt-5">
           <label for="email" class="email_title h5 mb-2">E-mail</label>
           <input type="email" class="form-control lh-lg" id="account" placeholder="" required>

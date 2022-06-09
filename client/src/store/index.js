@@ -6,11 +6,15 @@ export default createStore({
   state: {
     pressInfo,
     id: 6,
-    cart: []
+    cart: [],
+    productsInfo: 'http://localhost:3000/api/getImgs',
   },
   getters: {
-    getProduct : state => id => {
+    getPress : state => id => {
       return state.pressInfo.find(press => press.id === id)
+    },
+    getProduct : state => id => {
+      return state.productsInfo.find(product => product.id === id)
     },
   },
   mutations: {

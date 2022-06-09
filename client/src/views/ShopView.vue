@@ -2,7 +2,10 @@
   <ShopPageButtons />
   <!-- 商品總覽分類頁面 -->
   <!-- 使用ProductItem元件 -->
-  <ProductItem />
+  <template v-for="product in products" :key="product.product_id">
+      <ProductItem v-bind="product"></ProductItem>
+  </template>
+  <!-- <ProductItem /> -->
   <div class="container-fluid">
     <div class="row">
       <!-- 一般頁面的頁面按鈕 -->
@@ -31,6 +34,7 @@
 </template>
 <script>
 // 引入元件(component)
+  import axios from "axios";
   import ShopPageButtons from "../components/ShopPageButtons.vue"
   import ProductItem from "../components/ProductItem.vue"
 
@@ -38,7 +42,24 @@
     components: {
       ShopPageButtons,
       ProductItem,
-    }
+    },
+    data() {
+      return {
+        products: [],
+        productsInfo: this.$store.state.productsInfo,
+      };
+    },
+    mounted(){
+      axios
+      .get(`${this.productsInfo}/products?id=${this.id}`)
+      .then((res) => (this.products = res.data));
+    },
+    methods: {
+    parseImgPath: function (path) {
+      return this.$store.state.productsInfo + path;
+    },
+  },
+    
   }
 </script>
 <style scoped lang="scss">

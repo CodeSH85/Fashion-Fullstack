@@ -18,7 +18,7 @@ const history = require('connect-history-api-fallback');
 
 // 自訂模組
 const db = require('./utils/database');
-const authRouter = require('./routes/auth');
+const router = require('./routes/route');
 
 // ==================================================================
 
@@ -37,7 +37,8 @@ db.connect(error => {
 // Use Express
 const app = new Express();
 app.use(connectFlash());
-app.use(Express.urlencoded({ extended : false}));
+app.use(Express.urlencoded({ extended : false })); // 
+app.use(bodyParser.json());
 
 // Use cors
 app.use(cors({  
@@ -51,19 +52,18 @@ app.all('*',function (req, res, next) {
   next();
 });
 
-// Route ==============================================================
+// Routes 路由 ==============================================================
+app.use(router);
 
 // 根目錄
-app.use(authRouter);
 // app.get('/', (req, res)=>{
 //   res.status(200).sendFile(path.join(__dirname, '../client/dist'));
 // });
-app.get('/', (req, res)=>{
-  res.status(200).sendFile(path.join(__dirname, './views', 'index.html'));
-});
-// app.use(Express.static(path.join(__dirname, '../client/dist')));
-// app.use(history());
-
+// app.get('/', (req, res)=>{
+//   res.status(200).sendFile(path.join(__dirname, './views', 'index.html'));
+// });
+app.use(Express.static(path.join(__dirname, '../client/dist'))); // 使用靜態資源
+app.use(history());
 
 // ==============================================================
 
