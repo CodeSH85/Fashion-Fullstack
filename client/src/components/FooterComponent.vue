@@ -29,10 +29,14 @@
 </template>
 <script>
 
+
 </script>
 <style scoped lang="scss">
   @import "../assets/scss/main.scss";
   
+  .border{
+    color: white;
+  }
   .footer_border {
     border: solid 2px $redColor;
     margin-top: 50px;

@@ -1,8 +1,15 @@
 <template>
   <ShopPageButtons />
   <!-- 商品總覽分類頁面 -->
-  <!-- 使用ProductItem元件 -->
-  <ProductItem />
+  <div class="row col-10 mx-auto">
+    <div class="d-flex flex-wrap justify-content-center">
+    <!-- 使用ProductItem元件 -->
+    <template v-for="product in data" :key="product.id">
+      <ProductItem v-bind="product">
+      </ProductItem>
+    </template>
+    </div>
+  </div>
   <div class="container-fluid">
     <div class="row">
       <!-- 一般頁面的頁面按鈕 -->
@@ -38,6 +45,11 @@
     components: {
       ShopPageButtons,
       ProductItem,
+    },
+    data(){
+      return{
+        data: this.$store.state.data,
+      }
     }
   }
 </script>
