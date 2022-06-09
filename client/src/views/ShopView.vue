@@ -41,7 +41,7 @@
     }
   }
 </script>
-<style scoped lang="scss">
+<!-- <style scoped lang="scss">
   @import "../assets/scss/main.scss";
   
   .page_buttons {
@@ -73,4 +73,4 @@
     color: white;
     background-color: black;
   }
-</style>
+</style> -->
