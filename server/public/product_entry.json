@@ -1,0 +1,514 @@
+[
+  {
+    "product_id": 1,
+    "category_id": 1,
+    "size_id": 1,
+    "color_id": 2,
+    "sku": "P01",
+    "quantity": 10
+  },
+  {
+    "product_id": 1,
+    "category_id": 1,
+    "size_id": 5,
+    "color_id": 2,
+    "sku": "P02",
+    "quantity": 10
+  },
+  {
+    "product_id": 2,
+    "category_id": 1,
+    "size_id": 1,
+    "color_id": 1,
+    "sku": "P03",
+    "quantity": 10
+  },
+  {
+    "product_id": 2,
+    "category_id": 1,
+    "size_id": 5,
+    "color_id": 1,
+    "sku": "P04",
+    "quantity": 10
+  },
+  {
+    "product_id": 3,
+    "category_id": 2,
+    "size_id": 1,
+    "color_id": 1,
+    "sku": "P05",
+    "quantity": 10
+  },
+  {
+    "product_id": 3,
+    "category_id": 2,
+    "size_id": 5,
+    "color_id": 1,
+    "sku": "P06",
+    "quantity": 10
+  },
+  {
+    "product_id": 4,
+    "category_id": 2,
+    "size_id": 1,
+    "color_id": 3,
+    "sku": "P07",
+    "quantity": 10
+  },
+  {
+    "product_id": 4,
+    "category_id": 2,
+    "size_id": 5,
+    "color_id": 3,
+    "sku": "P08",
+    "quantity": 10
+  },
+  {
+    "product_id": 5,
+    "category_id": 3,
+    "size_id": 1,
+    "color_id": 1,
+    "sku": "P09",
+    "quantity": 10
+  },
+  {
+    "product_id": 5,
+    "category_id": 3,
+    "size_id": 5,
+    "color_id": 1,
+    "sku": "P10",
+    "quantity": 10
+  },
+  {
+    "product_id": 6,
+    "category_id": 3,
+    "size_id": 1,
+    "color_id": 1,
+    "sku": "P11",
+    "quantity": 10
+  },
+  {
+    "product_id": 6,
+    "category_id": 3,
+    "size_id": 5,
+    "color_id": 1,
+    "sku": "P12",
+    "quantity": 10
+  },
+  {
+    "product_id": 7,
+    "category_id": 3,
+    "size_id": 1,
+    "color_id": 1,
+    "sku": "P13",
+    "quantity": 10
+  },
+  {
+    "product_id": 7,
+    "category_id": 3,
+    "size_id": 5,
+    "color_id": 1,
+    "sku": "P14",
+    "quantity": 10
+  },
+  {
+    "product_id": 8,
+    "category_id": 1,
+    "size_id": 4,
+    "color_id": 1,
+    "sku": "P15",
+    "quantity": 10
+  },
+  {
+    "product_id": 9,
+    "category_id": 1,
+    "size_id": 1,
+    "color_id": 1,
+    "sku": "P16",
+    "quantity": 10
+  },
+  {
+    "product_id": 9,
+    "category_id": 1,
+    "size_id": 5,
+    "color_id": 1,
+    "sku": "P17",
+    "quantity": 10
+  },
+  {
+    "product_id": 10,
+    "category_id": 2,
+    "size_id": 1,
+    "color_id": 1,
+    "sku": "P18",
+    "quantity": 10
+  },
+  {
+    "product_id": 10,
+    "category_id": 2,
+    "size_id": 5,
+    "color_id": 1,
+    "sku": "P19",
+    "quantity": 10
+  },
+  {
+    "product_id": 11,
+    "category_id": 2,
+    "size_id": 1,
+    "color_id": 1,
+    "sku": "P20",
+    "quantity": 10
+  },
+  {
+    "product_id": 11,
+    "category_id": 2,
+    "size_id": 5,
+    "color_id": 1,
+    "sku": "P21",
+    "quantity": 10
+  },
+  {
+    "product_id": 12,
+    "category_id": 3,
+    "size_id": 4,
+    "color_id": 4,
+    "sku": "P22",
+    "quantity": 10
+  },
+  {
+    "product_id": 13,
+    "category_id": 3,
+    "size_id": 1,
+    "color_id": 1,
+    "sku": "P23",
+    "quantity": 10
+  },
+  {
+    "product_id": 13,
+    "category_id": 3,
+    "size_id": 5,
+    "color_id": 1,
+    "sku": "P24",
+    "quantity": 10
+  },
+  {
+    "product_id": 14,
+    "category_id": 2,
+    "size_id": 1,
+    "color_id": 1,
+    "sku": "P25",
+    "quantity": 10
+  },
+  {
+    "product_id": 14,
+    "category_id": 2,
+    "size_id": 5,
+    "color_id": 1,
+    "sku": "P26",
+    "quantity": 10
+  },
+  {
+    "product_id": 15,
+    "category_id": 2,
+    "size_id": 1,
+    "color_id": 1,
+    "sku": "P27",
+    "quantity": 10
+  },
+  {
+    "product_id": 15,
+    "category_id": 2,
+    "size_id": 5,
+    "color_id": 1,
+    "sku": "P28",
+    "quantity": 10
+  },
+  {
+    "product_id": 16,
+    "category_id": 1,
+    "size_id": 1,
+    "color_id": 1,
+    "sku": "P29",
+    "quantity": 10
+  },
+  {
+    "product_id": 16,
+    "category_id": 1,
+    "size_id": 5,
+    "color_id": 1,
+    "sku": "P30",
+    "quantity": 10
+  },
+  {
+    "product_id": 16,
+    "category_id": 1,
+    "size_id": 1,
+    "color_id": 2,
+    "sku": "P31",
+    "quantity": 10
+  },
+  {
+    "product_id": 16,
+    "category_id": 1,
+    "size_id": 2,
+    "color_id": 2,
+    "sku": "P32",
+    "quantity": 10
+  },
+  {
+    "product_id": 16,
+    "category_id": 1,
+    "size_id": 5,
+    "color_id": 2,
+    "sku": "P33",
+    "quantity": 10
+  },
+  {
+    "product_id": 17,
+    "category_id": 1,
+    "size_id": 4,
+    "color_id": 1,
+    "sku": "P34",
+    "quantity": 10
+  },
+  {
+    "product_id": 17,
+    "category_id": 1,
+    "size_id": 1,
+    "color_id": 2,
+    "sku": "P35",
+    "quantity": 10
+  },
+  {
+    "product_id": 17,
+    "category_id": 1,
+    "size_id": 5,
+    "color_id": 2,
+    "sku": "P36",
+    "quantity": 10
+  },
+  {
+    "product_id": 18,
+    "category_id": 1,
+    "size_id": 1,
+    "color_id": 1,
+    "sku": "P37",
+    "quantity": 10
+  },
+  {
+    "product_id": 18,
+    "category_id": 1,
+    "size_id": 5,
+    "color_id": 1,
+    "sku": "P38",
+    "quantity": 10
+  },
+  {
+    "product_id": 19,
+    "category_id": 1,
+    "size_id": 1,
+    "color_id": 3,
+    "sku": "P39",
+    "quantity": 10
+  },
+  {
+    "product_id": 19,
+    "category_id": 1,
+    "size_id": 5,
+    "color_id": 3,
+    "sku": "P40",
+    "quantity": 10
+  },
+  {
+    "product_id": 20,
+    "category_id": 1,
+    "size_id": 1,
+    "color_id": 1,
+    "sku": "P41",
+    "quantity": 10
+  },
+  {
+    "product_id": 20,
+    "category_id": 1,
+    "size_id": 5,
+    "color_id": 1,
+    "sku": "P42",
+    "quantity": 10
+  },
+  {
+    "product_id": 20,
+    "category_id": 1,
+    "size_id": 4,
+    "color_id": 2,
+    "sku": "P43",
+    "quantity": 10
+  },
+  {
+    "product_id": 21,
+    "category_id": 1,
+    "size_id": 4,
+    "color_id": 1,
+    "sku": "P44",
+    "quantity": 10
+  },
+  {
+    "product_id": 22,
+    "category_id": 1,
+    "size_id": 1,
+    "color_id": 1,
+    "sku": "P45",
+    "quantity": 10
+  },
+  {
+    "product_id": 22,
+    "category_id": 1,
+    "size_id": 2,
+    "color_id": 1,
+    "sku": "P46",
+    "quantity": 10
+  },
+  {
+    "product_id": 23,
+    "category_id": 1,
+    "size_id": 1,
+    "color_id": 1,
+    "sku": "P47",
+    "quantity": 10
+  },
+  {
+    "product_id": 23,
+    "category_id": 1,
+    "size_id": 2,
+    "color_id": 1,
+    "sku": "P48",
+    "quantity": 10
+  },
+  {
+    "product_id": 23,
+    "category_id": 1,
+    "size_id": 3,
+    "color_id": 1,
+    "sku": "P49",
+    "quantity": 10
+  },
+  {
+    "product_id": 24,
+    "category_id": 2,
+    "size_id": 4,
+    "color_id": 1,
+    "sku": "P50",
+    "quantity": 10
+  },
+  {
+    "product_id": 25,
+    "category_id": 2,
+    "size_id": 1,
+    "color_id": 1,
+    "sku": "P51",
+    "quantity": 10
+  },
+  {
+    "product_id": 26,
+    "category_id": 2,
+    "size_id": 4,
+    "color_id": 1,
+    "sku": "P52",
+    "quantity": 10
+  },
+  {
+    "product_id": 27,
+    "category_id": 4,
+    "size_id": 1,
+    "color_id": 5,
+    "sku": "P53",
+    "quantity": 10
+  },
+  {
+    "product_id": 27,
+    "category_id": 4,
+    "size_id": 5,
+    "color_id": 5,
+    "sku": "P54",
+    "quantity": 10
+  },
+  {
+    "product_id": 28,
+    "category_id": 4,
+    "size_id": 4,
+    "color_id": 6,
+    "sku": "P55",
+    "quantity": 10
+  },
+  {
+    "product_id": 29,
+    "category_id": 3,
+    "size_id": 1,
+    "color_id": 1,
+    "sku": "P56",
+    "quantity": 10
+  },
+  {
+    "product_id": 29,
+    "category_id": 3,
+    "size_id": 2,
+    "color_id": 1,
+    "sku": "P57",
+    "quantity": 10
+  },
+  {
+    "product_id": 29,
+    "category_id": 3,
+    "size_id": 3,
+    "color_id": 1,
+    "sku": "P58",
+    "quantity": 10
+  },
+  {
+    "product_id": 30,
+    "category_id": 3,
+    "size_id": 4,
+    "color_id": 1,
+    "sku": "P59",
+    "quantity": 10
+  },
+  {
+    "product_id": 31,
+    "category_id": 3,
+    "size_id": 4,
+    "color_id": 1,
+    "sku": "P60",
+    "quantity": 10
+  },
+  {
+    "product_id": 32,
+    "category_id": 3,
+    "size_id": 4,
+    "color_id": 1,
+    "sku": "P61",
+    "quantity": 10
+  },
+  {
+    "product_id": 33,
+    "category_id": 5,
+    "size_id": "",
+    "color_id": 6,
+    "sku": "P62",
+    "quantity": 1
+  },
+  {
+    "product_id": 34,
+    "category_id": 5,
+    "size_id": "",
+    "color_id": 1,
+    "sku": "P63",
+    "quantity": 1
+  },
+  {
+    "product_id": 35,
+    "category_id": 5,
+    "size_id": "",
+    "color_id": 3,
+    "sku": "P64",
+    "quantity": 1
+  }
+]

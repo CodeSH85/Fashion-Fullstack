@@ -12,6 +12,9 @@ export default createStore({
     getProduct : state => id => {
       return state.data.find(product => product.id === id)
     },
+    getProduct : state => id => {
+      return state.productsInfo.find(product => product.id === id)
+    },
   },
   mutations: {
     addCart (state, data){
