@@ -33,9 +33,8 @@ export default {
     display: flex;
   }
  img{
-   width: 263px;
-  height: 329px;
+    width: 263px;
     display: block;
-    margin: auto;
+    margin: 1.5rem;
   }
 </style>

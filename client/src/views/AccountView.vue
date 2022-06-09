@@ -22,7 +22,7 @@
             </div>
           </router-link>
           <router-link to="#" class="link-dark d-md-block col-md-8 text-center my-5">
-            <div class="delete_button h4 py-3 px-4 mx-auto mb-0">
+            <div class="deleteaccount_button h4 py-3 px-4 mx-auto mb-0">
               DELETE ACCOUNT
             </div>
           </router-link>
@@ -41,7 +41,7 @@
     }
   }
 </script>
-<style scoped lang="scss">
+<!-- <style scoped lang="scss"> 
   @import "../assets/scss/main.scss";
   
   .log_out_button {
@@ -66,4 +66,4 @@
   text-decoration: underline;
 }
   
-</style>
+</style> -->

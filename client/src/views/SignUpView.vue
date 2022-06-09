@@ -12,15 +12,15 @@
       <form action="" class="">
         <div class="email_block col-md-8 col-sm-10 mx-auto mt-5">
           <label for="email" class="email_title h5 mb-2">E-mail</label>
-          <input type="email" class="form-control lh-lg" id="account" placeholder="" required>
+          <input type="email" class=" form-control lh-lg" id="account" placeholder="" required>
         </div>
         <div class="password_block col-md-8 col-sm-10 mx-auto mt-5">
           <label for="password" class="password_title h5 mb-2">Password</label>
-          <input type="password" class="form-control lh-lg" id="password" placeholder="" required>
+          <input type="password" class=" form-control lh-lg" id="password" placeholder="" required>
         </div>
         <div class="confirm_password_block col-md-8 col-sm-10 mx-auto mt-5">
           <label for="confirm_password" class="confirm_password_title h5 mb-2">Confirm Password</label>
-          <input type="password" class="form-control lh-lg" id="confirm_password" placeholder="" required>
+          <input type="password" class=" form-control lh-lg" id="confirm_password" placeholder="" required>
         </div>
         <!-- 表格按鈕 -->
         <div class="button_group col-8 mx-auto d-flex justify-content-md-end mt-5">
@@ -38,7 +38,7 @@
 
 
 </script>
-<style scoped lang="scss">
+<!-- <style scoped lang="scss">
   @import "../assets/scss/main.scss";
   
   .h1_title {
@@ -73,4 +73,4 @@
     border-left: none;
     border-right: none;
   }
-</style>
+</style> -->
