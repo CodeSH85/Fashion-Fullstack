@@ -23,39 +23,51 @@
       </aside>
 
       <aside class="row r_aside">
+        <figure class="heading m-5">
+          <router-link :to="`/lookbook/${$route.params.lookbookId}`"><h2>{{lookbookInfo.title}} /</h2></router-link>
+<router-view/>
+          
+        </figure>
        <div class="lookbook-col" 
           v-for="press in pressInfo" 
           :key="press.id">
             <PressCard v-bind="press"></PressCard>
         </div>
+
       </aside>
 
     </section>
   </div>
 </template>
 
-<script> 
-import PressCard from "../components/PressCard.vue";
+<script>
+import axios from 'axios'
 
 export default {
-  data() {
-    return {
-      press: [],
-      pressInfo: this.$store.state.pressInfo,
-      id: this.$store.state.id,
-    };
+  data(){
+      return {
+          lookbookInfo: {}
+      }
   },
-  methods: {
-    redirectProduct: function (id) {
-      this.$router.push(`/press/${id}`);
-    },
+  computed:{
+      lookbookId(){
+          return this.$route.params.lookbookId
+      }
   },
-  computed: {
-    test() {
-      return this.$store.state.pressInfo;
-    },
+  watch:{
+      userId: function(newlookbookId){
+        this.fetchLookbookInfo(newlookbookId);
+      }
   },
-  components: { PressCard },
-};
-</script>
+  mounted(){
+      let lookbookId = this.$route.params.lookbookId
+      this.fetchLookbookInfo(lookbookId);
+  },
+  methods:{
+     fetchLookbookInfo:(lookbookId)=>
+       axios.get("/lookbook/${lookbookId}")
+       .then(response => this.lookbookInfo = response.data)
+     }
+  }
 
+</script>
