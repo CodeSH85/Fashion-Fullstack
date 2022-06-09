@@ -1,0 +1,73 @@
+//通用且會一直重複的元素，像是button、a、ul、li 等等
+//button
+.button_white {
+  color: white;
+  border: solid 1px rgb(253, 252, 252);
+  border-left: none;
+  border-right: none;
+  background-color: black;
+  padding: 13px 111px;
+  text-decoration: none;
+
+  &:active,
+  &:visited,
+  &:focus {
+    color: white;
+  }
+
+  &:hover {
+    color: red;
+    border: solid 1px red;
+    border-left: none;
+    border-right: none;
+  }
+}
+
+.button_black {
+  color: rgb(4, 0, 0);
+  border: solid 1px rgb(7, 0, 0);
+  border-left: none;
+  border-right: none;
+  background-color: rgb(249, 246, 246);
+  padding: 17px 111px;
+
+  a {
+    text-decoration: none;
+
+    &:active,
+    &:visited,
+    &:focus {
+      color: inherit;
+    }
+  }
+
+  &:hover {
+    color: red;
+    border: solid 1px red;
+    border-left: none;
+    border-right: none;
+  }
+}
+//list列
+ul {
+  margin-left: 0;
+}
+
+ul,
+ol,
+li {
+  list-style-type: none;
+}
+
+hr{
+  color:red;
+  margin:1.6rem;;
+}
+
+//文字
+.heading{
+  color:white;
+  p{
+    color:white;
+  }
+}

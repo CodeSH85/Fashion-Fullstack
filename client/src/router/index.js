@@ -27,6 +27,16 @@ const routes = [
     component: () => import('../views/ShopView.vue')
   },
   {
+    path: '/shop/:productId',
+    name: 'singleProduct',
+    component: () => import('../views/SingleProductView.vue')
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/LoginView.vue')
+  },
+  {
     path: '/account',
     name: 'account',
     component: () => import('../views/AccountView.vue')
@@ -37,10 +47,20 @@ const routes = [
     component: () => import('../views/SignUpView.vue')
   },
   {
+    path: '/account/order',
+    name: 'order',
+    component: () => import('../views/OrderView.vue')
+  },
+  {
     path: '/bag',
     name: 'bag',
     component: () => import('../views/BagView.vue')
-  }
+  },
+  {
+    path: '/bag/completed',
+    name: 'orderCompleted',
+    component: () => import('../views/OrderCompletedView.vue')
+  },
 ]
 
 const router = createRouter({
