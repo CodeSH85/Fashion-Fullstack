@@ -1,23 +1,38 @@
 import { createStore } from 'vuex'
 import createPersistedState from "vuex-persistedstate"
-import pressInfo from "../../public/press.json"
+import productsData from "../../public/data.json"
+
 
 export default createStore({
   state: {
-    pressInfo,
-    id: 6,
+    data: productsData,
     cart: [],
-    productsInfo: 'http://localhost:3000/api/getImgs',
   },
-  getters: {
-    getPress : state => id => {
-      return state.pressInfo.find(press => press.id === id)
+  getters:{
+    getProduct : state => id => {
+      return state.data.find(product => product.id === id)
     },
     getProduct : state => id => {
       return state.productsInfo.find(product => product.id === id)
     },
   },
   mutations: {
+    addCart (state, data){
+      let isNewProduct = true
+      state.cart.map( function (product) {
+        if ( product.id == data.product.id ){
+          product.number += data.number
+          isNewProduct = false
+        }
+        return product
+      })
+
+      if ( isNewProduct ){
+        let newProduct = data.product
+        newProduct.number = data.number
+        state.cart.push( newProduct )
+      }
+    },
   },
   actions: {
   },

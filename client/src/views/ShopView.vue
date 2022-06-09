@@ -1,11 +1,15 @@
 <template>
   <ShopPageButtons />
   <!-- 商品總覽分類頁面 -->
-  <!-- 使用ProductItem元件 -->
-  <template v-for="product in products" :key="product.product_id">
-      <ProductItem v-bind="product"></ProductItem>
-  </template>
-  <!-- <ProductItem /> -->
+  <div class="row col-10 mx-auto">
+    <div class="d-flex flex-wrap justify-content-center">
+    <!-- 使用ProductItem元件 -->
+    <template v-for="product in data" :key="product.id">
+      <ProductItem v-bind="product">
+      </ProductItem>
+    </template>
+    </div>
+  </div>
   <div class="container-fluid">
     <div class="row">
       <!-- 一般頁面的頁面按鈕 -->
@@ -43,26 +47,14 @@
       ShopPageButtons,
       ProductItem,
     },
-    data() {
-      return {
-        products: [],
-        productsInfo: this.$store.state.productsInfo,
-      };
-    },
-    mounted(){
-      axios
-      .get(`${this.productsInfo}/products?id=${this.id}`)
-      .then((res) => (this.products = res.data));
-    },
-    methods: {
-    parseImgPath: function (path) {
-      return this.$store.state.productsInfo + path;
-    },
-  },
-    
+    data(){
+      return{
+        data: this.$store.state.data,
+      }
+    }
   }
 </script>
-<style scoped lang="scss">
+<!-- <style scoped lang="scss">
   @import "../assets/scss/main.scss";
   
   .page_buttons {
@@ -94,4 +86,4 @@
     color: white;
     background-color: black;
   }
-</style>
+</style> -->

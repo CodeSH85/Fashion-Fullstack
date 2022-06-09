@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="navbar-p-3 navbar-expand-lg"
+    class="nav_black navbar-p-3 navbar-expand-lg"
     :class="{ black: theme === 'black' }"
   >
     <div class="container-fluid">
