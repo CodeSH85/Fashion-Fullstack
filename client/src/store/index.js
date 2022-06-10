@@ -11,7 +11,7 @@ export default createStore({
   getters:{
     getProduct : state => id => {
       return state.data.find(product => product.id === id)
-    },
+    }
   },
   mutations: {
     addCart (state, data){
