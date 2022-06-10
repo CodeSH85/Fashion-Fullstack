@@ -1,11 +1,15 @@
 <template>
-  <div :class="[{ border: has_border }, 'press-card']">
-    <div class="image-box">
-      <img class="press-img" :src="img" alt="picture" />
+     <div :class="[{border: has_border}, 'press-card']">
+         <div class="image-box">
+           <img class="press-img" :src="img"  alt="picture">
+         </div>
+            <!-- <h5 class="card-title">{{ title }}</h5> -->
+           <slot></slot>
+
     </div>
     <!-- <h5 class="card-title">{{ title }}</h5> -->
     <slot></slot>
-  </div>
+
 </template>
 <script>
 export default {
@@ -22,6 +26,18 @@ export default {
 };
 </script>
 <style scoped>
+
+  div.press-card .image-box{
+    width: 100%;
+    min-width: 275px;
+    display: flex;
+  }
+ img{
+    width: 263px;
+    display: block;
+    margin: 1.5rem;
+  }
+
 div.press-card {
   /* width: 24%; */
   text-align: center;
@@ -29,19 +45,5 @@ div.press-card {
   cursor: pointer;
   display: block;
 }
-div.press-card .image-box {
-  width: 100%;
-  min-width: 275px;
-  /* height: 380px; */
-  display: flex;
-}
-img {
-  width: 263px;
-  height: 329px;
-  display: block;
-  margin: auto;
-}
-small {
-  color: #bc0f0f;
-}
+
 </style>
