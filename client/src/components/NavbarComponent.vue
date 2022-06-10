@@ -1,10 +1,9 @@
 <template>
   <nav
-    class="nav_black navbar-p-3 navbar-expand-lg"
-    :class="{ black: theme === 'black' }"
+    class="navbar-p-3 navbar-expand-lg"
+    :class="status == 'black'? 'nav_white' : 'nav_black'"
   >
     <div class="container-fluid">
-      <!-- <a class="navbar-brand" href="#">Navbar</a> -->
       <button
         class="navbar-toggler"
         type="button"
@@ -50,7 +49,7 @@
           </li> -->
 
           <li class="nav-item">
-            <router-link to="/" class="nav-link active" aria-current="page">HOME</router-link>
+            <router-link to="/" class="nav-link active" aria-current="page" v-if="status=='black'">HOME</router-link>
           </li>
           <!-- <li class="nav-item dropdown">
             <router-link
@@ -72,19 +71,19 @@
             </ul>
           </li> -->
           <li class="nav-item">
-            <router-link to="/lookbook" class="nav-link link" aria-current="page">LOOKBOOK</router-link>
+            <router-link to="/lookbook" class="nav-link link" v-if="status=='black'">LOOKBOOK</router-link>
           </li>
 
           <li class="nav-item">
-            <router-link to="/press" class="nav-link link">PRESS</router-link>
+            <router-link to="/press" class="nav-link link" v-if="status=='black'">PRESS</router-link>
           </li>
 
           <li class="nav-item">
-            <router-link to="/about" class="nav-link link">ABOUT</router-link>
+            <router-link to="/about" class="nav-link link" v-if="status=='black'">ABOUT</router-link>
           </li>
 
           <li class="nav-item">
-            <router-link to="/shop" class="nav-link link">SHOP</router-link>
+            <router-link to="/shop" class="nav-link link" v-if="status=='white'">SHOP</router-link>
           </li>
 
           <!-- <li class="nav-item dropdown">

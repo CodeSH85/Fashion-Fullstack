@@ -1,5 +1,6 @@
 <template>
-  <nav class="nav_black top-nav navbar-p-0 navbar-expand-lg">
+  <nav class="top-nav navbar-p-0 navbar-expand-lg"
+  :class="status == 'black'? 'nav_white' : 'nav_black'">
     <div class="topnav-brand">
       <router-link to="/">
         <img src="images/logo.svg" alt="" class="logo-img"/>

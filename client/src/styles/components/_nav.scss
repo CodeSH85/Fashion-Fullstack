@@ -69,10 +69,29 @@
 .nav_black {
   background-color: black;
   color: white;
-  // &.reverse-color {
-  //   background-color: gray;
-  //   color: black
-  // }
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 2px solid #CC0000;
+  border-bottom: 2px solid #CC0000;
+
+  .navbar-collapse .navbar-nav {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  .navbar-toggler {
+    justify-content: flex-end;
+  
+    .navbar-toggler-icon {
+      color: rgb(247, 242, 242);
+  
+      &:hover {
+        color: rgb(244, 4, 4);
+      }
+    }
+  }
 
   ul li .nav-link {
     text-decoration: none;
@@ -95,12 +114,9 @@
   }
 }
 
-.navbar-collapse .navbar-nav {
-  width: 100%;
-  justify-content: space-evenly;
-}
-
-.navbar-p-3 {
+.nav_white {
+  background-color: rgb(247, 246, 246);
+  color: black;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -108,16 +124,66 @@
   justify-content: space-between;
   border-top: 2px solid #CC0000;
   border-bottom: 2px solid #CC0000;
-}
 
-.navbar-toggler {
-  justify-content: flex-end;
-
-  .navbar-toggler-icon {
-    color: rgb(247, 242, 242);
-
-    &:hover {
-      color: rgb(244, 4, 4);
+  .navbar-collapse .navbar-nav {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  .navbar-toggler {
+    justify-content: flex-end;
+  
+    .navbar-toggler-icon {
+      color: rgb(247, 242, 242);
+  
+      &:hover {
+        color: rgb(244, 4, 4);
+      }
     }
   }
+  ul li .nav-link {
+    text-decoration: none;
+    color: inherit;
+    /* display: block; */
+    text-align: center;
+    padding: 2px 80px;
+
+    &:active,
+    &:visited,
+    &:focus {
+      color: inherit;
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: rgb(239, 2, 2);
+    }
+
+  }
 }
+
+// .navbar-collapse .navbar-nav {
+//   width: 100%;
+//   justify-content: space-evenly;
+// }
+
+// .navbar-p-3 {
+//   position: relative;
+//   display: flex;
+//   flex-wrap: wrap;
+//   align-items: center;
+//   justify-content: space-between;
+//   border-top: 2px solid #CC0000;
+//   border-bottom: 2px solid #CC0000;
+// }
+
+// .navbar-toggler {
+//   justify-content: flex-end;
+
+//   .navbar-toggler-icon {
+//     color: rgb(247, 242, 242);
+
+//     &:hover {
+//       color: rgb(244, 4, 4);
+//     }
+//   }
+// }

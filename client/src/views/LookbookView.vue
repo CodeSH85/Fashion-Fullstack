@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 
 export default {
   data(){
@@ -64,10 +64,10 @@ export default {
       this.fetchLookbookInfo(lookbookId);
   },
   methods:{
-     fetchLookbookInfo:(lookbookId)=>
-       axios.get("/lookbook/${lookbookId}")
-       .then(response => this.lookbookInfo = response.data)
-     }
+    //  fetchLookbookInfo(lookbookId){
+    //    axios.get("/lookbook.json/${lookbookId}")
+    //    .then(response => this.lookbookInfo = response.data)
+    //  }
   }
-
+}
 </script>
