@@ -6,11 +6,22 @@ const db = require('../utils/database.js')
 
 // 全部商品資料 api
 const getProducts = (req, res) => {
+  // const sql = `
+  // SELECT * FROM product 
+  // JOIN product_entry ON product.product_id = product_entry.product_id
+  // GROUP BY product.product_id;
+  // `;
+
+
+  // SELECT product.product_id, product.title, product.price, product.desc, product.material, product.spec, product.model,
   const sql = `
-  SELECT * FROM product 
-  JOIN product_entry ON product.id=product_entry.id
-  GROUP BY product.id;
-  `;
+  SELECT *
+  FROM product
+  INNER JOIN product_entry ON product_entry.product_id = product.product_id
+  INNER JOIN size ON product_entry.size_id = size.size_id
+  INNER JOIN color ON product_entry.color_id = color.color_id
+  ORDER BY product_entry.sku ASC
+  ;`;
   db.query(sql, (err, results) => {
     if(err){
       console.error("An error occurred:", err.message);
@@ -22,8 +33,11 @@ const getProducts = (req, res) => {
 
 // 首頁商品圖片
 const getImgs = (req, res) => {
-  const getImgSql = `SELECT * FROM img WHERE img_url
-   IN (SELECT MIN(img_url) AS expr0 FROM img GROUP BY product_id);`;
+  const getImgSql = `
+  SELECT * FROM img WHERE img_url
+  IN (SELECT MIN(img_url) AS expr0 FROM img GROUP BY product_id)
+  ;
+  `;
   db.query(getImgSql, (err, result)=>{
     if(err){
       console.error("An error occurred:", err.message);
