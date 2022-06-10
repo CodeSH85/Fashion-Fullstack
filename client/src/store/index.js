@@ -14,6 +14,9 @@ export default createStore({
     getProduct : state => id => {
       return state.data.find(product => product.id === id)
     },
+    // checkProduct : state => id => {
+    //   return state.data.find(product => product.orderId === id)
+    // },
   },
 //   actions: {
 //     addCartQty (context, item) {

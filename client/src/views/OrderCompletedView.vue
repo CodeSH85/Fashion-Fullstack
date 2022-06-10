@@ -3,14 +3,14 @@
   <div class="container-fluid">
     <div class="row">
       <div class="order_completed_title h3 fw-bold d-flex justify-content-center my-5">
-        <div @click="test(productsCheck)">購買成功</div>
+        <div @click="getOrder()">購買成功</div>
       </div>
       <!-- 使用OrderListForm元件 -->
       <OrderListForm>
         <!-- 在OrderListForm元件插入訂單編號、總金額等資訊 -->
         <template v-slot:orderInfo>
           <div class="row">
-            <div class="col-10 h3 fw-bold mx-auto"><span>訂單編號：</span>1</div>
+            <div class="col-10 h3 fw-bold mx-auto"><span>訂單編號：</span>{{ orderId }}</div>
             <div class="col-10 h4 fw-bold mx-auto my-3 d-flex justify-content-md-start 
           justify-content-sm-between">
               <div>
@@ -25,14 +25,16 @@
         <!-- 在OrderListForm元件插入訂購商品資訊(ProductBox) -->
         <template v-slot:productBox>
           <!-- 使用ProductBox元件 -->
-          <ProductBox>
+          <template v-for="products in getOrder" :key="products">
+          <ProductBox v-bind="products">
             <template v-slot:amount>
-              {{ number }}
+              {{ products.number }}
             </template>
             <template v-slot:delete>
               <!-- 檢視訂單頁不用顯示刪除按鈕，因此空白 (其實直接不寫也可以) -->
             </template>
           </ProductBox>
+          </template>
         </template>
       </OrderListForm>
       <div class="col-10 mx-auto d-flex justify-content-md-end justify-content-sm-center">
@@ -55,21 +57,73 @@
       OrderListForm,
       ProductBox,
     },
+    // props: {
+    //   checkPro: orderId,
+    // },
     data(){
       return{
-        number: 5,
+        // number: 5,
         // checkList: this.$store.state.checkCart,
+        orderId: '',
+        products: this.$store.state.cart,
+        checkList: [
+              // 'id':Number,
+              // 'name':String,
+              // 'category':String,
+              // 'series':String,
+              // 'material':String,
+              // 'price':Number,
+              // 'description':String,
+              // 'color':String,
+              // 'specification':String,
+              // 'clothesSize':String,
+              // 'modelSize':String,
+              // 'quantity':Number,
+              // 'imgUrl':String,
+              // 'sum': Number,
+        ]
       }
     },
     methods: {
-      // test(productsCheck) {
-      //   console.log(productsCheck);
+      // test(id) {
+      //   console.log(id);
       // }
+      getOrder() {
+          var checkItems = this.products.filter(function(p) {
+            return p.number > 0
+          });
+          this.checkList.push(checkItems)
+          console.log(this.checkList)
+          // let arr = Array.prototype.slice.call(checkItems)
+          // console.log(arr)
+      },
     },
-    computed: {
+    computed:{
+      // checkProduct (){
+      //   return this.$store.getters.checkProduct(parseInt(this.$route.params.orderId))
+      // }
+    //   getOrder() {
+    //     // return this.products
+    //       // 只顯示購買數量 > 0 的項目
+    //       var checkItems = this.products.filter(function(p) {
+    //         return p.number > 0
+    //       });
+    //       console.log(checkItems)
+    //       // .filter(p => {
+    //       // p.number
+    //       // return p
+    //       // },
 
+    //       // )
+    // },
+  },
+      created() {
+      this.orderId = this.$route.params.orderId;
+      // console.log(this.orderId)
+      // console.log
+      // this.getOrder();
     }
-  }
+}
 </script>
 <style scoped lang="scss">
   @import "../assets/scss/main.scss";

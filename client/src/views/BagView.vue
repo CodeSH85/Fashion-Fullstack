@@ -44,7 +44,7 @@
         <span class="me-3">合計：</span><span class="ms-3">NT {{ total }}</span>
       </div>
       <div class="col-10 mx-auto d-flex justify-content-md-end justify-content-sm-center">
-        <router-link to="/bag/completed" type="submit" class="col-md-3 link-dark d-block col-sm-12" @click="check(products)">
+        <router-link to="" type="submit" class="col-md-3 link-dark d-block col-sm-12" @click="check()">
           <div class="check_button h4 fw-bold text-center py-3 px-5">
             確認結帳
           </div>
@@ -96,6 +96,16 @@
     //     products: products,
     //   })
     // }
+
+
+    check() {
+      this.products.orderId = new Date().getTime();
+      this.$router.push(`/bag/${this.products.orderId}`)
+      console.log(this.products)
+      // this.products = []
+    }
+
+
     },
     computed: {
       productsInCart() {
@@ -117,7 +127,7 @@
           }
         )
       },
-      // 計算購物車內的商品總數(從陣列中取出資料，並使用for迴圈做加總)
+      // 計算購物車內的商品總數 (從陣列中取出資料，並使用for迴圈做加總)
       allAmount() {
         let productsAmount = this.products.length;
         // console.log(productsAmount);
