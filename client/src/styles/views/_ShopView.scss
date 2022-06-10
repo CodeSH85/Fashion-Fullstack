@@ -1,0 +1,29 @@
+.page_buttons {
+  margin-bottom: 50px;
+}
+
+.page_buttons a {
+  text-decoration: none;
+}
+
+.page_buttons a:hover {
+  color: $redColor;
+}
+
+.dropdown button {
+width: 100%;
+border: solid 1px black;
+border-radius: 0;
+box-shadow: none;
+margin-bottom: 60px;
+}
+
+.dropdown-menu {
+width: 92%;
+border-radius: 0;
+}
+
+.dropdown-menu li > a:hover {
+color: white;
+background-color: black;
+}

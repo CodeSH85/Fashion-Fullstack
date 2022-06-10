@@ -7,8 +7,6 @@ export default createStore({
   state: {
     data: productsData,
     cart: [],
-    //购物车数据，数组形式，数据元素为对象（商品id，购买数量count）
-    checkCart: [],
   },
   getters:{
     getProduct : state => id => {
@@ -18,24 +16,6 @@ export default createStore({
     //   return state.data.find(product => product.orderId === id)
     // },
   },
-//   actions: {
-//     addCartQty (context, item) {
-//       context.state.cart.carts.forEach((cartItem) => {
-//         if (item.id === cartItem.id) {
-//           context.commit('ADDCARTQTY', cartItem);
-//         }
-//       })
-//   },
-//   minusCartQty (context, item) {
-//     context.state.cart.carts.forEach((cartItem) => {
-//       if (item.id === cartItem.id) {
-//         if (cartItem.number > 1) {
-//           context.commit('MINUSCARTQTY', cartItem);
-//         }
-//       }
-//     })
-// }
-//   },
   mutations: {
     addCart (state, data){
       let isNewProduct = true
@@ -53,15 +33,6 @@ export default createStore({
         state.cart.push( newProduct )
       }
     },
-
-    checkout (state, data){
-      state.checkCart.push(data)
-    },
-    // //修改购物车商品数量
-    // editCartCount(state, payload){
-    //   const product = state.cart.find(item => item.id === payload.id);
-    //   product.number += payload.number;
-    // },
   },
   actions: {
   },
