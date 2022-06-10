@@ -35,7 +35,8 @@ const getImgs = (req, res) => {
 
 // 加入購物車
 const postCartItem = (req, res) => {
-  const {productId, size, color, quantity, img_url} = req.body
+  const productId = req.params.productId;
+  const {size, color, quantity, img_url} = req.body;
   const userCart = [];
   let newQuantity = 1;
   // const postCartSql = 
