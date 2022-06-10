@@ -5,28 +5,28 @@
          </div>
             <!-- <h5 class="card-title">{{ title }}</h5> -->
            <slot></slot>
+
     </div>
+    <!-- <h5 class="card-title">{{ title }}</h5> -->
+    <slot></slot>
+
 </template>
 <script>
 export default {
   props: {
-    'id': Number,
-    'title': String,
-    'img': String,
+    id: Number,
+    title: String,
+    img: String,
   },
   methods: {
-    parseImgPath: function(){
-      return this.$store.state.pressInfo.img
-    }
-  }
-}
+    parseImgPath: function () {
+      return this.$store.state.pressInfo.img;
+    },
+  },
+};
 </script>
 <style scoped>
-  div.press-card{
-    text-align: center;
-    cursor: pointer;
-    display: block;
-  }
+
   div.press-card .image-box{
     width: 100%;
     min-width: 275px;
@@ -37,4 +37,13 @@ export default {
     display: block;
     margin: 1.5rem;
   }
+
+div.press-card {
+  /* width: 24%; */
+  text-align: center;
+  /* margin: 1px; */
+  cursor: pointer;
+  display: block;
+}
+
 </style>

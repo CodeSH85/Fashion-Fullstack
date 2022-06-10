@@ -26,12 +26,11 @@
         <div class="heading">
           <h2>PRESS /</h2>
         </div>
-        <div class="press-row row-cols-3 row-cols-lg-5 g-2 g-lg-3">
-          <div
-            class="press-col col-md-6"
-            v-for="press in press"
-            :key="press.id"
-          >
+
+        <div
+          class="press-row row-cols-3 row-cols-lg-5 g-2 g-lg-3"
+        >
+          <div class="press-col col-md-6" v-for="press in press" :key="press.id">
             <PressCard v-bind="press"></PressCard>
           </div>
         </div>
