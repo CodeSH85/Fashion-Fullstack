@@ -137,8 +137,8 @@
 // import { Swiper, SwiperSlide } from "swiper/vue";
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
+// import "swiper/css";
+// import "swiper/css/pagination";
 // import "./style.css";
 // import required modules
 

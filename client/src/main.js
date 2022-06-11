@@ -5,5 +5,5 @@ import store from "./store";
 // import "bootstrap";
 // import "bootstrap/dist/css/bootstrap.css";
 import "./styles/index.scss";
-import 'swiper/css';
+// import 'swiper/css';
 createApp(App).use(store).use(router).mount("#app");
