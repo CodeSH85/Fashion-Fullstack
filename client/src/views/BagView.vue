@@ -12,8 +12,8 @@
   <!-- 購物車內有商品時的顯示畫面 (預設應為false) -->
   <div class="container-fluid" v-show="unemptyCart">
     <div class="row">
-      <div class="d-flex justify-content-center my-5">
-          <div class="h3 fw-bold">
+      <div class="d-flex justify-content-center">
+          <div class="all_amount h3 fw-bold">
             <span>購物車內共 {{ allAmount }} 件商品</span>
           </div>
       </div>
@@ -85,41 +85,23 @@
           product.number--
         }
       },
-      // 刪除商品
+      // 移除商品
       remove(product) {
         product.number = 0
       },
-
-    //   check(products) {
-    //   // console.log(products);
-    //     this.$store.commit('checkout', {
-    //     products: products,
-    //   })
-    // }
-
-
-    check() {
-      this.products.orderId = new Date().getTime();
-      this.$router.push(`/bag/${this.products.orderId}`)
-      console.log(this.products)
-      // this.products = []
-    }
-
-
+      // 結帳功能 (修改中)
+      check() {
+        this.products.orderId = new Date().getTime();
+        this.$router.push(`/bag/${this.products.orderId}`);
+        console.log(this.products)
+      }
     },
     computed: {
+      // 計算購物車內是哪些商品、各項商品小計
       productsInCart() {
         return this.products
           // 只顯示購買數量 > 0 的項目
           .filter(p => p.number)
-
-          // 算出產品的總數
-          // .map(p => {
-          //   p.allAmount = p.number
-          //     return p
-          //  }
-          // )
-
           // 算出每個產品的小計
           .map(p => {
             p.sum = p.number * p.price
@@ -154,6 +136,10 @@
 
   .go_shopping {
     margin-bottom: 0;
+  }
+
+  .all_amount {
+    margin: 120px 0 80px 0;
   }
 
   .amount_button {

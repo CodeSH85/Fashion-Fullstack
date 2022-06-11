@@ -4,7 +4,7 @@
     <div class="row mx-md-0 mx-sm-auto">
       <div class="buttons_group d-flex justify-content-center">
         <div class="account_data_button col-md-6 col-sm-6 text-end">
-          <span class="h4 fw-bold my-0 mx-5">/</span>
+          <span class="h4 fw-bold text-dark my-0 mx-5">/</span>
           <router-link to="/account" class="h4 link-dark fw-bold">會員資料</router-link>
         </div>
         <span class="h4 d-block fw-bold my-0 mx-5">/</span>

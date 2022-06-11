@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="order_completed_title h3 fw-bold d-flex justify-content-center my-5">
-        <div @click="getOrder()">購買成功</div>
+        <div>購買成功</div>
       </div>
       <!-- 使用OrderListForm元件 -->
       <OrderListForm>
@@ -85,10 +85,8 @@
       }
     },
     methods: {
-      // test(id) {
-      //   console.log(id);
-      // }
-      getOrder() {
+      // 取得訂單商品資訊 (修改中)
+      getOrder() { 
           var checkItems = this.products.filter(function(p) {
             return p.number > 0
           });
@@ -99,31 +97,15 @@
       },
     },
     computed:{
-      // checkProduct (){
-      //   return this.$store.getters.checkProduct(parseInt(this.$route.params.orderId))
-      // }
-    //   getOrder() {
-    //     // return this.products
-    //       // 只顯示購買數量 > 0 的項目
-    //       var checkItems = this.products.filter(function(p) {
-    //         return p.number > 0
-    //       });
-    //       console.log(checkItems)
-    //       // .filter(p => {
-    //       // p.number
-    //       // return p
-    //       // },
 
-    //       // )
-    // },
-  },
-      created() {
+    },
+    created() {
       this.orderId = this.$route.params.orderId;
       // console.log(this.orderId)
       // console.log
       // this.getOrder();
     }
-}
+  }
 </script>
 <style scoped lang="scss">
   @import "../assets/scss/main.scss";

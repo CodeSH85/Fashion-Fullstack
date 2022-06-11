@@ -38,6 +38,7 @@
 </template>
 <script>
 // 引入元件(component)
+  // import axios from "axios";
   import ShopPageButtons from "../components/ShopPageButtons.vue"
   import ProductItem from "../components/ProductItem.vue"
 

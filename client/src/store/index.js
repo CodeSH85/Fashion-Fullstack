@@ -9,14 +9,13 @@ export default createStore({
     cart: [],
   },
   getters:{
+    // 取得點選商品的詳細資訊
     getProduct : state => id => {
       return state.data.find(product => product.id === id)
     },
-    // checkProduct : state => id => {
-    //   return state.data.find(product => product.orderId === id)
-    // },
   },
   mutations: {
+    // 加入購物車功能
     addCart (state, data){
       let isNewProduct = true
       state.cart.map( function (product) {
