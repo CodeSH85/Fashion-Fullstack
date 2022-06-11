@@ -71,7 +71,7 @@ export default {
     'imgUrl':String,
     'sum': Number,
   },
-  methods:{
+  methods: {
 
   },
   computed: {

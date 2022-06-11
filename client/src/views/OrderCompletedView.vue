@@ -2,7 +2,7 @@
   <!-- 完成訂購頁面 -->
   <div class="container-fluid">
     <div class="row">
-      <div class="order_completed_title h3 fw-bold d-flex justify-content-center my-5">
+      <div class="order_completed_title h3 fw-bold d-flex justify-content-center">
         <div>購買成功</div>
       </div>
       <!-- 使用OrderListForm元件 -->
@@ -14,10 +14,10 @@
             <div class="col-10 h4 fw-bold mx-auto my-3 d-flex justify-content-md-start 
           justify-content-sm-between">
               <div>
-                <span>合計：</span><span class="py-0 px-4">3件商品</span>
+                <span>合計：</span><span class="py-0 px-4">{{ allAmount }}件商品</span>
               </div>
               <div class="ps-5 pe-3">
-                <span>NT</span>27,600
+                <span>NT</span>{{ total }}
               </div>
             </div>
           </div>
@@ -25,7 +25,7 @@
         <!-- 在OrderListForm元件插入訂購商品資訊(ProductBox) -->
         <template v-slot:productBox>
           <!-- 使用ProductBox元件 -->
-          <template v-for="products in getOrder" :key="products">
+          <template v-for="products in checkList" :key="products">
           <ProductBox v-bind="products">
             <template v-slot:amount>
               {{ products.number }}
@@ -57,58 +57,57 @@
       OrderListForm,
       ProductBox,
     },
-    // props: {
-    //   checkPro: orderId,
-    // },
-    data(){
-      return{
-        // number: 5,
-        // checkList: this.$store.state.checkCart,
+    data () {
+      return {
         orderId: '',
         products: this.$store.state.cart,
-        checkList: [
-              // 'id':Number,
-              // 'name':String,
-              // 'category':String,
-              // 'series':String,
-              // 'material':String,
-              // 'price':Number,
-              // 'description':String,
-              // 'color':String,
-              // 'specification':String,
-              // 'clothesSize':String,
-              // 'modelSize':String,
-              // 'quantity':Number,
-              // 'imgUrl':String,
-              // 'sum': Number,
-        ]
+        checkList: [],
       }
     },
     methods: {
-      // 取得訂單商品資訊 (修改中)
-      getOrder() { 
-          var checkItems = this.products.filter(function(p) {
-            return p.number > 0
-          });
-          this.checkList.push(checkItems)
-          console.log(this.checkList)
-          // let arr = Array.prototype.slice.call(checkItems)
-          // console.log(arr)
+      // 取得商品數量不為0的商品資訊並放入checkList
+      getOrder () { 
+        var checkItems = this.products.filter (function (p) {
+          return p.number > 0
+        });
+        this.checkList = checkItems
+        // console.log(checkItems)
+      },
+      // 結帳之後清空原購物車商品
+      cleanCart () {
+        this.$store.commit ('resetCart', [])
       },
     },
-    computed:{
-
+    computed: {
+      // 計算訂單中的商品總數 (從陣列中取出資料，並使用for迴圈做加總)
+      allAmount () {
+        let checkedAmount = this.checkList.length;
+        // console.log(productsAmount);
+        let itemsTotal = 0;
+        for (var i = 0; i < checkedAmount; i++ ) {
+          itemsTotal += this.checkList[i].number;
+        }
+        return itemsTotal
+      },
+      // 此訂單中所有商品的總金額
+      total () {
+        return this.checkList
+        .reduce ((sum, p) => (sum + p.sum), 0)
+      },
     },
-    created() {
+    created () { //產生訂單編號及分別執行getOrder和cleanCart
       this.orderId = this.$route.params.orderId;
-      // console.log(this.orderId)
-      // console.log
-      // this.getOrder();
+      this.getOrder();
+      this.cleanCart();
     }
   }
 </script>
 <style scoped lang="scss">
   @import "../assets/scss/main.scss";
+
+  .order_completed_title {
+    margin: 120px 0 80px 0;
+  }
 
   a {
     text-decoration: none;

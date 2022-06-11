@@ -76,7 +76,7 @@
               </ul> -->
             </div>
           </div>
-          <router-link to="/bag" type="submit" class="link-dark w-75 d-block mx-md-0 mx-sm-auto" @click="addCart(getProduct)">
+          <router-link to="" type="submit" class="link-dark w-75 d-block mx-md-0 mx-sm-auto" @click="addCart(getProduct)">
             <div class="add_cart_button h3 fw-bold text-center py-3 px-3">
               加入購物車
             </div>
@@ -143,32 +143,32 @@
       ShopPageButtons,
       SuggestedProduct,
     },
-    data() {
+    data () {
       return {
         selectedNumber: '',
       }
     },
     methods: {
       // 判斷存貨
-      addCart: function(product){
+      addCart: function (product) {
       product.number = this.selectedNumber;
 
-      if(product.quantity - product.number < 0){
+      if (product.quantity - product.number < 0) {
         alert('存貨不足')
         return;
       }
-      this.$store.commit('addCart', {
+      this.$store.commit ('addCart', {
         product: product,
         number: this.selectedNumber,
       })
       alert('已加入購物車')
-      console.log(product)
+      // console.log(product)
       }
     },
     computed:{
       // 取得點選商品的詳細資訊
-      getProduct (){
-        return this.$store.getters.getProduct(parseInt(this.$route.params.productId))
+      getProduct () {
+        return this.$store.getters.getProduct (parseInt(this.$route.params.productId))
       }
     },
   }

@@ -14,7 +14,7 @@
     <div class="row">
       <div class="d-flex justify-content-center">
           <div class="all_amount h3 fw-bold">
-            <span>購物車內共 {{ allAmount }} 件商品</span>
+            <span>購物車內共 {{ currentQuantity }} 件商品</span>
           </div>
       </div>
       <!-- 使用OrderListForm元件 -->
@@ -63,8 +63,8 @@
       OrderListForm,
       ProductBox,
     },
-    data(){
-      return{
+    data () {
+      return {
         emptyCart: false,
         unemptyCart: true,
         products: this.$store.state.cart,
@@ -72,7 +72,7 @@
     },
     methods: {
       // 加減修改商品數量及狀態
-      editCart(type, product) {
+      editCart (type, product) {
         if (type === 'add') {
           product.number++
           product.number = (product.number > 30) ? 30 : product.number
@@ -86,43 +86,41 @@
         }
       },
       // 移除商品
-      remove(product) {
+      remove (product) {
         product.number = 0
       },
-      // 結帳功能 (修改中)
-      check() {
-        this.products.orderId = new Date().getTime();
-        this.$router.push(`/bag/${this.products.orderId}`);
-        console.log(this.products)
-      }
+      // 結帳功能
+      check () {
+        if (this.productsInCart.length == 0) {
+          alert('購物車目前是空的，請先選擇商品');
+          return;
+        } else {
+          this.products.orderId = new Date().getTime();
+          this.$router.push (`/bag/${this.products.orderId}`);
+        }
+      },
     },
     computed: {
+      // 從store的getters取得currentQuantity已經加總後的購物車商品數量 (老師寫法)
+      currentQuantity () {
+        return this.$store.getters.currentQuantity
+      },
       // 計算購物車內是哪些商品、各項商品小計
-      productsInCart() {
+      productsInCart () {
         return this.products
           // 只顯示購買數量 > 0 的項目
-          .filter(p => p.number)
+          .filter (p => p.number)
           // 算出每個產品的小計
-          .map(p => {
+          .map (p => {
             p.sum = p.number * p.price
             return p
           }
         )
       },
-      // 計算購物車內的商品總數 (從陣列中取出資料，並使用for迴圈做加總)
-      allAmount() {
-        let productsAmount = this.products.length;
-        // console.log(productsAmount);
-        let itemsTotal = 0;
-        for (var i = 0; i < productsAmount; i++ ) {
-          itemsTotal += this.products[i].number;
-        }
-        return itemsTotal
-      },
       // 目前購物車中所有商品的總金額
-      total() {
+      total () {
         return this.productsInCart
-        .reduce((sum, p) => (sum + p.sum), 0)
+        .reduce ((sum, p) => (sum + p.sum), 0)
       },
     }
   }

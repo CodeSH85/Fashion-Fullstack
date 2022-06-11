@@ -47,8 +47,8 @@
       ShopPageButtons,
       ProductItem,
     },
-    data(){
-      return{
+    data () {
+      return {
         data: this.$store.state.data,
       }
     }
