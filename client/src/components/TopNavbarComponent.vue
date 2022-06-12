@@ -8,7 +8,7 @@
     <div class="item-list container-fluid p-0">
       <ul class="d-flex m-0">
         <li class="topnav-item">
-          <router-link to="/account">Sign in</router-link>
+          <router-link to="/login">Sign in</router-link>
         </li>
         <li class="topnav-item">
           <router-link to="/bag">Bag</router-link>

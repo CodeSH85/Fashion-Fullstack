@@ -8,11 +8,11 @@
           <img :src="imgUrl" :title="name">
         </div>
         <!-- 商品右半部購買資訊 -->
-        <div class=" col-9 my-3 d-flex flex-md-nowrap flex-sm-wrap ms-md-4 me-md-0 mx-sm-auto">
+        <div class="col-10 my-3 d-flex flex-md-nowrap flex-sm-wrap ms-md-4 me-md-0 mx-sm-auto">
           <!-- ⬆️上面這一行 的class="table"先拿掉，因為會有預設黑線條（top-border） -->
           <!-- 品項和單價 -->
           <div class="table_items col-md-4 col-sm-12">
-            <div class="table_row h4 fw-bold py-2 pt-md-2 pt-sm-1 mx-md-2 mx-sm-4">
+            <div class="table_row h4 fw-bold py-2 pt-md-2 pt-sm-1 mx-md-2 mx-sm-3">
               {{ name }}
             </div>
             <div class="table_cell h4 fw-bold py-3 mx-md-2 mx-sm-3">
@@ -20,8 +20,8 @@
             </div>
           </div>
           <!-- 購買數量 -->
-          <div class="table_items col-md-2 col-sm-12">
-            <div class="table_row h5 fw-bold py-3 mx-md-2 mx-sm-4">
+          <div class="table_items col-md-2 col-sm-12 mx-2">
+            <div class="table_row h5 fw-bold py-3 mx-md-2 mx-sm-2">
               數量
             </div>
             <div class="table_cell h5 fw-bold py-2 text-center mx-md-2 mx-sm-0">
@@ -31,8 +31,8 @@
             </div>
           </div>
           <!-- 金額總計 -->
-          <div class="table_items col-md-3 col-sm-10 d-md-block d-sm-flex">
-            <div class="table_row h5 fw-bold py-3 mx-md-2 mx-sm-4">
+          <div class="table_items col-md-4 col-sm-10 d-md-block d-sm-flex">
+            <div class="table_row h5 fw-bold py-3 mx-md-2 mx-sm-3">
               小計
             </div>
             <div class="table_cell_price h5 fw-bold py-md-2 text-center py-sm-3 px-md-0 px-sm-4 
@@ -71,7 +71,7 @@ export default {
     'imgUrl':String,
     'sum': Number,
   },
-  methods:{
+  methods: {
 
   },
   computed: {
