@@ -1,6 +1,6 @@
 <template>
   <div id="homepage">
-    <section class="swiper-container container-fluid">
+    <section class="swiper-container container-fluid mt-3">
       <swiper
         :slidesPerView="3"
         :spaceBetween="30"
@@ -10,27 +10,34 @@
         :modules="modules"
         class="mySwiper"
       >
-        <swiper-slide><img class="about-img" src="images/S22.png" alt="" /></swiper-slide>
-        <swiper-slide><img class="about-img" src="images/S21.png" alt="" /></swiper-slide
-        ><swiper-slide><img class="about-img" src="images/A21.png" alt="" /></swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide
-        ><swiper-slide>Slide 5</swiper-slide><swiper-slide>Slide 6</swiper-slide
-        ><swiper-slide>Slide 7</swiper-slide><swiper-slide>Slide 8</swiper-slide
+        <swiper-slide
+          ><img class="about-img" src="images/S22.png" alt=""
+        /></swiper-slide>
+        <swiper-slide
+          ><img class="about-img" src="images/S21.png" alt="" /></swiper-slide
+        ><swiper-slide
+          ><img class="about-img" src="images/A21.png" alt=""
+        /></swiper-slide>
+        <swiper-slide>Slide 4</swiper-slide><swiper-slide>Slide 5</swiper-slide
+        ><swiper-slide>Slide 6</swiper-slide><swiper-slide>Slide 7</swiper-slide
+        ><swiper-slide>Slide 8</swiper-slide
         ><swiper-slide>Slide 9</swiper-slide>
       </swiper>
     </section>
-<hr>
-<hr>
+    <hr />
+    <hr />
     <section class="press container-fluid col-10">
       <div class="row">
         <div class="heading">
           <h2>PRESS /</h2>
         </div>
 
-        <div
-          class="press-row row-cols-3 row-cols-lg-5 g-2 g-lg-3"
-        >
-          <div class="press-col col-md-6" v-for="press in press" :key="press.id">
+        <div class="press-row row-cols-3 row-cols-lg-5 g-2 g-lg-3">
+          <div
+            class="press-col col-md-6"
+            v-for="press in press"
+            :key="press.id"
+          >
             <PressCard v-bind="press"></PressCard>
           </div>
         </div>
@@ -43,10 +50,11 @@
     <hr />
     <hr />
     <section class="about container-fluid col-10 p-0">
-      <div class="col-md-6">
-        <div class="row about-detail m-5">
-          <div class="heading">
-            <img class="about-img" src="images/about_name.png" alt="" />
+      <div class="row justify-content-center">
+      <div class="col-lg-5 col-md-10">
+        <div class="row about-detail m-0">
+          <div class="heading mb-5">
+            <img class="about-img mb-5" src="images/about_name.png" alt="" />
             <h5>
               以自由定義作品態度，善用拼貼與解構等非傳統手法呈現現代女性特有的浪漫與不羈。
             </h5>
@@ -61,15 +69,16 @@
           </p>
         </div>
       </div>
-      <div class="col-md-4 m-5">
+      <div class="col-lg-4 col-md-10 m-3 mb-5 mt-5">
         <img class="about-img" src="images/profile.jpg" alt="..." />
       </div>
+    </div>
     </section>
     <hr />
     <hr />
 
-    <section class="container-fluid col-10 p-0">
-      <div class="contact col-md-10">
+    <section class="container-fluid col-8 p-0">
+      <div class="contact">
         <div class="contact-form row m-3">
           <div class="mb-2">
             <label for="exampleFormControlInput1" class="form-label">
@@ -106,17 +115,16 @@
             />
           </div>
         </div>
-        <div class="contact-detail col-md-5">
+        <div class="contact-detail col-md-5 m-3">
           <p class="text-end">
-            MON - FRI / 1000-1800 公關媒體/jennleeoffice@gmail.com
-            客服信箱/jennleeteam@gmail.com Tel/ +8862-8952-1999 Instagram
-            Facebook
+            MON - FRI / 1000-1800<br>公關媒體/jennleeoffice@gmail.com<br>
+            客服信箱/jennleeteam@gmail.com<br> Tel/ +8862-8952-1999 <br>
           </p>
         </div>
       </div>
 
-      <div class="message  col-md-10">
-        <label  for="exampleFormControlTextarea1" class="form-label"
+      <div class="message m-3 mb-5">
+        <label for="exampleFormControlTextarea1" class="form-label"
           >Message</label
         >
         <textarea
@@ -126,8 +134,8 @@
         ></textarea>
       </div>
       <div class="home_buttons_list">
-          <router-link class="button_white" to="/press">SEND</router-link>
-        </div>
+        <router-link class="button_white" to="/press">SEND</router-link>
+      </div>
     </section>
   </div>
 </template>
@@ -145,12 +153,57 @@ import PressCard from "../components/PressCard.vue";
 export default {
   name: "HomeView",
   components: {
+    PressCard,
+    Swiper,
+    SwiperSlide,
   },
+  setup() {
+    return {
+      modules: [Pagination],
+    };
+  },
+  data() {
+    return {
+      press: [
+        {
+          id: 1,
+          title: "VOGUE",
+          img: "../images/press1.jpeg",
+        },
+        {
+          id: 2,
+          title: "LON",
+          img: "../images/press2.jpeg",
+        },
+        {
+          id: 3,
+          title: "BBC",
+          img: "../images/press3.jpeg",
+        },
+        {
+          id: 4,
+          title: "IDK",
+          img: "../images/press4.jpeg",
+        },
+        {
+          id: 5,
+          title: "VOGUE",
+          img: "../images/press5.jpeg",
+        },
+        {
+          id: 6,
+          title: "VOGUE TW",
+          img: "../images/press6.jpeg",
+        },
+      ],
+    };
+  },
+
   mounted() {
-    document.body.style.backgroundColor = 'black'
+    document.body.style.backgroundColor = "black";
   },
-  beforeUnmount () {
-    document.body.style.backgroundColor = 'transparent'
-  }
-}
+  beforeUnmount() {
+    document.body.style.backgroundColor = "transparent";
+  },
+};
 </script>

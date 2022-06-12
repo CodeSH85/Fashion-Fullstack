@@ -1,3 +1,69 @@
 #lookbookpage{
   background-color: black;
 }
+.lookbook {
+  display: flex;
+}
+
+.l_aside {
+  margin-right: 20px;
+}
+
+.l_aside li a {
+  display: block;
+  padding: 10px;
+  color: #faf7f7;
+  border-left: 4px solid transparent;
+
+  &hover {
+    font-weight: bold;
+    background: rgb(2, 0, 0);
+    text-decoration: none;
+    color:red;
+  }
+
+}
+
+
+.r_aside {
+  display: flex;
+  align-items: flex-start;
+}
+
+@media screen and (max-width: 768px) {
+  .lookbook {
+    flex-wrap: wrap;
+  }
+
+  .l_aside ul {
+    display: flex;
+
+    li {
+      flex: 1;
+      text-align: center;
+
+      a {
+        border: none;
+        border-bottom: 4px transparent solid;
+
+        &hover {
+          border: none;
+          color:red;
+        }
+      }
+    }
+  }
+}
+
+.lookbook-col {
+  width: 250px;
+  // height: 380px;
+  width: auto;
+  display: flex;
+  overflow: hidden;
+
+  img {
+    // border: 1px solid #fff;
+    object-fit: contain;
+  }
+}

@@ -6,9 +6,11 @@
           <h2>PRESS /</h2>
         </div>
         <div class="press-row row-cols-3 row-cols-lg-5 g-2 g-lg-3">
-          <div class="press-col col-md-6" 
-          v-for="press in pressInfo" 
-          :key="press.id">
+          <div
+            class="press-col col-md-6"
+            v-for="press in pressInfo"
+            :key="press.id"
+          >
             <PressCard v-bind="press"></PressCard>
           </div>
         </div>
@@ -16,28 +18,22 @@
     </section>
   </div>
 </template>
-
-<script> 
+<script>
 import PressCard from "../components/PressCard.vue";
 
 export default {
-  data() {
+  
+  data() { 
+    const pressInfo = this.$store.state.pressInfo
+    console.log(pressInfo)
     return {
       press: [],
       pressInfo: this.$store.state.pressInfo,
       id: this.$store.state.id,
     };
   },
-  methods: {
-    redirectProduct: function (id) {
-      this.$router.push(`/press/${id}`);
-    },
-  },
-  computed: {
-    test() {
-      return this.$store.state.pressInfo;
-    },
-  },
+ 
   components: { PressCard },
 };
+
 </script>

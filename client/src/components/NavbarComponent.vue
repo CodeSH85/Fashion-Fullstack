@@ -1,7 +1,6 @@
 <template>
   <nav
-    class="navbar-p-3 navbar-expand-lg"
-    :class="status == 'black'? 'nav_white' : 'nav_black'"
+    class="navbar-p-3 navbar-expand-lg nav_black"
   >
     <div class="container-fluid">
       <button
@@ -49,7 +48,7 @@
           </li> -->
 
           <li class="nav-item">
-            <router-link to="/" class="nav-link active" aria-current="page" v-if="status=='black'">HOME</router-link>
+            <router-link to="/" class="nav-link active" aria-current="page">HOME</router-link>
           </li>
           <!-- <li class="nav-item dropdown">
             <router-link
@@ -71,19 +70,19 @@
             </ul>
           </li> -->
           <li class="nav-item">
-            <router-link to="/lookbook" class="nav-link link" v-if="status=='black'">LOOKBOOK</router-link>
+            <router-link to="/lookbook" class="nav-link link" >LOOKBOOK</router-link>
           </li>
 
           <li class="nav-item">
-            <router-link to="/press" class="nav-link link" v-if="status=='black'">PRESS</router-link>
+            <router-link to="/press" class="nav-link link">PRESS</router-link>
           </li>
 
           <li class="nav-item">
-            <router-link to="/about" class="nav-link link" v-if="status=='black'">ABOUT</router-link>
+            <router-link to="/about" class="nav-link link">ABOUT</router-link>
           </li>
 
           <li class="nav-item">
-            <router-link to="/shop" class="nav-link link" v-if="status=='white'">SHOP</router-link>
+            <router-link to="/shop" class="nav-link link" >SHOP</router-link>
           </li>
 
           <!-- <li class="nav-item dropdown">
@@ -111,6 +110,9 @@
   </nav>
 </template>
 <script>
+export default {
+  name: 'NavbarComponent'
+}
 // export default {
 //   data() {
 //     const lookbookChildMenu = [
@@ -161,11 +163,11 @@
 //     };
 //   },
 // };
-// import { useRoute } from "vue-router";
+//import { useRoute } from "vue-router";
 // // import { computed } from "vue";
 // export default {
 //   setup() {
-//     // const route = useRoute();
+//     const route = useRoute();
 //     // const path = computed(() => route.path);
 //     console.log(this.path);
 //   },

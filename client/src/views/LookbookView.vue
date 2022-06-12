@@ -6,68 +6,59 @@
           <h2>LOOKBOOK /</h2>
         </figure>
         <ul>
-          <li class="current"><a href="">22 SS - CAMPAIGN</a></li>
-          <li><a href="">21 FW - CAMPAIGN</a></li>
-          <li><a href="">21 SS - CAMPAIGN</a></li>
-          <li><a href="">20 FW - CAMPAIGN</a></li>
-          <li><a href="">20 SS - CAMPAIGN</a></li>
-          <li><a href="">19 FW - CAMPAIGN</a></li>
-          <li><a href="">19 SS - CAMPAIGN</a></li>
-          <li><a href="">19 SS - ATHENS</a></li>
-          <li><a href="">18 FW - PARIS</a></li>
-          <li><a href="">18 FW - CAMPAIGN</a></li>
-          <li><a href="">17 FW - CAMPAIGN</a></li>
-          <li><a href="">17 SS - NEW YORK</a></li>
-          <li><a href="">17 SS - CANADA</a></li>
+          <li v-for="(item, i) in lookbookInfos" :key="i">
+            <router-link :to="`/lookbook/${i}`"
+              >{{ item.title }} - CAMPAIGN</router-link
+            >
+          </li>
+          <!-- <li>21 FW - CAMPAIGN</li>
+          <li>21 SS - CAMPAIGN</li>
+          <li>20 FW - CAMPAIGN</li>
+          <li>20 SS - CAMPAIGN</li> -->
+          <!-- <li>19 FW - CAMPAIGN</li>
+          <li>19 SS - CAMPAIGN</li>
+          <li>19 SS - ATHENS</li>
+          <li>18 FW - PARIS</li>
+          <li>18 FW - CAMPAIGN</li>
+          <li>17 FW - CAMPAIGN</li>
+          <li>17 SS - NEW YORK</li>
+          <li>17 SS - CANADA</li> -->
         </ul>
       </aside>
 
-      <aside class="row r_aside">
+      <aside class="row r_aside" v-if="lookbookInfo">
         <figure class="heading m-5">
-          <router-link :to="`/lookbook/${$route.params.lookbookId}`"><h2>{{lookbookInfo.title}} /</h2></router-link>
-<router-view/>
-          
+          <h2>{{ lookbookInfo.title }} /</h2>
         </figure>
-       <div class="lookbook-col" 
-          v-for="press in pressInfo" 
-          :key="press.id">
-            <PressCard v-bind="press"></PressCard>
+        <div class="lookbook-col">
+          <img
+            v-for="(imgsrc, index) in lookbookInfo.images"
+            :key="`${index}lookbookInfo.image`"
+            :src="imgsrc"
+          />
         </div>
-
       </aside>
-
     </section>
   </div>
 </template>
 
 <script>
-// import axios from 'axios'
+import lookbookInfos from "../../public/lookbook.json";
 
 export default {
-  data(){
-      return {
-          lookbookInfo: {}
-      }
+  data() {
+    const lookbookInfo = lookbookInfos[Number(this.$route.params.id)];
+    const lookbookId = this.$route.params.id;
+    console.log("lookbookInfo", lookbookInfo);
+    console.log("lookbookInfos", lookbookInfos);
+    console.log("lookbookId", lookbookId);
+    console.log("lookbookimages", lookbookInfo.images);
+
+    return {
+      lookbookInfos,
+      lookbookInfo: lookbookInfos[Number(this.$route.params.id)],
+      lookbookId: this.$route.params.id,
+    };
   },
-  computed:{
-      lookbookId(){
-          return this.$route.params.lookbookId
-      }
-  },
-  watch:{
-      userId: function(newlookbookId){
-        this.fetchLookbookInfo(newlookbookId);
-      }
-  },
-  mounted(){
-      let lookbookId = this.$route.params.lookbookId
-      this.fetchLookbookInfo(lookbookId);
-  },
-  methods:{
-    //  fetchLookbookInfo(lookbookId){
-    //    axios.get("/lookbook.json/${lookbookId}")
-    //    .then(response => this.lookbookInfo = response.data)
-    //  }
-  }
-}
+};
 </script>

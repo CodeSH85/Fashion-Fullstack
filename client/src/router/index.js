@@ -12,6 +12,11 @@ const routes = [
     component: () => import('../views/LookbookView.vue')
   },
   {
+    path: '/lookbook/:id',
+    name: 'lookbookInfo',
+    component: () => import('../views/LookbookView.vue')
+  },
+  {
     path: '/press',
     name: 'press', 
     component: () => import('../views/PressView.vue')
