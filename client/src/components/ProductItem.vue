@@ -20,8 +20,8 @@ export default {
     'quantity':Number,
     'imgUrl':String,
   },
-  methods:{
-    redirectProduct: function(id){
+  methods: {
+    redirectProduct: function (id) {
       this.$router.push(`/shop/${id}`)
     }
   }

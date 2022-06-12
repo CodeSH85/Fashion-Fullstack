@@ -13,11 +13,11 @@
       <form action="/account" method="post" class="">
         <div class="email_block col-md-8 col-sm-10 mx-auto mt-5">
           <label for="email" class="email_title h5 mb-2">E-mail</label>
-          <input type="email" class="form-control lh-lg" id="account" placeholder="" required>
+          <input type="email" class="email_input form-control lh-lg" id="account" placeholder="" required>
         </div>
         <div class="password_block col-md-8 col-sm-10 mx-auto mt-5">
           <label for="password" class="password_title h5 mb-2">Password</label>
-          <input type="password" class="form-control lh-lg" id="password" placeholder="" required>
+          <input type="password" class="password_input form-control lh-lg" id="password" placeholder="" required>
         </div>
         <!-- 表格按鈕 (large_group是最外面那層，middle_group是另外包申請帳號/忘記密碼的那層) -->
         <div class="buttons_large_group col-8 mx-auto d-flex justify-content-md-between mt-5 

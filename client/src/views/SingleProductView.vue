@@ -16,14 +16,14 @@
           <div class="price h3 fw-bold my-3">
             <span>NT$ </span>{{ getProduct.price }}
           </div>
-          <hr class="my-4">
+          <hr class="my-4 mx-0">
           <!-- 加入購物車前的選單群組 -->
           <div class="selection">
             <div class="items_title h5 fw-bold">
               顏色
             </div>
             <!-- 下拉式選單 (Bootstrap) -->
-            <div class="dropdown justify-content-center mt-2 mb-3">
+            <div class="dropdown justify-content-center mt-2">
               <button class="btn dropdown-toggle text-start h5 fw-bold py-md-2 py-sm-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ getProduct.color[0] }}
               </button>
@@ -35,7 +35,7 @@
               尺寸
             </div>
             <!-- 下拉式選單 (Bootstrap) -->
-            <div class="dropdown justify-content-center mt-2 mb-3">
+            <div class="dropdown justify-content-center mt-2">
               <button class="btn dropdown-toggle text-start h5 fw-bold py-md-2 py-sm-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 38
               </button>
@@ -47,7 +47,7 @@
               數量
             </div>
             <!-- 下拉式選單 (select) -->
-            <div class="dropdown justify-content-center mt-2 mb-3">
+            <div class="dropdown justify-content-center mt-2">
               <select v-model.number="selectedNumber" class="dropdown-list text-start fw-bold py-md-2 py-sm-3" name="" id="">
                 <option class="d-none" value="">請選擇</option>
                 <option value="1">1</option>
@@ -76,7 +76,7 @@
               </ul> -->
             </div>
           </div>
-          <router-link to="/bag" type="submit" class="link-dark w-75 d-block mx-md-0 mx-sm-auto" @click="addCart(getProduct)">
+          <router-link to="" type="submit" class="link-dark w-75 d-block mx-md-0 mx-sm-auto" @click="addCart(getProduct)">
             <div class="add_cart_button h3 fw-bold text-center py-3 px-3">
               加入購物車
             </div>
@@ -143,31 +143,32 @@
       ShopPageButtons,
       SuggestedProduct,
     },
-    data() {
+    data () {
       return {
         selectedNumber: '',
       }
     },
     methods: {
       // 判斷存貨
-      addCart: function(product){
+      addCart: function (product) {
       product.number = this.selectedNumber;
 
-      if(product.quantity - product.number < 0){
+      if (product.quantity - product.number < 0) {
         alert('存貨不足')
         return;
       }
-      this.$store.commit('addCart', {
+      this.$store.commit ('addCart', {
         product: product,
         number: this.selectedNumber,
       })
       alert('已加入購物車')
-      console.log(product)
+      // console.log(product)
       }
     },
     computed:{
-      getProduct (){
-        return this.$store.getters.getProduct(parseInt(this.$route.params.productId))
+      // 取得點選商品的詳細資訊
+      getProduct () {
+        return this.$store.getters.getProduct (parseInt(this.$route.params.productId))
       }
     },
   }
@@ -250,6 +251,14 @@
 
     .dropdown-menu {
       width: 100%;
+    }
+
+    .dropdown-list {
+      width: 100%;
+    }
+
+    .dropdown-list option {
+      width: 100px;
     }
   }
 </style>

@@ -48,8 +48,8 @@
       OrderListForm,
       ProductBox,
     },
-    data(){
-      return{
+    data () {
+      return {
         number: 5,
       }
     },

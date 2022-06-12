@@ -65,7 +65,7 @@ export default {
   },
   methods:{
      fetchLookbookInfo:(lookbookId)=>
-       axios.get("/lookbook/${lookbookId}")
+       axios.get(`/lookbook/${lookbookId}`)
        .then(response => this.lookbookInfo = response.data)
      }
   }

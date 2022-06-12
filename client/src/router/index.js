@@ -57,7 +57,7 @@ const routes = [
     component: () => import('../views/BagView.vue')
   },
   {
-    path: '/bag/completed',
+    path: '/bag/:orderId',
     name: 'orderCompleted',
     component: () => import('../views/OrderCompletedView.vue')
   },

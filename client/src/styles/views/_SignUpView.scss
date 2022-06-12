@@ -2,8 +2,20 @@
   margin-top: 180px;
 }
 
-input {
-  background-color: $bgColor;
+.email_input {
+  background-color: transparent;
+  border: solid 1px black;
+  border-radius: 0;
+}
+
+.password_input {
+  background-color: transparent;
+  border: solid 1px black;
+  border-radius: 0;
+}
+
+.confirm_password_input {
+  background-color: transparent;
   border: solid 1px black;
   border-radius: 0;
 }
