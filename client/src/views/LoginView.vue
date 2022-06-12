@@ -10,7 +10,7 @@
         </h1>
       </div>
       <!-- 表格 -->
-      <form action="/account" method="post" class="">
+      <form action="/login" method="post" class="">
         <div class="email_block col-md-8 col-sm-10 mx-auto mt-5">
           <label for="email" class="email_title h5 mb-2">E-mail</label>
           <input type="email" class="form-control lh-lg" id="account" placeholder="" required>
@@ -37,7 +37,7 @@
           </div>
           <router-link to="/account" type="submit" class="d-block col-md-3 col-sm-7 
           mx-md-0 mx-sm-auto mt-md-0 mt-sm-3">
-            <div class="sign_in_button h4 fw-bold link-dark text-center py-3 mb-0">SIGN IN</div>
+            <button class="sign_in_button h4 fw-bold link-dark text-center py-3 mb-0" type="submit">SIGN IN</button>
           </router-link>
         </div>
       </form>
