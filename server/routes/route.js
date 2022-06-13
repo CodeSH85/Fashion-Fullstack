@@ -11,7 +11,7 @@ const router = Express.Router();
 
 // api
 router.get('/api/getProducts', shopController.getProducts);
-router.get('/api/getImgs', shopController.getImgs);
+// router.get('/api/getImgs', shopController.getImgs);
 
 router.post('/signup', authController.postSignup);
 router.post('/login', authController.postLogin);

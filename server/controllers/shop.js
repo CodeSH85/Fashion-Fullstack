@@ -1,145 +1,155 @@
-const e = require('connect-flash');
+const Product = require('../models/product');
 
-const db = require('../utils/database.js')
+//===========================================================
 
-// ===================================================
-
-// 全部商品資料 api
-const getProducts = (req, res) => {
-  // const sql = `
-  // SELECT * FROM product 
-  // JOIN product_entry ON product.product_id = product_entry.product_id
-  // GROUP BY product.product_id;
-  // `;
-  // SELECT product.product_id, product.title, product.price, product.desc, product.material, product.spec, product.model,
-  const sql = `
-  SELECT *
-  FROM product
-  INNER JOIN product_entry ON product_entry.product_id = product.product_id
-  INNER JOIN size ON product_entry.size_id = size.size_id
-  INNER JOIN color ON product_entry.color_id = color.color_id
-  INNER JOIN img ON product.product_id = img.img_id
-  WHERE img_url
-  IN (SELECT MIN (img_url) AS expr0 FROM img GROUP BY product_id);
-  `;
-  // ORDER BY product_entry.sku ASC
-  db.query(sql, (err, data) => {
-    if(err){
-      console.error("An error occurred:", err.message);
-      res.status(500).send(`伺服器出錯`).end();
-    }else{
-      res.status(200).send(data);
-    };
+// 全部商品資料api
+const getAllProducts = (req, res) => {
+  Product.findAll()
+  .then((products) => {
+    res.send(JSON.stringify(products));
+  })
+  .catch((err) => {
+    console.log('Product.findAll() error: ', err);
   });
 };
 
-// 首頁商品圖片 api
-const getImgs = (req, res) => {
-  const getImgSql = `
-  SELECT * FROM img WHERE img_url
-  IN (SELECT MIN(img_url) AS expr0 FROM img GROUP BY product_id)
-  ;
-  `;
-  db.query(getImgSql, (err, data)=>{
-    if(err){
-      console.error("An error occurred:", err.message);
-      res.status(500).send(`伺服器出錯`).end();
-    };
-    res.send(data);
-  });
-};
-
-// 購物車 ============================
-// 顯示購物車
+// 購物車
+// 取得使用者購物車
 const getCart = (req, res) => {
-  const productId = req.params.productId;
-  const getCartSql = `
-  SELECT cart_id,user.user_id,product.product_id,product_name,product_price,product_img_url,goods_num,product_num
-  FROM product,user,goods_cart,shop 
-  where product.product_id=goods_cart.product_id AND user.user_id=goods_cart.user_id AND shop.shop_id = product.shop_id
-  ;`;
-  
-  const getCartProductSql = `
-  ;`;
-  
-  db.query(getCartSql,(err, data)=>{
-    if(err){
-      console.error("An error occurred:", err.message);
-      res.status(500).send(`伺服器出錯`).end();
-    }else{
-      db.query(getCartProductSql, (err, data) => {
-        if(err){
-          console.error("An error occurred:", err.message);
-          res.status(500).send(`伺服器出錯`).end();
-        }else{
-          res.status(200).send(data);
-        };
-      });
-    };
-  });
+  req.user 
+    .getCart() 
+    .then((cart) => {
+      return cart.getProducts()
+        .then((products) => {
+          res.send(products);
+        })
+        .catch((err) => {
+          console.log('getCart - cart.getProducts error: ', err);
+        });
+    })
+    .catch((err) => {
+      console.log('getCart - user.getCart error', err);
+    });
 };
 
-// 購物車中加入商品
-const postAddCartItem = (req, res) => {
-  const productId = req.params.productId;
-  const {size, color, quantity, img_url} = req.body;
+// 商品加入購物車
+const postCartAddItem = (req, res) => {
+  const { colorId, sizeId } = req.body;
+  const { productId } = req.params.productId;
   const userCart = [];
-  let newQuantity = 1;
-  // const postCartSql = 
-  // `INSERT INTO cart (product_id, size, color, quantity, img_url)
-  //  VALUES ('${productId}','${size}','${color}, ${quantity}, ${img_url}');
-  // `;
-  const postCartSql = 
-  `SELECT sku FROM product_entry
-  WHERE VALUES ('${productId}','${size}','${color}, ${quantity}, ${img_url}');
-  `;
-  db.query(postCartSql, (err, data)=>{
-    if(err){
-      console.error("An error occurred:", err.message);
-      res.status(500).send(`伺服器出錯`).end();
-    };
-  });
+  req.user
+    .getCart()
+    .then((cart) => {
+      userCart = cart;
+      // 檢查product 是否已存在 cart 中
+      return cart.getProducts({ where: { id: productId } });
+    })
+    .then((products) => {
+
+    })
+    .then((product) => {
+      return userCart.addProduct(product, {
+        through: {
+          quantity: newQuantity
+        }
+      });
+    })
+    // 下方程式處理總額
+    .then(() => {
+      return userCart.getProducts();
+    })
+    .then((products) => {
+      // 以 map 遍歷每項 商品單價*商品數量
+      const productsSums = products.map((product) => product.price * product.cartItem.quantity);
+      const amount = productsSums.reduce((accumulator, currentValue) => accumulator + currentValue);
+      userCart.amount = amount;
+      return userCart.save();
+    })
+    .catch((err) => {
+      console.log('postCartAddItem error: ', err);
+    })
 };
 
-// 購物車中移除商品
-const postDelCartItem = (req, res) => {
-  const delCartItemSql = `
-  DELETE 
-  ;`;
-  db.query(delCartItemSql, (err, data)=> {
-    if(err){
-      console.error("An error occurred:", err.message);
-      res.status(500).send(`伺服器出錯`).end();
-    };
-  });
+const postCartDeleteItem = (req, res, next) => {
+  const { productId } = req.body;
+  let userCart;
+  req.user
+    .getCart()
+    .then((cart) => {
+      userCart = cart;
+      return cart.getProducts({ where: { id: productId }});
+    })
+    .then((products) => {
+      const product = products[0];
+      // cartItem 購物車中的產品項目，定義資料庫關係時透過cartItem連結
+      return product.cartItem.destroy(); // 刪除項目 
+    })
+    .then(() => {
+      return userCart
+        .getProducts()
+        .then((products) => {
+          if (products.length) {
+            // 重新計算總額
+            const productSums = products.map((product) => product.price * product.cartItem.quantity);
+            const amount = productSums.reduce((accumulator, currentValue) => accumulator + currentValue);
+            userCart.amount = amount;
+            return userCart.save();
+          }
+        });
+    })
+    .then(() => {
+      res.redirect('/cart');
+    })
+    .catch((err) => console.log(err));
 };
 
-// 訂單 ============================
-// 顯示訂單
-const getOrder = (req, res) => {
-  const productId = req.body;
-  const getOrderSql = `
-  ;`;
-  db.query(getOrderSql, (err, data) => {
-    
-  });
+const getOrders = (req, res, next) => {
+  req.user
+    .getOrders({ include: ['products']})
+    .then((orders) => {
+      console.log('orders', orders)
+      res.render('shop/orders', {
+        orders,
+      });
+    })
+    .catch((err) => console.log(err));
 };
 
-// 創建訂單
-const postOrderItem = (req, res) => {
-  const cartid = res.params;
-  const orderItemSql = `
-  INSERT INTO order_item (product_id)
-  ;`;
-  db.query(orderItem, (err, data) => {
-    
-  });
+const postOrder = (req, res, next) => {
+  let userCart;
+  let orderAmount = 0;
+  req.user
+    .getCart()
+    .then((cart) => {
+      userCart = cart;
+      orderAmount = cart.amount;
+      return cart.getProducts();
+    })
+    .then((products) => {
+      return req.user
+        .createOrder({ amount: orderAmount })
+        .then((order) => {
+          return order.addProducts(products.map((product) => {
+            product.orderItem = { quantity: product.cartItem.quantity };
+            return product;
+          }));
+        })
+        .then((result) => {
+            return userCart.setProducts(null);
+        })
+        .then((result) => {
+            res.redirect('/orders');
+        })
+        .catch((err) => console.log(err));
+    })
+    .catch((err) => console.log(err));
 };
-
 
 module.exports = {
+  getAllProducts,
   getCart,
-  getProducts,
-  getImgs,
-  postAddCartItem
-};
+  getOrders,
+  postCartAddItem,
+  postCartDeleteItem,
+  postOrder
+}
