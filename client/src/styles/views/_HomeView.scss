@@ -92,6 +92,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .text-end {
@@ -111,6 +112,8 @@
 }
 
 .message {
+  justify-content: center;
+
   label {
     color: white;
   }

@@ -1,12 +1,14 @@
-#lookbookpage{
+#lookbookpage {
   background-color: black;
 }
+
 .lookbook {
   display: flex;
 }
 
 .l_aside {
   margin-right: 20px;
+  flex-wrap: wrap;
 }
 
 .l_aside li a {
@@ -19,7 +21,7 @@
     font-weight: bold;
     background: rgb(2, 0, 0);
     text-decoration: none;
-    color:red;
+    color: red;
   }
 
 }
@@ -27,7 +29,6 @@
 
 .r_aside {
   display: flex;
-  align-items: flex-start;
 }
 
 @media screen and (max-width: 768px) {
@@ -37,6 +38,7 @@
 
   .l_aside ul {
     display: flex;
+    flex-wrap: wrap;
 
     li {
       flex: 1;
@@ -48,7 +50,7 @@
 
         &hover {
           border: none;
-          color:red;
+          color: red;
         }
       }
     }
@@ -56,14 +58,13 @@
 }
 
 .lookbook-col {
-  width: 250px;
-  // height: 380px;
-  width: auto;
+  width: 100%;
   display: flex;
-  overflow: hidden;
+  justify-content: center;
 
   img {
-    // border: 1px solid #fff;
+    width: 250px;
+    height: auto;
     object-fit: contain;
   }
 }

@@ -79,7 +79,7 @@
 
     <section class="container-fluid col-8 p-0">
       <div class="contact">
-        <div class="contact-form row m-3">
+        <div class="contact-form col-md-6 mb-3">
           <div class="mb-2">
             <label for="exampleFormControlInput1" class="form-label">
               Name</label
@@ -115,15 +115,15 @@
             />
           </div>
         </div>
-        <div class="contact-detail col-md-5 m-3">
+        <div class="contact-detail col-md-4 ms-2">
           <p class="text-end">
             MON - FRI / 1000-1800<br>公關媒體/jennleeoffice@gmail.com<br>
             客服信箱/jennleeteam@gmail.com<br> Tel/ +8862-8952-1999 <br>
           </p>
         </div>
       </div>
-
-      <div class="message m-3 mb-5">
+      <div class="message container-fluid col-10 p-0 mb-5">
+        <div>
         <label for="exampleFormControlTextarea1" class="form-label"
           >Message</label
         >
@@ -133,6 +133,8 @@
           rows="3"
         ></textarea>
       </div>
+      </div>
+      
       <div class="home_buttons_list">
         <router-link class="button_white" to="/press">SEND</router-link>
       </div>

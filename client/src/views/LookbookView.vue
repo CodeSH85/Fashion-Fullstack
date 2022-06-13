@@ -1,7 +1,7 @@
 <template>
   <div id="lookbookpage">
     <section class="lookbook container-fluid">
-      <aside class="l_aside col-3">
+      <aside class="l_aside col-md-3">
         <figure class="heading m-5">
           <h2>LOOKBOOK /</h2>
         </figure>
@@ -30,7 +30,7 @@
         <figure class="heading m-5">
           <h2>{{ lookbookInfo.title }} /</h2>
         </figure>
-        <div class="lookbook-col">
+        <div class="row g-3 lookbook-col col-md-6 col-lg-6">
           <img
             v-for="(imgsrc, index) in lookbookInfo.images"
             :key="`${index}lookbookInfo.image`"
