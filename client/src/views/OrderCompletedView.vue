@@ -17,7 +17,7 @@
                 <span>合計：</span><span class="py-0 px-4">{{ allAmount }}件商品</span>
               </div>
               <div class="ps-5 pe-3">
-                <span>NT</span>{{ total }}
+                <span>NT$ {{ total }}</span>
               </div>
             </div>
           </div>
@@ -38,7 +38,7 @@
         </template>
       </OrderListForm>
       <div class="col-10 mx-auto d-flex justify-content-md-end justify-content-sm-center">
-        <router-link to="/shop" type="submit" class="shopping_button col-md-3 link-dark d-block col-sm-12 mb-5">
+        <router-link to="/shop" type="submit" class="shopping_button col-md-3 link-dark d-block col-sm-12" @click="saveOrder(checkList)">
           <div class="h4 fw-bold text-center py-3 px-5 m-0">
             繼續購物
           </div>
@@ -77,6 +77,15 @@
       cleanCart () {
         this.$store.commit ('resetCart', [])
       },
+      // 紀錄已成立訂單
+      saveOrder: function (products) {
+      this.$store.commit ('saveOrder', {
+        orderItems: products,
+        orderId: this.orderId,
+        allAmount: this.allAmount,
+        total: this.total,
+      })
+      }
     },
     computed: {
       // 計算訂單中的商品總數 (從陣列中取出資料，並使用for迴圈做加總)
@@ -95,7 +104,7 @@
         .reduce ((sum, p) => (sum + p.sum), 0)
       },
     },
-    created () { //產生訂單編號及分別執行getOrder和cleanCart
+    created () { // 產生訂單編號及分別執行getOrder和cleanCart
       this.orderId = this.$route.params.orderId;
       this.getOrder();
       this.cleanCart();
@@ -118,6 +127,7 @@
   }
 
   .shopping_button {
+    margin: 35px 0 100px 0;
     border-top: solid 2px $redColor;
     border-bottom: solid 2px $redColor;
   }

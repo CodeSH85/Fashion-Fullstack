@@ -13,10 +13,12 @@
           <!-- 品項和單價 -->
           <div class="table_items col-md-4 col-sm-12">
             <div class="table_row h4 fw-bold py-2 pt-md-2 pt-sm-1 mx-md-2 mx-sm-3">
-              {{ name }}
+              <span class="me-3">{{ name }}</span>
+              <span>{{ color }}</span>
             </div>
-            <div class="table_cell h4 fw-bold py-3 mx-md-2 mx-sm-3">
-              <span>NT$ </span>{{ price }}
+            <div class="table_cell py-3 mx-md-2 mx-sm-3">
+              <span class="h5 fw-bold me-4">尺寸 {{ size }}</span>
+              <span class="h4 fw-bold">NT$ {{ price }}</span>
             </div>
           </div>
           <!-- 購買數量 -->
@@ -64,6 +66,7 @@ export default {
     'price':Number,
     'description':String,
     'color':String,
+    'size':String,
     'specification':String,
     'clothesSize':String,
     'modelSize':String,
