@@ -11,7 +11,7 @@ const Product = database.define('product', {
     allowNull: false, // 是否接受 null 值
     primaryKey: true, // 是否為 Primary Key
   },
-  title: {
+  name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -19,7 +19,11 @@ const Product = database.define('product', {
     type: Sequelize.DOUBLE,
     allowNull: false,
   },
-  desc: {
+  quantity: {
+    type: Sequelize.DOUBLE,
+    allowNull: false,
+  },
+  description: {
     type: Sequelize.STRING,
     allowNull: true,
   },
@@ -27,11 +31,27 @@ const Product = database.define('product', {
     type: Sequelize.STRING,
     allowNull: true,
   },
-  spec: {
+  clothesSize: {
     type: Sequelize.STRING,
     allowNull: true,
   },
-  model: {
+  category: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
+  imgUrl: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
+  color: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
+  specification: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
+  modelSize: {
     type: Sequelize.STRING,
     allowNull: true,
   }

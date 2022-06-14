@@ -46,58 +46,17 @@
   <Footer />
 </template>
 <script>
+  import axios from "axios"
 
+  export default{
+    data () {
+      return{
+
+      }
+    },
+    mounted(){
+      axios.post("http://localhost:3000/login")
+    }
+  }
 
 </script>
-<!-- <style scoped lang="scss">
-  @import "../assets/scss/main.scss";
-  
-  .h1_title {
-    margin-top: 180px;
-  }
-
-  input {
-    background-color: transparent;
-    border: solid 1px black;
-    border-radius: 0;
-  }
-
-  .buttons_large_group {
-    margin-bottom: 100px;
-  }
-
-  .new_account_button {
-    border: solid 2px transparent;
-  }
-
-  .new_account_button:hover {
-    border-bottom: solid 2px $redColor;
-  }
-
-  .forget_password_button {
-    border: solid 2px transparent;
-  }
-
-  .forget_password_button:hover {
-    border-bottom: solid 2px $redColor;
-  }
-
-  /* 要對router-link超連結下任何css要使用a標籤 */
-  a { 
-    text-decoration: none;
-  }
-
-  .sign_in_button {
-    border: solid 1px black;
-    border-left: none;
-    border-right: none;
-    background-color: transparent;
-  }
-
-  .sign_in_button:hover {
-    color: $redColor;
-    border: solid 1px $redColor;
-    border-left: none;
-    border-right: none;
-  }
-</style> -->

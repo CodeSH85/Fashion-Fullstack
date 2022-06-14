@@ -2,14 +2,20 @@ const Product = require('../models/product');
 
 //===========================================================
 
+
+const test = (req, res) => {
+  res.send(`test`);
+};
+
 // 全部商品資料api
 const getAllProducts = (req, res) => {
   Product.findAll()
   .then((products) => {
-    res.send(JSON.stringify(products));
+    res.status(200).send(products);
   })
   .catch((err) => {
     console.log('Product.findAll() error: ', err);
+    res.status(500);
   });
 };
 
@@ -34,36 +40,22 @@ const getCart = (req, res) => {
 
 // 商品加入購物車
 const postCartAddItem = (req, res) => {
-  const { colorId, sizeId } = req.body;
+  const { color, size, number } = req.body;
   const { productId } = req.params.productId;
-  const userCart = [];
   req.user
     .getCart()
     .then((cart) => {
-      userCart = cart;
-      // 檢查product 是否已存在 cart 中
-      return cart.getProducts({ where: { id: productId } });
-    })
-    .then((products) => {
-
+      return cart.getProductEntry({ 
+        // 規格處理
+        where: { 
+          id: productId,
+          color,
+          size,
+          number
+         }});
     })
     .then((product) => {
-      return userCart.addProduct(product, {
-        through: {
-          quantity: newQuantity
-        }
-      });
-    })
-    // 下方程式處理總額
-    .then(() => {
-      return userCart.getProducts();
-    })
-    .then((products) => {
-      // 以 map 遍歷每項 商品單價*商品數量
-      const productsSums = products.map((product) => product.price * product.cartItem.quantity);
-      const amount = productsSums.reduce((accumulator, currentValue) => accumulator + currentValue);
-      userCart.amount = amount;
-      return userCart.save();
+      return res.send(product);
     })
     .catch((err) => {
       console.log('postCartAddItem error: ', err);
@@ -88,13 +80,7 @@ const postCartDeleteItem = (req, res, next) => {
       return userCart
         .getProducts()
         .then((products) => {
-          if (products.length) {
-            // 重新計算總額
-            const productSums = products.map((product) => product.price * product.cartItem.quantity);
-            const amount = productSums.reduce((accumulator, currentValue) => accumulator + currentValue);
-            userCart.amount = amount;
-            return userCart.save();
-          }
+
         });
     })
     .then(() => {
@@ -151,5 +137,6 @@ module.exports = {
   getOrders,
   postCartAddItem,
   postCartDeleteItem,
-  postOrder
+  postOrder,
+  test
 }

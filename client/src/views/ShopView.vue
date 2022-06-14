@@ -4,9 +4,8 @@
   <div class="row col-10 mx-auto">
     <div class="d-flex flex-wrap justify-content-center">
     <!-- 使用ProductItem元件 -->
-    <template v-for="product in data" :key="product.id">
-      <ProductItem v-bind="product">
-      </ProductItem>
+    <template v-for="product in productData" :key="product.id">
+      <ProductItem v-bind="product"></ProductItem>
     </template>
     </div>
   </div>
@@ -38,10 +37,9 @@
 </template>
 <script>
 // 引入元件(component)
-  // import axios from "axios";
   import ShopPageButtons from "../components/ShopPageButtons.vue"
   import ProductItem from "../components/ProductItem.vue"
-
+  import axios from "axios"
   export default {
     components: {
       ShopPageButtons,
@@ -50,40 +48,16 @@
     data () {
       return {
         data: this.$store.state.data,
+        productData: [],
       }
+    },
+    mounted(){
+      axios.get("http://localhost:3000/api/getAllProducts")
+      .then( res => (this.productData = res) )
+      .then(console.log(this.productData))
+      .catch(function (error) { 
+        console.log(error)
+      });
     }
   }
 </script>
-<!-- <style scoped lang="scss">
-  @import "../assets/scss/main.scss";
-  
-  .page_buttons {
-      margin-bottom: 50px;
-  }
-
-  .page_buttons a {
-      text-decoration: none;
-  }
-
-  .page_buttons a:hover {
-      color: $redColor;
-  }
-
-  .dropdown button {
-    width: 100%;
-    border: solid 1px black;
-    border-radius: 0;
-    box-shadow: none;
-    margin-bottom: 60px;
-  }
-
-  .dropdown-menu {
-    width: 92%;
-    border-radius: 0;
-  }
-
-  .dropdown-menu li > a:hover {
-    color: white;
-    background-color: black;
-  }
-</style> -->

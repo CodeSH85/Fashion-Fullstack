@@ -26,7 +26,9 @@
         <div class="button_group col-8 mx-auto d-flex justify-content-md-end mt-5">
           <router-link to="/login" type="submit" class="d-block col-md-3 col-sm-7 
           mx-md-0 mx-sm-auto mt-md-0 mt-sm-3">
-            <div class="sign_up_button h4 fw-bold link-dark text-center py-3 mb-0">SIGN UP</div>
+            <div class="sign_up_button h4 fw-bold link-dark text-center py-3 mb-0"
+            @click="singUp()"
+            >SIGN UP</div>
           </router-link>
         </div>
       </form>
@@ -35,42 +37,22 @@
   <Footer />
 </template>
 <script>
-
+  import axios from "axios";
+  export default{
+    data(){
+      return{
+        email:'',
+        password:'',
+      }
+    },
+    methods:{
+      singUp: () => {
+        axios.post('/signup')
+      }
+    },
+    mounted(){
+      
+    }
+  }
 
 </script>
-<!-- <style scoped lang="scss">
-  @import "../assets/scss/main.scss";
-  
-  .h1_title {
-    margin-top: 180px;
-  }
-
-  input {
-    background-color: transparent;
-    border: solid 1px black;
-    border-radius: 0;
-  }
-
-  .button_group {
-    margin-bottom: 100px;
-  }
-
-  /* 要對router-link超連結下任何css要使用a標籤 */
-  a { 
-    text-decoration: none;
-  }
-
-  .sign_up_button {
-    border: solid 1px black;
-    border-left: none;
-    border-right: none;
-    background-color: transparent;
-  }
-
-  .sign_up_button:hover {
-    color: $redColor;
-    border: solid 1px $redColor;
-    border-left: none;
-    border-right: none;
-  }
-</style> -->
