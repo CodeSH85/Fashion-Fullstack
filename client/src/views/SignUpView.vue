@@ -1,5 +1,4 @@
 <template>
-  <TopNavbar />
   <!-- 註冊頁面 -->
   <div class="container-fluid">
     <div class="row">
@@ -32,7 +31,6 @@
       </form>
     </div>
   </div>
-  <Footer />
 </template>
 <script>
 

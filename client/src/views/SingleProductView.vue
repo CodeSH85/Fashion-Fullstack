@@ -1,14 +1,16 @@
 <template>
-  <ShopPageButtons />
+  <ShopPageButtons @backToPage="backToCategoryPage"></ShopPageButtons>
   <!-- 商品單一詳情頁面 -->
   <div class="container-fluid">
     <div class="row">
       <!-- 商品主資訊 -->
       <div class="main_information col-10 mx-auto d-flex justify-content-evenly 
       flex-md-nowrap flex-sm-wrap">
-        <div class="img_container my-md-0 my-sm-3">
-          <img :src="getProduct.imgUrl" :title="getProduct.name">
-        </div>
+        <!-- Vue.js 的 transition 用法 -->
+        <transition-group tag="div" name="right-in" class="img_container my-md-0 my-sm-3"
+        v-for="(image, index) in getProduct.imgUrl" :key="index" v-show="index === showImg">
+          <img :src="image">
+        </transition-group>
         <form action="/bag" method="post" class="product_add_cart col-md-6 col-sm-12">
           <div class="name h1 fw-bold my-3">
             {{ getProduct.name }}
@@ -22,32 +24,32 @@
             <div class="items_title h5 fw-bold">
               顏色
             </div>
-            <!-- 下拉式選單 (Bootstrap) -->
-            <div class="dropdown justify-content-center mt-2">
-              <button class="btn dropdown-toggle text-start h5 fw-bold py-md-2 py-sm-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                {{ getProduct.color[0] }}
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item my-0" href="#">{{ getProduct.color }}</a></li>
-              </ul>
+            <!-- 下拉式選單 -->
+            <div class="dropdown justify-content-center mt-2 mb-3">
+              <select v-model="color" name="" id="" class="dropdown-list text-start fw-bold py-md-2 py-sm-3">
+                <option :value="''" class="d-none">請選擇</option>
+                <option :value="color" v-for="(color, key) in getProduct.color" :key="key">
+                {{ color }}
+                </option>
+              </select>
             </div>
             <div class="items_title h5 fw-bold">
               尺寸
             </div>
-            <!-- 下拉式選單 (Bootstrap) -->
-            <div class="dropdown justify-content-center mt-2">
-              <button class="btn dropdown-toggle text-start h5 fw-bold py-md-2 py-sm-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                38
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item my-0" href="#">{{ getProduct.clothesSize }}</a></li>
-              </ul>
+            <!-- 下拉式選單 -->
+            <div class="dropdown justify-content-center mt-2 mb-3">
+              <select v-model="size" name="" id="" class="dropdown-list text-start fw-bold py-md-2 py-sm-3">
+                <option :value="''" class="d-none">請選擇</option>
+                <option :value="size" v-for="(size, key) in getProduct.clothesSize" :key="key">
+                {{ size }}
+                </option>
+              </select>
             </div>
             <div class="items_title h5 fw-bold">
               數量
             </div>
-            <!-- 下拉式選單 (select) -->
-            <div class="dropdown justify-content-center mt-2">
+            <!-- 下拉式選單 -->
+            <div class="dropdown justify-content-center mt-2 mb-3">
               <select v-model.number="selectedNumber" class="dropdown-list text-start fw-bold py-md-2 py-sm-3" name="" id="">
                 <option class="d-none" value="">請選擇</option>
                 <option value="1">1</option>
@@ -61,19 +63,6 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
               </select>
-              <!-- 原Bootstrap的下拉式選單 -->
-              <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item my-0" type="number" href="#">1</a></li>
-                <li><a class="dropdown-item my-0" type="number" href="#">2</a></li>
-                <li><a class="dropdown-item my-0" type="number" href="#">3</a></li>
-                <li><a class="dropdown-item my-0" type="number" href="#">4</a></li>
-                <li><a class="dropdown-item my-0" type="number" href="#">5</a></li>
-                <li><a class="dropdown-item my-0" href="#">6</a></li>
-                <li><a class="dropdown-item my-0" href="#">7</a></li>
-                <li><a class="dropdown-item my-0" href="#">8</a></li>
-                <li><a class="dropdown-item my-0" href="#">9</a></li>
-                <li><a class="dropdown-item my-0" href="#">10</a></li>
-              </ul> -->
             </div>
           </div>
           <router-link to="" type="submit" class="link-dark w-75 d-block mx-md-0 mx-sm-auto" @click="addCart(getProduct)">
@@ -145,27 +134,68 @@
     },
     data () {
       return {
+        color: '',
+        size: '',
         selectedNumber: '',
+        showImg: 0,
       }
+    },
+    mounted () {
+      // 圖片輪播器定時
+      setInterval (this.setShowImg, 3000);
     },
     methods: {
-      // 判斷存貨
+      // 判斷存貨、是否選擇規格之防呆提醒
       addCart: function (product) {
-      product.number = this.selectedNumber;
-
-      if (product.quantity - product.number < 0) {
-        alert('存貨不足')
-        return;
-      }
-      this.$store.commit ('addCart', {
-        product: product,
-        number: this.selectedNumber,
-      })
-      alert('已加入購物車')
-      // console.log(product)
-      }
+        
+        product.color = this.color;
+        product.size = this.size;
+        product.number = this.selectedNumber;
+        
+        if (product.color === '' && product.size === '' && product.number === '') {
+          alert ('請選擇顏色、尺寸和數量')
+          return;
+        } else if (product.color === '' && product.size === '') {
+          alert ('請選擇顏色和尺寸')
+          return;
+        } else if (product.number === '') {
+          alert ('請選擇數量')
+          return;
+        } else if (product.color === '') {
+          alert ('請選擇顏色')
+          return;
+        } else if (product.size === '') {
+          alert ('請選擇尺寸')
+          return;
+        } else if (product.quantity - product.number < 0) {
+          alert ('存貨不足')
+          return;
+        } else {
+          this.$store.commit ('addCart', {
+            product: product,
+            color: this.color,
+            size: this.size,
+            number: this.selectedNumber,
+        })
+          alert ('已加入購物車')
+        }
+      },
+      // 圖片輪播器函式
+      setShowImg (changeIdx = 1) {
+        switch (true) {
+          case changeIdx === 1 && this.showImg === this.getProduct.imgUrl.length - 1:
+            this.showImg = 0;
+            break;
+          case changeIdx === -1 && this.showImg === 0:
+            this.showImg = this.getProduct.imgUrl.length - 1;
+            break;
+          default:
+            this.showImg = this.showImg + changeIdx;
+            break;
+        }
+      },
     },
-    computed:{
+    computed: {
       // 取得點選商品的詳細資訊
       getProduct () {
         return this.$store.getters.getProduct (parseInt(this.$route.params.productId))
@@ -178,16 +208,19 @@
   @import "../assets/scss/main.scss";
   
   .img_container {
-    width: 500px;
+    width: 440px;
   }
 
   .img_container img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   @media screen and ( max-width: 768px ) {
     .img_container {
-      width: 90%;
+      width: 374px;
+      height: 565px;
     }
 
     .price {
