@@ -1,12 +1,14 @@
 import { createStore } from 'vuex'
 import createPersistedState from "vuex-persistedstate"
 import productsData from "../../public/data.json"
+import pressInfo from "../../public/press.json"
 
 
 export default createStore ({
   state: {
     data: productsData,
     productAllApi: "http://localhost:3000/api/getAllProducts",
+    pressInfo,
     cart: [],
     userOrder: [],
   },

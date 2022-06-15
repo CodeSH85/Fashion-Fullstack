@@ -67,10 +67,3 @@
     },
   }
 </script>
-<style scoped lang="scss">
-  @import "../assets/scss/main.scss";
-
-  .empty_order {
-    margin: 80px 0 180px 0;
-  }
-</style>

@@ -28,5 +28,36 @@
     "id": 6,
     "title": "VOGUE TW",
     "img": "../images/press6.jpeg"
+  },
+  {
+    "id": 7,
+    "title": "VOGUE ITALIA",
+    "img": "http://www.jennleestudio.com/ezcatfiles/red179/img/img/14245/vogueitaliabig.jpg"
+  },
+  {
+    "id": 8,
+    "title": "ELLE",
+    "img": "http://www.jennleestudio.com/ezcatfiles/red179/img/img/14227/235.jpg"
+  },
+  {
+    "id": 9,
+    "title": "VOGUE",
+    "img": "http://www.jennleestudio.com/ezcatfiles/red179/img/img/14195/234853406.jpg"
+  },
+  {
+    "id": 10,
+    "title": "VOGUE",
+    "img": "http://www.jennleestudio.com/ezcatfiles/red179/img/img/9513/184264296.jpg"
+  },
+  {
+    "id": 11,
+    "title": "VOGUE",
+    "img": "http://www.jennleestudio.com/ezcatfiles/red179/img/img/9513/40683740_1902741149813573_5997210745488539648_n(1).jpg"
+  },
+  {
+    "id": 12,
+    "title": "VOGUE",
+    "img": "http://www.jennleestudio.com/ezcatfiles/red179/img/img/9513/9845.jpg"
   }
+  
 ]
