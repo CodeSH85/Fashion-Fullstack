@@ -41,22 +41,20 @@ const postLogin = (req, res) => {
     .then((user) => {
       // 若無此使用者
       if (!user) {
-        return res.send().end();
+        return res.send({ status : 0 });
       };
       bcryptjs.compare(password, user.password)
         .then( isMatch => {
           if (isMatch) {
             req.session.user = user;
             req.session.isLogin = true;
-            return req.session.save((err) => {
-              console.log('postLogin - save session error: ', err);
-            });
+            return req.send({ status : 1 });
           } else {
             return req.send('錯誤的email或密碼');
           };
         })
         .catch((err) => {
-          return res.send();
+          return res.send({ status : 0 });
         });
     })
     .catch((err) => {
@@ -67,7 +65,7 @@ const postLogin = (req, res) => {
 // 使用者登出
 const postLogout = (req, res) => {
   req.session.destroy();
-  console.log('使用者已登出')
+  console.log('使用者已登出');
 };
 
 module.exports = {

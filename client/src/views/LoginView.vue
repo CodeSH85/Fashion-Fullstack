@@ -35,7 +35,7 @@
             </div>
           </div>
           <router-link to="/account" type="submit" class="d-block col-md-3 col-sm-7 
-          mx-md-0 mx-sm-auto mt-md-0 mt-sm-3">
+          mx-md-0 mx-sm-auto mt-md-0 mt-sm-3" @click="login()">
             <button class="sign_in_button h4 fw-bold link-dark text-center py-3 mb-0" type="submit">SIGN IN</button>
           </router-link>
         </div>
@@ -53,9 +53,16 @@
         password:'',
       }
     },
-    method:{
-      async login(){
-        let result = await axios.post("http://localhost:3000/post/login")
+    methods:{
+      async login() {
+        await axios.post('http://localhost:3000/post/login',{
+          email: this.email,
+          password: this.password
+        })
+        .then(alert(`登入成功`))
+        .catch(function (error) {
+          console.log(error);
+        })
       }
     },
     mounted(){

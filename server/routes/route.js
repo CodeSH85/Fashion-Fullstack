@@ -1,7 +1,7 @@
 const Express = require('express');
-
+const path = require('path')
 const authController = require('../controllers/auth');
-const shopController = require('../controllers/shop');
+const shopController = require('../controllers/shop'); 
 
 //===============================================================
 
@@ -18,5 +18,6 @@ router.get('/api/getProduct/:id', shopController.getProduct);
 router.post('/post/signup', authController.postSignup);
 router.post('/post/login', authController.postLogin);
 router.post('/post/logout', authController.postLogout);
+
 
 module.exports = router;

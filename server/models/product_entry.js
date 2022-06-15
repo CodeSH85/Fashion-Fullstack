@@ -11,15 +11,15 @@ const Product_entry = database.define('product_entry', {
     allowNull: false, // 是否接受 null 值
     primaryKey: true
   },
-  category_id: {
+  categoryId: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
-  size_id: {
+  sizeId: {
     type: Sequelize.INTEGER,
     allowNull: true,
   },
-  color_id: {
+  colorId: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
