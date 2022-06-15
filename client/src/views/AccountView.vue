@@ -41,29 +41,3 @@
     }
   }
 </script>
-<!-- <style scoped lang="scss"> 
-  @import "../assets/scss/main.scss";
-  
-  .log_out_button {
-  border-top: solid 1px black;
-  border-bottom: solid 1px black;
-}
-
-.log_out_button:hover {
-  color: $redColor;
-  border: solid 1px $redColor;
-  border-left: none;
-  border-right: none;
-}
-
-.delete_button {
-  color: $redColor;
-  border-top: solid 1px $redColor;
-  border-bottom: solid 1px $redColor;
-}
-
-.delete_button:hover {
-  text-decoration: underline;
-}
-  
-</style> -->

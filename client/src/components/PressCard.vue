@@ -10,6 +10,7 @@
 <script>
 
 export default {
+   name: 'PressCard',
   props: {
     'id': Number,
     'title': String,
@@ -33,9 +34,7 @@ div.press-card .image-box {
 }
 
 .press-card {
-  /* width: 24%; */
   text-align: center;
-  /* margin: 1px; */
   cursor: pointer;
   display: block;
 }

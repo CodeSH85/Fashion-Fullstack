@@ -4,67 +4,106 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import('../views/HomeView.vue')
+    component: () => import('../views/HomeView.vue'),
+    meta: {
+      darkMode: true,
+    },
   },
   {
     path: '/lookbook',
     name: 'lookbook',
-    component: () => import('../views/LookbookView.vue')
+    component: () => import('../views/LookbookView.vue'),
+    meta: {
+      darkMode: true,
+    },
   },
   {
     path: '/lookbook/:id',
     name: 'lookbookInfo',
-    component: () => import('../views/LookbookView.vue')
+    component: () => import('../views/LookbookView.vue'),
+    meta: {
+      darkMode: true,
+    },
   },
   {
     path: '/press',
     name: 'press', 
-    component: () => import('../views/PressView.vue')
+    component: () => import('../views/PressView.vue'),
+    meta: {
+      darkMode: true,
+    },
   },
   {
     path: '/about',
     name: 'about',
-    component: () => import('../views/AboutView.vue')
+    component: () => import('../views/AboutView.vue'),
+    meta: {
+      darkMode: true,
+    },
   },
   {
     path: '/shop',
     name: 'shop',
-    component: () => import('../views/ShopView.vue')
+    component: () => import('../views/ShopView.vue'),
+    meta: {
+      greyMode: true,
+    },
   },
   {
     path: '/shop/:productId',
     name: 'singleProduct',
-    component: () => import('../views/SingleProductView.vue')
+    component: () => import('../views/SingleProductView.vue'),
+    meta: {
+      greyMode: true,
+    },
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import('../views/LoginView.vue')
+    component: () => import('../views/LoginView.vue'),
+    meta: {
+      greyMode: true,
+    },
   },
   {
     path: '/account',
     name: 'account',
-    component: () => import('../views/AccountView.vue')
+    component: () => import('../views/AccountView.vue'),
+    meta: {
+      greyMode: true,
+    },
   },
   {
     path: '/account/signup',
     name: 'signup',
-    component: () => import('../views/SignUpView.vue')
+    component: () => import('../views/SignUpView.vue'),
+    meta: {
+      greyMode: true,
+    },
   },
   {
     path: '/account/order',
     name: 'order',
-    component: () => import('../views/OrderView.vue')
+    component: () => import('../views/OrderView.vue'),
+    meta: {
+      greyMode: true,
+    },
   },
   {
     path: '/bag',
     name: 'bag',
-    component: () => import('../views/BagView.vue')
+    component: () => import('../views/BagView.vue'),
+    meta: {
+      greyMode: true,
+    },
   },
   {
     path: '/bag/completed',
     name: 'orderCompleted',
-    component: () => import('../views/OrderCompletedView.vue')
+    component: () => import('../views/OrderCompletedView.vue'),
+    meta: {
+      greyMode: true,
+    },
   },
 ]
 

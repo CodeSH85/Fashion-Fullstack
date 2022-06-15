@@ -5,6 +5,7 @@
 </template>
 <script>
 export default {
+  name: 'ProductItem',
   props: {
     'id':Number,
     'name':String,

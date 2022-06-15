@@ -1,7 +1,7 @@
 <template>
   <!-- 購物清單確認頁面 -->
   <!-- 購物車內沒東西時的畫面 (預設應為true) -->
-  <div class="container-fluid" v-show="emptyCart">
+  <div class="bagview container-fluid" v-show="emptyCart">
     <div class="row">
       <div class="empty_cart col-6 mx-auto text-center">
         <div class="h3 fw-bold my-3">購物車中尚無商品</div>
@@ -125,46 +125,3 @@
     }
   }
 </script>
-<style scoped lang="scss">
-  @import "../assets/scss/main.scss";
-
-  .empty_cart {
-    margin: 245px 0;
-  }
-
-  .go_shopping {
-    margin-bottom: 0;
-  }
-
-  .amount_button {
-    border: solid 2px black;
-  }
-
-  .mark {
-    border: none;
-    background-color: transparent;
-  }
-
-  button {
-    border: none;
-    background-color: transparent;
-  }
-
-  .cart_total {
-    margin-top: -100px;
-  }
-
-  a {
-    text-decoration: none;
-    margin-bottom: 180px;
-  }
-
-  a:hover {
-    color: $redColor;
-  }
-
-  .check_button {
-    border-top: solid 2px $redColor;
-    border-bottom: solid 2px $redColor;
-  }
-</style>

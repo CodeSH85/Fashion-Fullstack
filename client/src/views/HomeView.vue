@@ -135,7 +135,7 @@
       </div>
       </div>
       
-      <div class="home_buttons_list">
+      <div class="home_buttons_list mb-5">
         <router-link class="button_white" to="/press">SEND</router-link>
       </div>
     </section>
@@ -144,11 +144,8 @@
 
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-// import "./style.css";
-// import required modules
 import { Pagination } from "swiper";
 import PressCard from "../components/PressCard.vue";
 

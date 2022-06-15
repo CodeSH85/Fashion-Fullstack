@@ -71,19 +71,3 @@
     }
   }
 </script>
-<style scoped lang="scss">
-  @import "../assets/scss/main.scss";
-
-  a {
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: $redColor;
-  }
-
-  .shopping_button {
-    border-top: solid 2px $redColor;
-    border-bottom: solid 2px $redColor;
-  }
-</style>

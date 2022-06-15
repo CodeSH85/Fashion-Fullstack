@@ -1,7 +1,7 @@
 <template>
   <ShopPageButtons />
   <!-- 商品單一詳情頁面 -->
-  <div class="container-fluid">
+  <div class="singleproduct container-fluid">
     <div class="row">
       <!-- 商品主資訊 -->
       <div class="main_information col-10 mx-auto d-flex justify-content-evenly 
@@ -173,83 +173,3 @@
   }
 
 </script>
-<style scoped lang="scss">
-  @import "../assets/scss/main.scss";
-  
-  .img_container {
-    width: 500px;
-  }
-
-  .img_container img {
-    width: 100%;
-  }
-
-  @media screen and ( max-width: 768px ) {
-    .img_container {
-      width: 90%;
-    }
-
-    .price {
-      font-size: 32px;
-    }
-  }
-
-  hr {
-    height: 2px;
-    background-color: $grayColor;
-  }
-
-  .dropdown button {
-    width: 30%;
-    border: solid 2px $redColor;
-    border-left: none;
-    border-right: none;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-  .dropdown-list {
-    width: 30%;
-    border: solid 2px $redColor;
-    border-left: none;
-    border-right: none;
-    border-radius: 0;
-    background-color: transparent;
-  }
-
-  .dropdown-menu {
-    width: 30%;
-    border-radius: 0;
-    background-color: $bgColor;
-  }
-
-  .dropdown-menu li > a:hover {
-    color: white;
-    background-color: black;
-  }
-
-  .product_add_cart a {
-      text-decoration: none;
-      margin: 90px 0;
-  }
-
-  .add_cart_button {
-    border-top: solid 2px $redColor;
-    border-bottom: solid 2px $redColor;
-  }
-
-  .add_cart_button:hover {
-    color: $redColor;
-  }
-
-  @media screen and ( max-width: 768px ) {
-    .dropdown button {
-      width: 100%;
-      font-size: 20px;
-    }
-
-    .dropdown-menu {
-      width: 100%;
-    }
-  }
-</style>
