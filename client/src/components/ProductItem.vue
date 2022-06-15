@@ -1,7 +1,8 @@
 <template>
-    <div class="img_container px-0 py-2" @click="redirectProduct(id)">
-      <img :src="imgUrl" :title="name">
-    </div>
+  <!-- 商品總覽分類頁面商品區的單一元件 -->
+  <div class="img_container mx-1 my-2" @click="redirectProduct(id)">
+    <img :src="imgUrl[0]" :title="name">
+  </div>
 </template>
 <script>
 export default {
@@ -23,14 +24,14 @@ export default {
   methods: {
     redirectProduct: function (id) {
       this.$router.push(`/shop/${id}`)
-    }
-  }
+    },
+  },
 }
 </script>
 <style scoped>
   .img_container {
-      width: 273px;
-      height: 240px;
+      width: 290px;
+      height: 435px;
       cursor: pointer;
   }
 
@@ -43,8 +44,8 @@ export default {
 
   @media screen and ( max-width: 768px ) {
     .img_container {
-      width: 219px;
-      height: 192px;
+      width: 212px;
+      height: 319px;
     }
   }
 </style>

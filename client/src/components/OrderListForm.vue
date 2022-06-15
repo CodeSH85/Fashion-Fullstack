@@ -23,7 +23,7 @@
   @import "../assets/scss/main.scss";
   
   .row {
-    margin-bottom: 180px;
+    margin-bottom: 80px;
   }
 
   .order_list_border{
