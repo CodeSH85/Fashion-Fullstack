@@ -7,7 +7,6 @@
   <CategoryDress v-if=" status === 'DRESS' "></CategoryDress>
   <CategoryJumpsuit v-if=" status === 'JUMPSUIT' "></CategoryJumpsuit>
   <CategorySale v-if=" status === 'SALE' "></CategorySale>
-
   <div class="container-fluid">
     <div class="row">
       <!-- 一般頁面的頁面按鈕 -->
@@ -36,7 +35,7 @@
 </template>
 <script>
 // 引入元件(component)
-  // import axios from "axios";
+  import axios from "axios"
   import ShopPageButtons from "../components/ShopPageButtons.vue"
   import CategoryAll from "../components/CategoryAll.vue"
   import CategoryTop from "../components/CategoryTop.vue"
@@ -44,7 +43,6 @@
   import CategoryDress from "../components/CategoryDress.vue"
   import CategoryJumpsuit from "../components/CategoryJumpsuit.vue"
   import CategorySale from "../components/CategorySale.vue"
-
   export default {
     components: {
       ShopPageButtons,
@@ -58,6 +56,7 @@
     data () {
       return {
         data: this.$store.state.data,
+        productData: [],
         status: 'ALL',
       }
     },
@@ -66,5 +65,12 @@
         this.status = status
       },
     },
+    mounted(){
+      axios.get("http://localhost:3001/api/getAllProducts")
+      .then( res => (this.productData = res.data) )
+      .catch(function (error) { 
+        console.log(error)
+      });
+    }
   }
 </script>

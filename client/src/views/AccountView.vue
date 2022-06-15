@@ -9,7 +9,7 @@
           <h4>E-mail</h4>
         </div>
         <div class="account_email">
-          <h4>example@test.com</h4>
+          <h4>{{ email }}</h4>
         </div>
       </div>
       <!-- 按鈕 (buttons_center用來給寬度和置中) -->
@@ -38,32 +38,24 @@
   export default {
     components: {
       AccountPageButtons,
+    },
+    data () {
+      return {
+        email: 'example@test.com',
+      }
+    },
+    methods: {
+      showAccount () {
+        if (this.$store.state.loginUser.email !== '') {
+          this.email = this.$store.state.loginUser.email
+          return this.email
+        } else {
+          return this.email;
+        }
+      }
+    },
+    created () {
+      this.showAccount ();
     }
   }
 </script>
-<!-- <style scoped lang="scss"> 
-  @import "../assets/scss/main.scss";
-  
-  .log_out_button {
-  border-top: solid 1px black;
-  border-bottom: solid 1px black;
-}
-
-.log_out_button:hover {
-  color: $redColor;
-  border: solid 1px $redColor;
-  border-left: none;
-  border-right: none;
-}
-
-.delete_button {
-  color: $redColor;
-  border-top: solid 1px $redColor;
-  border-bottom: solid 1px $redColor;
-}
-
-.delete_button:hover {
-  text-decoration: underline;
-}
-  
-</style> -->
