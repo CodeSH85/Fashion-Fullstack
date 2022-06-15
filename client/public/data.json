@@ -7,12 +7,15 @@
         "material": "96% POLY 4% Op",
         "price": 5200,
         "description": "JENN LEE經典基本襯衫，版型較為寬鬆，而加長且較服貼手腕的袖口設計，則讓挺造型更加俐落個性。",
-        "color": "白",
+        "color": ["白"],
         "specification": "長度：78 胸圍：105 腰圍：100 袖長：68",
-        "clothesSize": "38, 其他",
+        "clothesSize": ["38", "其他"],
         "modelSize": "高度：169 cm Model is wearing 38",
         "quantity": 30,
-        "imgUrl": "https://shoplineimg.com/584e1e3161706943b35ba000/626a3585a2fd0a00243161d9/800x.webp?source_format=jpg"
+        "imgUrl": [
+          "https://shoplineimg.com/584e1e3161706943b35ba000/62694c2df926f90001285efa/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/626a3585a2fd0a00243161d9/800x.webp?source_format=jpg"
+        ]
     },
     {
         "id": 2,
@@ -22,12 +25,15 @@
         "material": "80% Recycle Poly",
         "price": 7400,
         "description": "前側小顆的流動愛心鈕扣拉鍊能自由調整開口大小，背後的拉鍊則讓穿脫更方便。高彈性的貼身面料，展露身材曲線，胸前的開口更是引誘性感。",
-        "color": "黑",
+        "color": ["黑"],
         "specification": "長度：43.6 胸圍：70.8 腰圍：64.4 袖長：30",
-        "clothesSize": "38 其他",
+        "clothesSize": ["38", "其他"],
         "modelSize": "高度：169 cm Model is wearing 38",
         "quantity": 30,
-        "imgUrl": "https://shoplineimg.com/584e1e3161706943b35ba000/626a359eb0fb41002138e601/800x.webp?source_format=jpg"
+        "imgUrl": [
+          "https://shoplineimg.com/584e1e3161706943b35ba000/62694c2b3eb7d5000115507f/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/626a359eb0fb41002138e601/800x.webp?source_format=jpg"
+        ]
     },
     {
         "id": 3,
@@ -37,12 +43,15 @@
         "material": "96% POLY 4% Op",
         "price": 7700,
         "description": "優雅的奶油灰色與高調的金屬愛心鈕扣，是一件搖滾芭比的褲褲。前側造型拉鍊，可自由調解褲管開衩程度。打開拉鍊後喇叭褲管，營造復古帥感，也更加修飾腿部，兩側附有大容量口袋。",
-        "color": "灰",
+        "color": ["灰"],
         "specification": "長度：112 臀圍：114 腰圍：80",
-        "clothesSize": "38 其他",
+        "clothesSize": ["38", "其他"],
         "modelSize": "高度：169 cm Model is wearing 38",
         "quantity": 30,
-        "imgUrl": "https://shoplineimg.com/584e1e3161706943b35ba000/62694c2df926f90001285f01/800x.webp?source_format=jpg"
+        "imgUrl": [
+          "https://shoplineimg.com/584e1e3161706943b35ba000/62694c2df926f90001285f01/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/626a1672d578aa0027bd7bbf/800x.webp?source_format=jpg"
+        ]
     },
     {
         "id": 4,
@@ -52,12 +61,17 @@
         "material": "96% POLY 4% Op",
         "price": 8350,
         "description": "高彈性的貼身面料，展露身材曲線，透氣不黏身，版型合身超顯身體曲線，前側尖銳裙擺點綴腿部曲線，展露屬於你的線條。印花加入封膠質感印花增加視覺層次，由圖像創作者以邪惡氣味的頑皮風格呈現。",
-        "color": "黑 白",
+        "color": ["黑", "白"],
         "specification": "長度：77-95 胸圍：82 腰圍：70 袖長：19.5",
-        "clothesSize": "38 其他",
+        "clothesSize": ["38", "其他"],
         "modelSize": "高度：169 cm Model is wearing 38",
         "quantity": 30,
-        "imgUrl": "https://shoplineimg.com/584e1e3161706943b35ba000/62694c2dbf9f950001a7f0de/800x.webp?source_format=jpg"
+        "imgUrl": [
+          "https://shoplineimg.com/584e1e3161706943b35ba000/62694c2cbf9f950001a7f0d7/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/62694c2dbf9f950001a7f0de/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/625f8a59715ae8002176c6f8/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/625f8a59d77c910021f73245/800x.webp?source_format=jpg"
+        ]
     },
     {
         "id": 5,
@@ -67,12 +81,15 @@
         "material": "Print: 80%Recycle Poly 20%Spandex Black: 79%Recycle Poly 21%Spandex",
         "price": 6930,
         "description": "選用如飾品般細緻閃耀的1號金屬拉鍊，袖口加入愛心鈕扣拉鍊。尖型袖口與下擺設計展現JENN LEE品牌的銳利與俐落。",
-        "color": "黑",
+        "color": ["黑"],
         "specification": "長度：99-127 胸圍：79 腰圍：64 袖長：27",
-        "clothesSize": "38 其他",
+        "clothesSize": ["38", "其他"],
         "modelSize": "高度：169 cm Model is wearing 38",
         "quantity": 30,
-        "imgUrl": "https://shoplineimg.com/584e1e3161706943b35ba000/62694c2b3eb7d50001155082/800x.webp?source_format=jpg"
+        "imgUrl": [
+          "https://shoplineimg.com/584e1e3161706943b35ba000/62694c2b3eb7d50001155082/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/62694c2d3eb7d5000115508c/800x.webp?source_format=jpg"
+        ]
     },
     {
         "id": 6,
@@ -82,11 +99,232 @@
         "material": "59% POLYESTER 31% RECYCLE S. CAFÉ POLYESTER 10% PU",
         "price": 5800,
         "description": "俐落帥氣的連身褲裝，用尖型的領子與完美的肩膀線條更帶出銳利。挺度適中的咖啡紗製成，抗異味且具暴雨級防水，手工製作的KCC「公母對接拉鏈」，復刻自世界第一條拉鏈，粗獷而劇工業美的金屬質感更加特別。",
-        "color": "黑",
+        "color": ["黑"],
         "specification": "長度：147.1 CM 胸圍：98.4 CM 腰圍：70.4 CM 臀圍：95.4 CM 肩寬：40.4 CM 袖長：19.6 CM",
-        "clothesSize": "38 其他",
+        "clothesSize": ["38", "其他"],
         "modelSize": "高度：169 cm Model is wearing 38",
         "quantity": 30,
-        "imgUrl": "https://shoplineimg.com/584e1e3161706943b35ba000/6193ed650ff048002f4d92c9/800x.webp?source_format=jpg"
+        "imgUrl": [
+          "https://shoplineimg.com/584e1e3161706943b35ba000/6193ed650ff048002f4d92c9/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/6193ed70391751002665d77b/800x.webp?source_format=jpg"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "直紋印花不對稱裙",
+        "category": "BOTTOM",
+        "series": "2022 SS",
+        "material": "80% Recycle Poly 20% Spandex",
+        "price": 6700,
+        "description": "金屬愛心鈕扣拉鍊環繞至開衩，自由調節露腿程度。加入封膠質感印花增加視覺層次，不羈街頭風味飄出。",
+        "color": ["黑"],
+        "specification": "長度：86-106 臀圍：92 腰圍：70",
+        "clothesSize": ["38", "其他"],
+        "modelSize": "高度：169 cm Model is wearing 38",
+        "quantity": 15,
+        "imgUrl": [
+          "https://shoplineimg.com/584e1e3161706943b35ba000/62694c2b3eb7d5000115507f/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/62694c2cbf9f950001a7f0d4/800x.webp?source_format=jpg"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "扭曲一字簍空針織上衣",
+        "category": "TOP",
+        "series": "2021 F/W",
+        "material": "72% ECOVEROVISCOSE 28% POLYESTER",
+        "price": 7300,
+        "description": "一體成形製作而成，毫無浪費一條織線。刻意增加袖長，營造優雅可愛氣息，更修飾手部整體線條，貼身的版型展現身體曲線，領口挖空露出細緻的鎖骨與肩膀線條。",
+        "color": ["黑"],
+        "specification": "長度：51 CM 胸圍：68 CM 腰圍：68 CM 肩寬：51 CM 袖長：36.5-40 CM",
+        "clothesSize": ["One Size"],
+        "modelSize": "高度：169 cm",
+        "quantity": 15,
+        "imgUrl": [
+          "https://shoplineimg.com/584e1e3161706943b35ba000/61939402a40481003edfbb23/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/619de8025bd8db00232f3776/800x.webp?source_format=jpg"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "流動黑印花緊身衣",
+        "category": "TOP",
+        "series": "2021 F/W",
+        "material": "80% POLYESTER 20% SPANDEX",
+        "price": 3500,
+        "description": "21秋冬主要印花之一，靈感源自於流體畫創作，截取部分細胞再排列成動態感印花，靜謐流動的黑白時而對稱時而飄動蔓延，美麗的符號藏匿其中。面料彈性極佳面料滑順，不同曲線有不同的流動。",
+        "color": ["黑"],
+        "specification": "長度：56.6 CM 胸圍：73 CM 腰圍：68 CM 袖長：59.5 CM",
+        "clothesSize": ["38", "其他"],
+        "modelSize": "高度：169 cm Model is wearing 38",
+        "quantity": 15,
+        "imgUrl": [
+          "https://shoplineimg.com/584e1e3161706943b35ba000/61a456dd5f962e002c07b6b9/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/61a4574fd1b9b700209a0039/800x.webp?source_format=jpg"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "復古拉鍊喇叭褲",
+        "category": "BOTTOM",
+        "series": "2021 F/W",
+        "material": "59% POLYESTER 31% RECYCLE S. CAFÉ POLYESTER 10% PU",
+        "price": 6200,
+        "description": "暴雨級防水與抗異味的咖啡紗面料製成，絕佳的挺度與最佳的舒適穿著體驗。喇叭褲版型修飾臀型與腿部線條，加入KCC復古「公母對接拉鏈」，復刻自全世界第一條拉鏈，全部手工製成。",
+        "color": ["黑"],
+        "specification": "長度：116.2 CM 腰圍：68.4 CM 臀圍：84 CM",
+        "clothesSize": ["38", "其他"],
+        "modelSize": "高度：169 cm Model is wearing 38",
+        "quantity": 15,
+        "imgUrl": [
+          "https://shoplineimg.com/584e1e3161706943b35ba000/6193b03fe9e207003890a578/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/6193b0ca5f9cce0026eae120/800x.webp?source_format=jpg"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "扭曲針織洋裝",
+        "category": "DRESS",
+        "series": "2021 F/W",
+        "material": "72% ECOVEROVISCOSE 28% POLYESTER",
+        "price": 7280,
+        "description": "一體成型的Whole-Garment技術製成，無浪費一條織線，刻意拉長的袖子點綴手部線條，若隱若現簍空設計，曲線游移於光影之間。",
+        "color": ["紅"],
+        "specification": "長度：119 CM 胸圍：68 CM 腰圍：72 CM 臀圍：84 CM 袖長：68 CM",
+        "clothesSize": ["One Size"],
+        "modelSize": "高度：169 cm",
+        "quantity": 15,
+        "imgUrl": [
+          "https://shoplineimg.com/584e1e3161706943b35ba000/6193f77e4e475a28ec419f0d/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/6193f7894e475a002f41a446/800x.webp?source_format=jpg"
+        ]
+    },
+    {
+        "id": 12,
+        "name": "復古拉鍊尖形洋裝",
+        "category": "DRESS",
+        "series": "2021 F/W",
+        "material": "59% POLYESTER 31% RECYCLE S. CAFÉ POLYESTER 10% PU",
+        "price": 12830,
+        "description": "加入特殊的KCC「公母對接復古拉鏈」，復刻自全世界第一條拉鏈，整條拉鍊手工製成，是極致精美而詩意的藝術品。強調女性腰部與臀部性感的曲線，袖口以尖型線條點綴，肩膀的褶皺則增添韻味，露出一點肩膀。",
+        "color": ["黑"],
+        "specification": "長度：93.2-114.8 CM 胸圍：81.8 CM 腰圍：72.4 CM 臀圍：82.4 CM 袖長：75.7-86.4 CM",
+        "clothesSize": ["38", "其他"],
+        "modelSize": "高度：169 cm Model is wearing 38",
+        "quantity": 15,
+        "imgUrl": [
+          "https://shoplineimg.com/584e1e3161706943b35ba000/6193f0c676495d002977ec50/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/6193f0d3cf185a00321fa627/800x.webp?source_format=jpg"
+        ]
+    },
+    {
+        "id": 13,
+        "name": "復古拉鍊無袖連身褲",
+        "category": "JUMPSUIT",
+        "series": "2021 F/W",
+        "material": "59% POLYESTER 31% RECYCLE S. CAFÉ POLYESTER 10% PU",
+        "price": 12300,
+        "description": "強調腰部與臀部線條，高腰的設計拉長腿部線條。加入KCC手工製作「復古公母對接拉鏈」點綴，復刻自全世界第一條垃鏈。具工業感的拉鏈非常迷人，粗獷的拉鏈造型與吊帶褲造型更在優雅性感的女性曲線中加入個性。",
+        "color": ["黑"],
+        "specification": "長度：113.2 CM 胸圍：78.4 CM 腰圍：67.8 CM 臀圍：86 CM",
+        "clothesSize": ["38", "其他"],
+        "modelSize": "高度：169 cm Model is wearing 38",
+        "quantity": 15,
+        "imgUrl": [
+          "https://shoplineimg.com/584e1e3161706943b35ba000/6193eef37afaf0002024763b/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/6193eefdba1c350015457862/800x.webp?source_format=jpg"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "印花尖型袖西裝外套",
+        "category": "TOP",
+        "series": "--",
+        "material": "80% Recycle Poly 20% Spandex",
+        "price": 15700,
+        "description": "印花可見如鋼琴、藤條與玩偶的圖像，是融合設計師本人兒時回憶，再由圖像創作者以邪惡氣味的頑皮風格呈現。尖銳的袖口與下擺線條為 JENN LEE俐落指標設計。",
+        "color": ["黑", "白"],
+        "specification": "長度：71 胸圍：108 腰圍：92 袖長：71",
+        "clothesSize": ["38", "其他"],
+        "modelSize": "高度：169 cm",
+        "quantity": 15,
+        "imgUrl": [
+          "https://shoplineimg.com/584e1e3161706943b35ba000/62694c2c3eb7d50001155085/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/626a359f37fcd60012b63731/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/625f8a599439120015922b65/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/626a359f8b4b2f00210668e0/800x.webp?source_format=jpg"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "復古拉鍊長版風衣",
+        "category": "TOP",
+        "series": "--",
+        "material": "78% POLYESTER 16% PU 6% SPANDEX",
+        "price": 27300,
+        "description": "寬鬆風衣版型，以尖型線條為主要設計元素，綜合不羈與性感，背後紅色線條點綴增添風味，袖口綁帶自由調整出酷感。採用台灣拉鍊大廠KCC專利拉鏈，復刻自「全世界第一條拉鍊」，更加粗獷的公母對接拉鍊齒即是最大特色，復古工業感十分迷人。",
+        "color": ["黑"],
+        "specification": "長度：118 CM 胸圍：104 CM 腰圍：110 CM 臀圍：121 CM 肩寬：55.5 CM 袖長：57.5 CM",
+        "clothesSize": ["38", "其他"],
+        "modelSize": "高度：169 cm Model is wearing 38",
+        "quantity": 15,
+        "imgUrl": [
+          "https://shoplineimg.com/584e1e3161706943b35ba000/619367be8f10fc003829f98d/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/619367cfa404810020dfaf31/800x.webp?source_format=jpg"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "蠶絲纏繞禮服(樣品)",
+        "category": "SALE",
+        "series": "--",
+        "material": "--",
+        "price": 1400,
+        "description": "--",
+        "color": ["銀"],
+        "specification": "肩寬:33 胸圍:84 腰圍:63.5 臀圍:92 衣長:113",
+        "clothesSize": ["One Size"],
+        "modelSize": "--",
+        "quantity": 1,
+        "imgUrl": [
+          "https://shoplineimg.com/584e1e3161706943b35ba000/61f25d88b571d70017816cd5/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/61f25d8876f7c173188448c6/800x.webp?source_format=jpg"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "前短後長細褶洋裝(樣品)",
+        "category": "SALE",
+        "series": "--",
+        "material": "--",
+        "price": 2000,
+        "description": "--",
+        "color": ["黑"],
+        "specification": "胸圍:83 腰圍:70 臀圍:96 衣長:77-108 袖長:69",
+        "clothesSize": ["One Size"],
+        "modelSize": "--",
+        "quantity": 1,
+        "imgUrl": [
+          "https://shoplineimg.com/584e1e3161706943b35ba000/61f25c2ae0e4ec00266f4fb3/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/61f25c2ad61b7e002088cc4f/800x.webp?source_format=jpg"
+        ]
+    },
+    {
+        "id": 18,
+        "name": "丹寧斜肩虛邊帶褲",
+        "category": "JUMPSUIT",
+        "series": "--",
+        "material": "--",
+        "price": 6830,
+        "description": "單斜肩設計與丹寧結合，虛邊與藥丸，僅僅是外漏的慾望。因純手工染色以及製作，商品每件會有些許的位置定位差異，連環圖樣錯置效果，刻意安排的隨機之美。",
+        "color": ["單寧"],
+        "specification": "衣長: 120 CM 腰圍: 90 CM",
+        "clothesSize": ["One Size"],
+        "modelSize": "--",
+        "quantity": 20,
+        "imgUrl": [
+          "https://shoplineimg.com/584e1e3161706943b35ba000/5c7f6a57b6c7010017db4ff0/800x.webp?source_format=jpg",
+          "https://shoplineimg.com/584e1e3161706943b35ba000/5c7f6a57c55e30002685e1f3/800x.webp?source_format=jpg"
+        ]
     }
 ]

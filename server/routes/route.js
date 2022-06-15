@@ -10,11 +10,13 @@ const router = Express.Router();
 // router.get('/', authController.getIndex);
 
 // api
-router.get('/api/getProducts', shopController.getProducts);
-router.get('/api/getImgs', shopController.getImgs);
+router.get('/api/getAllProducts', shopController.getAllProducts);
+router.get('/api/getProduct/:id', shopController.getProduct);
 
-router.post('/signup', authController.postSignup);
-router.post('/login', authController.postLogin);
 
+// auth
+router.post('/post/signup', authController.postSignup);
+router.post('/post/login', authController.postLogin);
+router.post('/post/logout', authController.postLogout);
 
 module.exports = router;

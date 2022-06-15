@@ -1,54 +1,79 @@
-const { appendFile } = require('fs');
-const path = require('path');
-const { nextTick } = require('process');
+const bcryptjs = require('bcryptjs');
 
-const db = require('../utils/database.js')
-// const User = require('../models/user');
+const User = require('../models/user');
 
-// ===================================================
+// ==========================================================
 
-// 會員註冊
+// 使用者註冊
 const postSignup = (req, res) => {
   const { email, password } = req.body;
-  const emailExistsSql = `SELECT email FROM users WHERE email='${email}'`;
-  const signUpSql = `INSERT INTO users (email, password, valid) VALUES ('${email}', '${password}', 1)`;
-
-  db.query(emailExistsSql, (err, result)=>{
-    if(err){
-      console.error("An error occurred:", err.message); 
-      res.status(500).send(`伺服器出錯`).end();
-      return 0;
-    };
-    // 判斷使用者是否重複註冊
-    if(result.length >= 1){
-      res.send(`註冊失敗，信箱已被使用過`).end();
-      return 0;
-    } else {
-      db.query(signUpSql, (err, result) => {
-        res.status(200).send(`註冊成功`).end();
-      });
-    }
-  }); 
+  User.findOne({ where: { email } })
+    .then((user) => {
+      if (user) {
+        // 使用者已存在的情況
+        return res.send('使用者已存在');
+      } else { 
+        return bcryptjs.hash(password, 12)
+          .then((hashedPassword) => {
+            return User.create({ email, password: hashedPassword })
+              .then((newUser) => {
+                return newUser.createCart();
+              })
+              .catch((err) => {
+                console.log('postSignup - newUser.carateCart error: ', err);
+              });
+          })
+          .catch((err) => {
+            console.log('create new user error: ', err);
+          })
+      };
+    })
+    .catch((err) => {
+      console.log('signup error', err);
+    });
 };
 
-// 會員登入
+// 使用者登入
 const postLogin = (req, res) => {
   const { email, password } = req.body;
-  const sql = `SELECT * FROM users WHERE name='${email}' AND password='${password}';`;
-  db.query(sql, (err, result) => {
-    if(err){
-      console.error("An error occurred:", err.message);
-      // res.status(500).send(`An error occurred: ${err.message}`).end();
-      res.status(500).send(`伺服器出錯`).end();
-    } else{
-      res.status(200).send(`登入成功`).redirect('/').end();
-    };
-  });
+  // 以 email 判斷是否已註冊
+  User.findOne({ where: {email} })
+    .then((user) => {
+      // 若無此使用者
+      if (!user) {
+        return res.send().end();
+      };
+      bcryptjs.compare(password, user.password)
+        .then( isMatch => {
+          if (isMatch) {
+            req.session.user = user;
+            req.session.isLogin = true;
+            return req.session.save((err) => {
+              console.log('postLogin - save session error: ', err);
+            });
+          } else {
+            return req.send('錯誤的email或密碼');
+          };
+        })
+        .catch((err) => {
+          return res.send();
+        });
+    })
+    .catch((err) => {
+      console.log('login error:', err);
+    });
 };
 
-
+// 使用者登出
+const postLogout = (req, res) => {
+  req.session.destroy();
+  console.log('使用者已登出')
+};
 
 module.exports = {
+  // getLogin,
+  // getSignup,
   postLogin,
+  postLogout,
   postSignup
 };

@@ -12,13 +12,13 @@
   border-right: none;
 }
 
-//原class名稱是.delete_button換成.deleteaccount_button
-.deleteaccount_button { 
+// 原class名稱是.delete_button換成.delete_account_button(避免交互影響)
+.delete_account_button { 
   color: $redColor;
   border-top: solid 1px $redColor;
   border-bottom: solid 1px $redColor;
 }
 
-.delete_button:hover {
+.delete_account_button:hover {
   text-decoration: underline;
 }
