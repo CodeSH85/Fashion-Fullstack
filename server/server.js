@@ -96,16 +96,18 @@ app.use((req, res, next) => {
   next();
 });
 
-// Use cors
-app.use(cors({  
-  origin:['http://localhost:8080'],
-  methods:['GET','POST'],
-}));
-app.all('*',function (req, res, next) {
-res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
-res.header('Access-Control-Allow-Headers', 'Content-Type');
-res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
-next();
+// CORS config here
+app.all('/*', function (req, res, next) {
+  // CORS headers
+  res.header("Access-Control-Allow-Origin", "*"); // restrict it to the required domain
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  // Set custom headers for CORS
+  res.header('Access-Control-Allow-Headers', 'Content-type,Accept,X-Access-Token,X-Key');
+  if (req.method == 'OPTIONS') {
+    res.status(200).end();
+  } else {
+    next();
+  }
 });
 
 // 關聯式資料庫 ==========================================================
@@ -156,11 +158,11 @@ Order.belongsToMany(Product,{ through: OrderItem });
 
 database
   .sync({
-    // force: true
+    force: true
   }) // 和 db 連線時，強制重設 db
   .then((result) => {
     // Product.bulkCreate(productData);
-    // Product.bulkCreate(data);
+    Product.bulkCreate(data);
     app.listen(port, () => {
       console.log(`Web Server is running on port ${port}`);
     });

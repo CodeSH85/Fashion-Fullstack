@@ -34,31 +34,38 @@
               </router-link>
             </div>
           </div>
-          <router-link to="/account" type="submit" class="d-block col-md-3 col-sm-7 
-          mx-md-0 mx-sm-auto mt-md-0 mt-sm-3">
-            <button class="sign_in_button h4 fw-bold link-dark text-center py-3 mb-0" type="submit">SIGN IN</button>
-          </router-link>
+            <button class="sign_in_button col-md-3 col-sm-7 h4 fw-bold link-dark text-center py-3 mb-0 mx-md-0 mx-sm-auto" 
+            type="submit" @click.prevent="signIn">SIGN IN</button>
         </div>
       </form>
     </div>
   </div>
 </template>
 <script>
-  import axios from "axios"
+  // import axios from "axios"
 
-  export default{
+  export default {
     data () {
-      return{
+      return {
         email:'',
         password:'',
       }
     },
-    method:{
-      async login(){
-        let result = await axios.post("http://localhost:3000/post/login")
-      }
+    methods:{
+      // async login(){
+      //   let result = await axios.post("http://localhost:3001/post/login")
+      // }
+
+    // 傳值到store和導向到accountView頁面
+      signIn: function() {
+        this.$store.commit ('saveAccount', {
+          email: this.email,
+        })
+        this.$router.push('/account');
+      },
     },
-    mounted(){
+    mounted() {
+    
     }
   }
 
