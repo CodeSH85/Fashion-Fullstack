@@ -126,7 +126,7 @@
 // 引入元件(component)
   import ShopPageButtons from "../components/ShopPageButtons.vue"
   import SuggestedProduct from "../components/SuggestedProduct.vue"
-
+  import axios from "axios"
   export default {
     components: {
       ShopPageButtons,
@@ -201,6 +201,17 @@
         return this.$store.getters.getProduct (parseInt(this.$route.params.productId))
       }
     },
+    mounted(){
+        axios.post("http://localhost:3000/api/getProduct/:productId", data)
+        .then(async(res)=>{
+          await function(item){
+            if(item.id == this.productId){
+              this.productInfo.number = item.productentry.number
+              this.productInfo.url = item.url
+            }
+          }
+        }) 
+    }
   }
 
 </script>

@@ -6,6 +6,7 @@ import productsData from "../../public/data.json"
 export default createStore ({
   state: {
     data: productsData,
+    productAllApi: "http://localhost:3000/api/getAllProducts",
     cart: [],
     userOrder: [],
   },
@@ -17,7 +18,8 @@ export default createStore ({
     // 已經加總後的購物車商品數量
     currentQuantity (state) {
       let sum = 0;
-      for (var i = 0; i < state.cart.length; i++) {
+
+      for(var i = 0; i < state.cart.length; i++) {
         sum += state.cart[i].number
         // sum = sum(0) + "cart裡面每一組資料API中的number數量[後來自己新加的API資料]"
       }

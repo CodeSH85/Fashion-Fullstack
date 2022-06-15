@@ -8,24 +8,28 @@
         </h1>
       </div>
       <!-- 表格 -->
-      <form action="/login" method="post" class="">
+      <form class="">
         <div class="email_block col-md-8 col-sm-10 mx-auto mt-5">
           <label for="email" class="email_title h5 mb-2">E-mail</label>
-          <input type="email" class="email_input form-control lh-lg" id="account" placeholder="" required>
+          <input type="email" name="email" class="email_input form-control lh-lg"
+           id="account" v-model="email" placeholder="" required>
         </div>
         <div class="password_block col-md-8 col-sm-10 mx-auto mt-5">
           <label for="password" class="password_title h5 mb-2">Password</label>
-          <input type="password" class="password_input form-control lh-lg" id="password" placeholder="" required>
+          <input type="password" name="password" class="password_input form-control lh-lg"
+           id="password" v-model="password" placeholder="" required>
         </div>
         <div class="confirm_password_block col-md-8 col-sm-10 mx-auto mt-5">
           <label for="confirm_password" class="confirm_password_title h5 mb-2">Confirm Password</label>
-          <input type="password" class="confirm_password_input form-control lh-lg" id="confirm_password" placeholder="" required>
+          <input type="password" class="confirm_password_input form-control lh-lg"
+           id="confirm_password" v-model="rePassword" placeholder="" required>
         </div>
         <!-- 表格按鈕 -->
         <div class="button_group col-8 mx-auto d-flex justify-content-md-end mt-5">
-          <router-link to="/login" type="submit" class="d-block col-md-3 col-sm-7 
+          <router-link to="" type="submit" class="d-block col-md-3 col-sm-7 
           mx-md-0 mx-sm-auto mt-md-0 mt-sm-3">
-            <div class="sign_up_button h4 fw-bold link-dark text-center py-3 mb-0">SIGN UP</div>
+            <div class="sign_up_button h4 fw-bold link-dark text-center py-3 mb-0"
+            @click="signUp">SIGN UP</div>
           </router-link>
         </div>
       </form>
@@ -33,42 +37,43 @@
   </div>
 </template>
 <script>
-
+  import axios from "axios";
+  export default{
+    data(){
+      return{
+        email: '',
+        password: '',
+        rePassword: '',
+        passwordMatch: false,
+        rePasswordMsg: '',
+      }
+    },
+    watch: {
+      confirmPassword(){
+        if( this.rePassword!= this.password){
+          this.rePasswordMsg = '密碼不一致'
+        } else {
+          this.passwordMatch = true
+        }
+      },
+    },
+    methods:{
+      signUp() {
+        if(this.passwordMatch){
+          let result = axios.post('http://localhost:3000/post/signup',{
+            email: this.email,
+            password: this.password
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+          console.log(result)
+        }
+      }
+    },
+    mounted(){
+      
+    },
+  }
 
 </script>
-<!-- <style scoped lang="scss">
-  @import "../assets/scss/main.scss";
-  
-  .h1_title {
-    margin-top: 180px;
-  }
-
-  input {
-    background-color: transparent;
-    border: solid 1px black;
-    border-radius: 0;
-  }
-
-  .button_group {
-    margin-bottom: 100px;
-  }
-
-  /* 要對router-link超連結下任何css要使用a標籤 */
-  a { 
-    text-decoration: none;
-  }
-
-  .sign_up_button {
-    border: solid 1px black;
-    border-left: none;
-    border-right: none;
-    background-color: transparent;
-  }
-
-  .sign_up_button:hover {
-    color: $redColor;
-    border: solid 1px $redColor;
-    border-left: none;
-    border-right: none;
-  }
-</style> -->
