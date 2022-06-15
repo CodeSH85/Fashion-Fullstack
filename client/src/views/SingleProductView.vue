@@ -137,7 +137,7 @@
 // 引入元件(component)
   import ShopPageButtons from "../components/ShopPageButtons.vue"
   import SuggestedProduct from "../components/SuggestedProduct.vue"
-
+  import axios from "axios"
   export default {
     components: {
       ShopPageButtons,
@@ -146,31 +146,44 @@
     data () {
       return {
         selectedNumber: '',
+        productData:[],
+        productsId: this.$route.query.productsId
       }
     },
     methods: {
       // 判斷存貨
       addCart: function (product) {
-      product.number = this.selectedNumber;
+        product.number = this.selectedNumber;
 
-      if (product.quantity - product.number < 0) {
-        alert('存貨不足')
-        return;
-      }
-      this.$store.commit ('addCart', {
-        product: product,
-        number: this.selectedNumber,
-      })
-      alert('已加入購物車')
-      // console.log(product)
+        if (product.quantity - product.number < 0) {
+          alert('存貨不足')
+          return;
+        }
+        this.$store.commit ('addCart', {
+          product: product,
+          number: this.selectedNumber,
+        })
+        alert('已加入購物車')
+        // console.log(product)
       }
     },
     computed:{
       // 取得點選商品的詳細資訊
       getProduct () {
-        return this.$store.getters.getProduct (parseInt(this.$route.params.productId))
+        return this.$store.getters.getProduct(parseInt(this.$route.params.productId))
       }
     },
+    mounted(){
+        axios.post("http://localhost:3000/api/getProduct/:productId", data)
+        .then(async(res)=>{
+          await function(item){
+            if(item.id == this.productId){
+              this.productInfo.number = item.productentry.number
+              this.productInfo.url = item.url
+            }
+          }
+        }) 
+    }
   }
 
 </script>

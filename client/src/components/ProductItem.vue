@@ -28,7 +28,6 @@ export default {
 }
 </script>
 <style scoped>
-
   .img_container {
       width: 273px;
       height: 240px;

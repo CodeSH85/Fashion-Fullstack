@@ -6,6 +6,7 @@ import productsData from "../../public/data.json"
 export default createStore ({
   state: {
     data: productsData,
+    productAllApi: "http://localhost:3000/api/getAllProducts",
     cart: [],
   },
   getters: {

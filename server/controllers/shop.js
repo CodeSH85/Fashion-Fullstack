@@ -1,23 +1,35 @@
-const Product = require('../models/product');
+const Products = require('../models/product');
 
 //===========================================================
 
 
-const test = (req, res) => {
-  res.send(`test`);
-};
-
-// 全部商品資料api
+// 全部商品資料 api
 const getAllProducts = (req, res) => {
-  Product.findAll()
-  .then((products) => {
-    res.status(200).send(products);
+  Products.findAll()
+  .then((product) => {
+    res.send((product));
   })
   .catch((err) => {
-    console.log('Product.findAll() error: ', err);
-    res.status(500);
+    console.log('Products.findAll() error: ', err);
   });
 };
+
+// 個別商品資料 api
+const getProduct = (req, res) => {
+	const { id } = req.params['id'];
+	Products.findOne({
+		where: {
+			id: id
+		},
+	})
+	.then((product)=>{
+		return res.send(product);
+	})
+	.catch((err)=>{
+		return res.send(err);
+	})
+};
+
 
 // 購物車
 // 取得使用者購物車
@@ -62,6 +74,7 @@ const postCartAddItem = (req, res) => {
     })
 };
 
+// 刪除購物車商品
 const postCartDeleteItem = (req, res, next) => {
   const { productId } = req.body;
   let userCart;
@@ -101,6 +114,7 @@ const getOrders = (req, res, next) => {
     .catch((err) => console.log(err));
 };
 
+// 創建訂單
 const postOrder = (req, res, next) => {
   let userCart;
   let orderAmount = 0;
@@ -133,10 +147,10 @@ const postOrder = (req, res, next) => {
 
 module.exports = {
   getAllProducts,
+  getProduct,
   getCart,
   getOrders,
   postCartAddItem,
   postCartDeleteItem,
   postOrder,
-  test
 }

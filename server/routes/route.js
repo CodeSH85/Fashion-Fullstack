@@ -11,11 +11,12 @@ const router = Express.Router();
 
 // api
 router.get('/api/getAllProducts', shopController.getAllProducts);
-router.get('/api/test', shopController.test);
+router.get('/api/getProduct/:id', shopController.getProduct);
 
+
+// auth
 router.post('/post/signup', authController.postSignup);
 router.post('/post/login', authController.postLogin);
 router.post('/post/logout', authController.postLogout);
-
 
 module.exports = router;

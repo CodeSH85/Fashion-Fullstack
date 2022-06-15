@@ -11,12 +11,11 @@ const postSignup = (req, res) => {
     .then((user) => {
       if (user) {
         // 使用者已存在的情況
-        return res.send('email已被使用');
-      } else {
+        return res.send('使用者已存在');
+      } else { 
         return bcryptjs.hash(password, 12)
           .then((hashedPassword) => {
-            return User
-              .create({ email, password: hashedPassword })
+            return User.create({ email, password: hashedPassword })
               .then((newUser) => {
                 return newUser.createCart();
               })

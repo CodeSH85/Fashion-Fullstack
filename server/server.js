@@ -16,7 +16,9 @@ const history = require('connect-history-api-fallback');
 const csrfProtection = require('csurf');
 
 // 自訂模組
+// 路由
 const router = require('./routes/route');
+
 const database = require('./utils/database');
 const Product = require('./models/product');
 const Cart = require('./models/cart');
@@ -39,35 +41,53 @@ const port = process.env.PORT || 3001;
 
 // Use Express
 const app = new Express();
-// app.use(connectFlash());
 app.use(Express.urlencoded({ extended : false }));
 app.use(bodyParser.json());
 
-// app.use((req, res, next) => {
-//   if (!req.session.user) {
-//     return next();
-//   }
-//   User.findByPk(req.session.user.id)
-//     .then((user) => {
-//       req.user = user;
-//       next();
-//     })
-//     .catch((err) => {
-//       console.log('find user by session id error: ', err);
-//     })
+
+    
+// Routes 路由 ==============================================================
+    
+app.use(router);
+    
+app.use(Express.static(path.join(__dirname, '../client/dist'))); // 使用靜態資源
+
+app.get('/', function(req, res){
+	res.sendFile(__dirname,'../dist/index.html');
+	
+});
+// app.get('/', (req, res)=>{
+//   res.status(200).sendFile(path.join(__dirname, './views', 'index.html'));
 // });
+// app.use(history());
 
 
 // Use Session 
 app.use(session({ 
-  isLogin: false,  
   secret: 'sessionToken',  // 加密用的字串
+  isLogin: false,  
 	resave: false,   // 沒變更內容是否強制回存
 	saveUninitialized: false ,  // 新 session 未變更內容是否儲存
 	cookie: {
-    maxAge: 10000
+    maxAge: 10000,
+    httpOnly: false,
 	}
 })); 
+
+
+app.use((req, res, next) => {
+  if (!req.session.user) {
+      return next();
+  }
+  User.findByPk(req.session.user.id)
+      .then((user) => {
+          req.user = user;
+          next();
+      })
+      .catch((err) => {
+          console.log('custom middleware - findUserBySession error: ', err);
+      })
+});
 
 app.use((req, res, next) => {
   // res.locals.path = req.url;
@@ -131,33 +151,16 @@ Order.belongsTo(User);
 User.hasMany(Order);
 Order.belongsToMany(Product,{ through: OrderItem });
 
-// Routes 路由 ==============================================================
-
-app.use(router);
-
-app.use(Express.static(path.join(__dirname, '../client/dist'))); // 使用靜態資源
-const staticFileMiddleware = Express.static(__dirname);
-app.use(staticFileMiddleware);
-app.use(history({
-  disableDotRule: true,
-  verbose: true
-}));
-app.use(staticFileMiddleware);
-
-// app.get('/', (req, res)=>{
-//   res.status(200).sendFile(path.join(__dirname, './views', 'index.html'));
-// });
-// app.use(history());
 
 // Use Sequelize ===========================================================
 
 database
   .sync({
-    force: true
+    // force: true
   }) // 和 db 連線時，強制重設 db
   .then((result) => {
     // Product.bulkCreate(productData);
-    Product.bulkCreate(data);
+    // Product.bulkCreate(data);
     app.listen(port, () => {
       console.log(`Web Server is running on port ${port}`);
     });
