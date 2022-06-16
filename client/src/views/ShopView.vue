@@ -38,10 +38,6 @@
   // import axios from "axios";
   
   import ShopPageButtons from "../components/ShopPageButtons.vue"
-<<<<<<< HEAD
-  // import ProductItem from "../components/ProductItem.vue"
-=======
->>>>>>> ed0714ed322c074154b67777f4bd9e7d2f64d3ca
   import CategoryAll from "../components/CategoryAll.vue"
   import CategoryTop from "../components/CategoryTop.vue"
   import CategoryBottom from "../components/CategoryBottom.vue"

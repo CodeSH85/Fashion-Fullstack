@@ -83,15 +83,8 @@
           })
           .catch(function (error) {
             console.log(error);
-<<<<<<< HEAD
           })
         // }
-=======
-          });
-          console.log(result)
-        }
-        this.$router.push('/login')
->>>>>>> ed0714ed322c074154b67777f4bd9e7d2f64d3ca
       }
     },
     mounted(){

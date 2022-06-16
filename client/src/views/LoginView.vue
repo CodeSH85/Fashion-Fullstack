@@ -34,15 +34,10 @@
               </router-link>
             </div>
           </div>
-<<<<<<< HEAD
           <div to="/account" type="submit" class="d-block col-md-3 col-sm-7 mx-md-0 mx-sm-auto mt-md-0 mt-sm-3">
             <button class="sign_in_button h4 fw-bold link-dark text-center py-3 mb-0"
               @click="login()">SIGN IN</button>
           </div>
-=======
-            <button class="sign_in_button col-md-3 col-sm-7 h4 fw-bold link-dark text-center py-3 mb-0 mx-md-0 mx-sm-auto" 
-            type="submit" @click.prevent="signIn">SIGN IN</button>
->>>>>>> ed0714ed322c074154b67777f4bd9e7d2f64d3ca
         </div>
       </div>
     </div>
@@ -59,7 +54,6 @@
       }
     },
     methods:{
-<<<<<<< HEAD
       login() {
         axios.post('http://localhost:3000/post/login',{
           email: this.email,
@@ -78,22 +72,6 @@
           console.log(error);
         }) 
       }
-=======
-      // async login(){
-      //   let result = await axios.post("http://localhost:3001/post/login")
-      // }
-
-    // 傳值到store和導向到accountView頁面
-      signIn: function() {
-        this.$store.commit ('saveAccount', {
-          email: this.email,
-        })
-        this.$router.push('/account');
-      },
-    },
-    mounted() {
-    
->>>>>>> ed0714ed322c074154b67777f4bd9e7d2f64d3ca
     }
   }
 

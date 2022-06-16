@@ -140,8 +140,6 @@
         showImg: 0,
       }
     },
-<<<<<<< HEAD
-=======
     mounted () {
         // axios.post("http://localhost:3000/api/getProduct/:productId")
         // .then(async(res)=>{
@@ -156,7 +154,6 @@
       // 圖片輪播器定時
       setInterval (this.setShowImg, 3000);
     },
->>>>>>> ed0714ed322c074154b67777f4bd9e7d2f64d3ca
     methods: {
       // 判斷存貨、是否選擇規格之防呆提醒
       addCart: function (product) {
