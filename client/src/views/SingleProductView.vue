@@ -201,6 +201,8 @@
         return this.$store.getters.getProduct (parseInt(this.$route.params.productId))
       }
     },
+  }
+</script>
     mounted(){
         axios.post("http://localhost:3000/api/getProduct/:productId", data)
         .then(async(res)=>{
