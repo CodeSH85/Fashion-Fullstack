@@ -19,11 +19,31 @@ const Product = database.define('product', {
     type: Sequelize.DOUBLE,
     allowNull: false,
   },
+  quantity: {
+    type: Sequelize.DOUBLE,
+    allowNull: false,
+  },
   description: {
     type: Sequelize.STRING,
     allowNull: true,
   },
   material: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
+  clothesSize: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
+  category: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
+  imgUrl: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
+  color: {
     type: Sequelize.STRING,
     allowNull: true,
   },
@@ -34,10 +54,6 @@ const Product = database.define('product', {
   modelSize: {
     type: Sequelize.STRING,
     allowNull: true,
-  },
-  categoryId: {    
-    type: Sequelize.INTEGER,
-    allowNull: false,
   }
 });
 
