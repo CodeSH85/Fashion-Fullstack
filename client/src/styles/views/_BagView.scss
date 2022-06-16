@@ -1,38 +1,54 @@
-// .empty_cart {
-//   margin: 245px 0;
-// }
+.empty_cart {
+  margin: 245px 0;
+}
 
-// .go_shopping {
-//   margin-bottom: 0;
-// }
+.go_shopping {
+  margin-bottom: 0;
+}
 
-// .amount_button {
-//   border: solid 2px black;
-// }
+.all_amount {
+  margin: 120px 0 80px 0;
+}
 
-// .mark {
-//   border: none;
-//   background-color: $bgColor;
-// }
+.amount_button {
+  border: solid 2px black;
+}
 
-// button {
-//   border: none;
-// }
+.mark {
+  border: none;
+  background-color: transparent;
+}
 
-// .cart_total {
-//   margin-top: -100px;
-// }
+.cart_total {
+  margin-top: -100px;
+}
 
-// a {
-//   text-decoration: none;
-//   margin-bottom: 180px;
-// }
+.bagView {
+  a {
+    text-decoration: none;
+    margin-bottom: 180px;
+  }
 
-// a:hover {
-//   color: $redColor;
-// }
+  a:hover {
+    color: $redColor;
+  }
 
-// .check_button {
-//   border-top: solid 2px $redColor;
-//   border-bottom: solid 2px $redColor;
-// }
+  button {
+    border: none;
+    background-color: transparent;
+  }
+
+  .check_button {
+    border-top: solid 2px $redColor;
+    border-bottom: solid 2px $redColor;
+    margin-bottom: 100px;
+  }
+
+  .check_button:hover {
+    color: $redColor;
+  }
+}
+
+.button_space {
+  margin-top: 40px;
+}
