@@ -98,7 +98,7 @@ const routes = [
     },
   },
   {
-    path: '/bag/completed',
+    path: '/bag/:orderId',
     name: 'orderCompleted',
     component: () => import('../views/OrderCompletedView.vue'),
     meta: {

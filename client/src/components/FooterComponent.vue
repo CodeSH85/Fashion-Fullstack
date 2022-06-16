@@ -6,16 +6,16 @@
         <nav>
           <ul class="media_links text-center ps-0">
             <li class="d-lg-inline px-3 d-sm-block">
-              <a class="link-dark" href="https://www.facebook.com/official.JENNLEE?fref=ts" target="_blank">FACEBOOK</a>
+              <a class="" href="https://www.facebook.com/official.JENNLEE?fref=ts" target="_blank">FACEBOOK</a>
             </li>
             <li class="d-lg-inline px-3 pt-3 d-sm-block">
-              <a class="link-dark" href="https://twitter.com/jennleeofficial" target="_blank">TWITTER</a>
+              <a class="" href="https://twitter.com/jennleeofficial" target="_blank">TWITTER</a>
             </li>
             <li class="d-lg-inline px-3 pt-3 d-sm-block">
-              <a class="link-dark" href="https://www.instagram.com/jennlee_official/" target="_blank">INSTAGRAM</a>
+              <a class="" href="https://www.instagram.com/jennlee_official/" target="_blank">INSTAGRAM</a>
             </li>
             <li class="d-lg-inline px-3 pt-3 d-sm-block">
-              <a class="link-dark" href="https://www.youtube.com/channel/UCI8vjQvPvjuwp9dHIDFpNHg" target="_blank">YOUTUBE</a>
+              <a class="" href="https://www.youtube.com/channel/UCI8vjQvPvjuwp9dHIDFpNHg" target="_blank">YOUTUBE</a>
             </li>
           </ul>
         </nav>
@@ -43,6 +43,4 @@ computed: {
   }
 }
 }
-
-
 </script>
