@@ -41,18 +41,18 @@
     },
     data () {
       return {
-        email: 'example@test.com',
+        email: '',
       }
     },
     methods: {
+      // 在accountView上的email欄位後方顯示登入中user的帳號
       showAccount () {
-        if (this.$store.state.loginUser.email !== '') {
-          this.email = this.$store.state.loginUser.email
-          return this.email
-        } else {
-          return this.email;
-        }
-      }
+        const loginUser = this.$store.state.loginUser.memoryAccount
+        this.email = loginUser
+      },
+    },
+    computed:{
+
     },
     created () {
       this.showAccount ();
