@@ -1,7 +1,7 @@
 <template>
   <!-- 購物清單確認頁面 -->
   <!-- 購物車內沒東西時的畫面 (透過v-if判斷做畫面切換) -->
-  <div class="container-fluid" v-if="productsInCart.length === 0">
+  <div class="bagview container-fluid" v-if="productsInCart.length === 0">
     <div class="row">
       <div class="empty_cart col-6 mx-auto text-center">
         <div class="h3 fw-bold my-3">購物車中尚無商品</div>
@@ -125,60 +125,3 @@
     },
   }
 </script>
-<style scoped lang="scss">
-  @import "../assets/scss/main.scss";
-
-  .empty_cart {
-    margin: 220px 0;
-  }
-
-  .go_shopping {
-    margin-bottom: 0;
-  }
-
-  .all_amount {
-    margin: 120px 0 80px 0;
-  }
-
-  .amount_button {
-    border: solid 2px black;
-  }
-
-  .mark {
-    border: none;
-    background-color: transparent;
-  }
-
-  button {
-    border: none;
-    background-color: transparent;
-  }
-
-  // .cart_total {
-  //   margin-top: -100px;
-  // }
-
-  // a {
-  //   text-decoration: none;
-  //   margin-bottom: 100px;
-  // }
-
-  // a:hover {
-  //   color: $redColor;
-  // }
-
-  .button_space {
-    margin-top: 40px;
-  }
-
-  .check_button {
-    border-top: solid 2px $redColor;
-    border-bottom: solid 2px $redColor;
-    // text-decoration: none;
-    margin-bottom: 100px;
-  }
-
-  .check_button:hover {
-    color: $redColor;
-  }
-</style>

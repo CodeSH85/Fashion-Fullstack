@@ -1,40 +1,44 @@
 <template>
-     <div :class="[{border: has_border}, 'press-card']">
-         <div class="image-box">
-           <img class="press-img" :src="img"  alt="picture">
-         </div>
-            <!-- <h5 class="card-title">{{ title }}</h5> -->
-           <slot></slot>
+  <div :class="[{border: has_border},'press-card']">
+    <div class="image-box">
+      <img class="press-img" :src="img" alt="picture" />
     </div>
+    <h3 class="press-title">{{ title }}</h3>
+    <slot></slot>
+  </div>
 </template>
 <script>
+
 export default {
+   name: 'PressCard',
   props: {
     'id': Number,
     'title': String,
     'img': String,
   },
-  methods: {
-    parseImgPath: function(){
-      return this.$store.state.pressInfo.img
-    }
-  }
-}
+};
 </script>
 <style scoped>
-  div.press-card{
-    text-align: center;
-    cursor: pointer;
-    display: block;
+.border{
+    border: 3px solid #f30303;
   }
-  div.press-card .image-box{
-    width: 100%;
-    min-width: 275px;
-    display: flex;
-  }
- img{
-    width: 263px;
-    display: block;
-    margin: 1.5rem;
-  }
+div.press-card .image-box {
+  width: 100%;
+  min-width: 275px;
+  display: flex;
+}
+.press-img {
+  width: 263px;
+  display: block;
+  margin: 1.5rem;
+}
+
+.press-card {
+  text-align: center;
+  cursor: pointer;
+  display: block;
+}
+.press-title{
+  color:rgb(191, 182, 182);
+}
 </style>

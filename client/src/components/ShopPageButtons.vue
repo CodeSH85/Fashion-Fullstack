@@ -37,8 +37,10 @@
   import categoryData from "../../public/categories.json"
 
   export default {
+    name: 'ShopPageButtons',
     data () {
       return {
+        isShow: true,
         unLogin: true,
         tab: categoryData,
       }
