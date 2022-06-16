@@ -111,24 +111,3 @@
     }
   }
 </script>
-<style scoped lang="scss">
-  @import "../assets/scss/main.scss";
-
-  .order_completed_title {
-    margin: 120px 0 80px 0;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: $redColor;
-  }
-
-  .shopping_button {
-    margin: 35px 0 100px 0;
-    border-top: solid 2px $redColor;
-    border-bottom: solid 2px $redColor;
-  }
-</style>

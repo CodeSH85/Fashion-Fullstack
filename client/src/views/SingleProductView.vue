@@ -1,7 +1,7 @@
 <template>
   <ShopPageButtons @backToPage="backToCategoryPage"></ShopPageButtons>
   <!-- 商品單一詳情頁面 -->
-  <div class="container-fluid">
+  <div class="singleproduct container-fluid">
     <div class="row">
       <!-- 商品主資訊 -->
       <div class="main_information col-10 mx-auto d-flex justify-content-evenly 
@@ -140,6 +140,23 @@
         showImg: 0,
       }
     },
+<<<<<<< HEAD
+=======
+    mounted () {
+        // axios.post("http://localhost:3000/api/getProduct/:productId")
+        // .then(async(res)=>{
+        //   await function(item){
+        //     if(item.id == this.productId){
+        //       this.productInfo.number = item.productentry.number
+        //       this.productInfo.url = item.url
+        //     }
+        //   }
+        // })
+
+      // 圖片輪播器定時
+      setInterval (this.setShowImg, 3000);
+    },
+>>>>>>> ed0714ed322c074154b67777f4bd9e7d2f64d3ca
     methods: {
       // 判斷存貨、是否選擇規格之防呆提醒
       addCart: function (product) {
@@ -195,8 +212,10 @@
       // 取得點選商品的詳細資訊
       getProduct () {
         return this.$store.getters.getProduct (parseInt(this.$route.params.productId))
-      }
+      },
     },
+  }
+</script>
     mounted(){
         // axios.post("http://localhost:3000/api/getProduct/:productId", data)
         // .then(async(res)=>{
@@ -210,96 +229,4 @@
         setInterval (this.setShowImg, 3000);
     }
   }
-
 </script>
-<style scoped lang="scss">
-  @import "../assets/scss/main.scss";
-  
-  .img_container {
-    width: 440px;
-  }
-
-  .img_container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  @media screen and ( max-width: 768px ) {
-    .img_container {
-      width: 374px;
-      height: 565px;
-    }
-
-    .price {
-      font-size: 32px;
-    }
-  }
-
-  hr {
-    height: 2px;
-    background-color: $grayColor;
-  }
-
-  .dropdown button {
-    width: 30%;
-    border: solid 2px $redColor;
-    border-left: none;
-    border-right: none;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-  .dropdown-list {
-    width: 30%;
-    border: solid 2px $redColor;
-    border-left: none;
-    border-right: none;
-    border-radius: 0;
-    background-color: transparent;
-  }
-
-  .dropdown-menu {
-    width: 30%;
-    border-radius: 0;
-    background-color: $bgColor;
-  }
-
-  .dropdown-menu li > a:hover {
-    color: white;
-    background-color: black;
-  }
-
-  .product_add_cart a {
-      text-decoration: none;
-      margin: 90px 0;
-  }
-
-  .add_cart_button {
-    border-top: solid 2px $redColor;
-    border-bottom: solid 2px $redColor;
-  }
-
-  .add_cart_button:hover {
-    color: $redColor;
-  }
-
-  @media screen and ( max-width: 768px ) {
-    .dropdown button {
-      width: 100%;
-      font-size: 20px;
-    }
-
-    .dropdown-menu {
-      width: 100%;
-    }
-
-    .dropdown-list {
-      width: 100%;
-    }
-
-    .dropdown-list option {
-      width: 100px;
-    }
-  }
-</style>

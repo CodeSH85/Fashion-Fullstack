@@ -2,7 +2,7 @@
   <AccountPageButtons />
   <!-- 檢視訂單頁 -->
   <!-- 訂單紀錄內沒東西時的畫面 (透過v-if判斷做畫面切換) -->
-  <div class="container-fluid" v-if="order.length === 0">
+  <div class="container-fluid" v-if = "order.length === 0">
     <div class="row">
       <div class="empty_order col-6 mx-auto text-center">
         <div class="h3 fw-bold my-3">尚無訂單紀錄</div>
@@ -10,7 +10,7 @@
     </div>
   </div>
   <!-- 訂單紀錄內有東西時的畫面 (透過v-if判斷做畫面切換) -->
-    <div class="container-fluid" v-if="order.length !== 0">
+    <div class="container-fluid" v-if = "order.length !== 0">
       <div class="row">
         <!-- 使用OrderListForm元件 -->
         <OrderListForm>
@@ -67,10 +67,3 @@
     },
   }
 </script>
-<style scoped lang="scss">
-  @import "../assets/scss/main.scss";
-
-  .empty_order {
-    margin: 80px 0 180px 0;
-  }
-</style>

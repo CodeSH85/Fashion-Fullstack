@@ -87,6 +87,7 @@ app.use((req, res, next) => {
   next();
 });
 
+<<<<<<< HEAD
 // user資料存到res.user
 app.use((req, res, next) => {
   if (!req.session.user) {
@@ -100,6 +101,20 @@ app.use((req, res, next) => {
     .catch((err) => {
         console.log('custom middleware - findUserBySession error: ', err);
     })
+=======
+// CORS config here
+app.all('/*', function (req, res, next) {
+  // CORS headers
+  res.header("Access-Control-Allow-Origin", "*"); // restrict it to the required domain
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  // Set custom headers for CORS
+  res.header('Access-Control-Allow-Headers', 'Content-type,Accept,X-Access-Token,X-Key');
+  if (req.method == 'OPTIONS') {
+    res.status(200).end();
+  } else {
+    next();
+  }
+>>>>>>> ed0714ed322c074154b67777f4bd9e7d2f64d3ca
 });
 
 // Routes 路由 ==============================================================
@@ -186,16 +201,20 @@ database
   //   })
   // })
   .sync({
-    // force: true
+    force: true
   }) // 和 db 連線時，強制重設 db
   .then((result) => {
     // Product.bulkCreate(productData);
+<<<<<<< HEAD
     // ProductEntry.bulkCreate(productEntryData);
     // Size.bulkCreate(sizeData);
     // Color.bulkCreate(colorData);
     // Category.bulkCreate(categoryData);
     // Img.bulkCreate(imgData);
     // Product.bulkCreate(data);
+=======
+    Product.bulkCreate(data);
+>>>>>>> ed0714ed322c074154b67777f4bd9e7d2f64d3ca
     app.listen(port, () => {
       console.log(`Web Server is running on port ${port}`);
     });

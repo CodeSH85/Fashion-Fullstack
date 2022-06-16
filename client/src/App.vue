@@ -1,18 +1,15 @@
 <template>
-  <TopNavbar />
   <Navbar />
     <router-view/>
   <Footer />
 </template>
 <script>
 // 引入元件(component)
-  import TopNavbar from "./components/TopNavbarComponent.vue"
   import Navbar from "./components/NavbarComponent.vue"
   import Footer from "./components/FooterComponent.vue"
 
   export default {
     components: {
-      TopNavbar,
       Navbar,
       Footer,
     },

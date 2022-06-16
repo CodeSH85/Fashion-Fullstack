@@ -10,6 +10,7 @@
   </div>
 </template>
 <script>
+  import axios from "axios"
   import ProductItem from "../components/ProductItem.vue"
 
   export default {
@@ -19,7 +20,17 @@
     data () {
       return {
         data: this.$store.state.data,
+        // productData: [],
       }
-    }
+    },
+    mounted(){
+      axios.get("http://localhost:3001/api/getAllProducts")
+      .then( res => ( this.productData = res.data ) )
+      // .then( res => { console.log(res.data) } )
+      .catch(function (error) { 
+        console.log(error)
+      });
+      
+    },
   }
 </script>
