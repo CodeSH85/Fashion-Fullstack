@@ -126,7 +126,7 @@
 // 引入元件(component)
   import ShopPageButtons from "../components/ShopPageButtons.vue"
   import SuggestedProduct from "../components/SuggestedProduct.vue"
-  import axios from "axios"
+  // import axios from "axios"
   export default {
     components: {
       ShopPageButtons,
@@ -141,6 +141,16 @@
       }
     },
     mounted () {
+        // axios.post("http://localhost:3000/api/getProduct/:productId")
+        // .then(async(res)=>{
+        //   await function(item){
+        //     if(item.id == this.productId){
+        //       this.productInfo.number = item.productentry.number
+        //       this.productInfo.url = item.url
+        //     }
+        //   }
+        // })
+
       // 圖片輪播器定時
       setInterval (this.setShowImg, 3000);
     },
@@ -199,7 +209,7 @@
       // 取得點選商品的詳細資訊
       getProduct () {
         return this.$store.getters.getProduct (parseInt(this.$route.params.productId))
-      }
+      },
     },
   }
 </script>

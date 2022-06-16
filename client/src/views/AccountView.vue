@@ -9,7 +9,7 @@
           <h4>E-mail</h4>
         </div>
         <div class="account_email">
-          <h4>example@test.com</h4>
+          <h4>{{ email }}</h4>
         </div>
       </div>
       <!-- 按鈕 (buttons_center用來給寬度和置中) -->
@@ -38,6 +38,24 @@
   export default {
     components: {
       AccountPageButtons,
+    },
+    data () {
+      return {
+        email: 'example@test.com',
+      }
+    },
+    methods: {
+      showAccount () {
+        if (this.$store.state.loginUser.email !== '') {
+          this.email = this.$store.state.loginUser.email
+          return this.email
+        } else {
+          return this.email;
+        }
+      }
+    },
+    created () {
+      this.showAccount ();
     }
   }
 </script>

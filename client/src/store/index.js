@@ -8,6 +8,7 @@ export default createStore ({
   state: {
     data: productsData,
     productAllApi: "http://localhost:3000/api/getAllProducts",
+    loginUser: '',
     pressInfo,
     cart: [],
     userOrder: [],
@@ -55,6 +56,12 @@ export default createStore ({
         newProduct.size = data.size
         newProduct.number = data.number
         state.cart.push (newProduct)
+      }
+    },
+    // 儲存登入User的帳號並顯示在accountView
+    saveAccount (state, data) {
+      if (data) {
+        state.loginUser = data;
       }
     },
     // 清空購物車功能

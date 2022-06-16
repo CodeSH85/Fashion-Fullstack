@@ -38,7 +38,6 @@
   // import axios from "axios";
   
   import ShopPageButtons from "../components/ShopPageButtons.vue"
-  import ProductItem from "../components/ProductItem.vue"
   import CategoryAll from "../components/CategoryAll.vue"
   import CategoryTop from "../components/CategoryTop.vue"
   import CategoryBottom from "../components/CategoryBottom.vue"
@@ -68,7 +67,7 @@
       },
     },
     mounted(){
-      axios.get("http://localhost:3000/api/getAllProducts")
+      axios.get("http://localhost:3001/api/getAllProducts")
       .then( res => (this.productData = res.data) )
       .catch(function (error) { 
         console.log(error)

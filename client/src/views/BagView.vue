@@ -15,9 +15,9 @@
   <div class="container-fluid" v-if="productsInCart.length !== 0">
     <div class="row">
       <div class="d-flex justify-content-center">
-          <div class="all_amount h3 fw-bold">
-            <span>購物車內共 {{ currentQuantity }} 件商品</span>
-          </div>
+        <div class="all_amount h3 fw-bold">
+          <span>購物車內共 {{ currentQuantity }} 件商品</span>
+        </div>
       </div>
       <!-- 使用OrderListForm元件 -->
       <OrderListForm>
@@ -46,11 +46,9 @@
         <span class="me-3">合計：</span><span class="ms-3">NT$ {{ total }}</span>
       </div>
       <div class="button_space col-10 mx-auto d-flex justify-content-md-end justify-content-sm-center">
-        <router-link to="" type="submit" class="col-md-3 link-dark d-block col-sm-12" @click="check()">
-          <div class="check_button h4 fw-bold text-center py-3 px-5">
-            確認結帳
-          </div>
-        </router-link>
+        <button class="check_button col-md-3 h4 fw-bold text-center py-3 px-5 col-sm-12" @click="check()">
+          確認結帳
+        </button>
       </div>
     </div>
   </div>
