@@ -9,7 +9,7 @@
         </h1>
       </div>
       <!-- 表格 -->
-      <form class="">
+      <div>
         <div class="email_block col-md-8 col-sm-10 mx-auto mt-5">
           <label for="email" class="email_title h5 mb-2">E-mail</label>
           <input type="email" v-model="email" class="email_input form-control lh-lg" id="account" placeholder="" required>
@@ -34,12 +34,12 @@
               </router-link>
             </div>
           </div>
-          <router-link to="/account" type="submit" class="d-block col-md-3 col-sm-7 
-          mx-md-0 mx-sm-auto mt-md-0 mt-sm-3" @click="login()">
-            <button class="sign_in_button h4 fw-bold link-dark text-center py-3 mb-0" type="submit">SIGN IN</button>
-          </router-link>
+          <div to="/account" type="submit" class="d-block col-md-3 col-sm-7 mx-md-0 mx-sm-auto mt-md-0 mt-sm-3">
+            <button class="sign_in_button h4 fw-bold link-dark text-center py-3 mb-0"
+              @click="login()">SIGN IN</button>
+          </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </template>
@@ -54,18 +54,24 @@
       }
     },
     methods:{
-      async login() {
-        await axios.post('http://localhost:3000/post/login',{
+      login() {
+        axios.post('http://localhost:3000/post/login',{
           email: this.email,
           password: this.password
         })
-        .then(alert(`登入成功`))
+        .then((res)=>{
+          if( res.data.status == 1 ){
+            alert('登入成功')
+            return this.$router.push('/shop')
+          } else if( res.data.status == 0 ) {
+            alert('帳號或密碼錯誤')
+            return this.$router.push('/login')
+          }
+        })
         .catch(function (error) {
           console.log(error);
-        })
+        }) 
       }
-    },
-    mounted(){
     }
   }
 

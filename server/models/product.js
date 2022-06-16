@@ -34,6 +34,10 @@ const Product = database.define('product', {
   modelSize: {
     type: Sequelize.STRING,
     allowNull: true,
+  },
+  categoryId: {    
+    type: Sequelize.INTEGER,
+    allowNull: false,
   }
 });
 

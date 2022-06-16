@@ -13,7 +13,7 @@ export default createStore ({
   getters: {
     // 取得點選商品的詳細資訊
     getProduct: state => id => {
-      return state.data.find (product => product.id === id)
+      return state.data.find ( product => product.id === id )
     },
     // 已經加總後的購物車商品數量
     currentQuantity (state) {

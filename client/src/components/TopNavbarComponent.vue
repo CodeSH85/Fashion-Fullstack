@@ -8,7 +8,8 @@
     <div class="item-list container-fluid p-0">
       <ul class="d-flex m-0">
         <li class="topnav-item">
-          <router-link to="/login">Sign in</router-link>
+          <router-link v-show="isLogin" to="/account">Account</router-link>
+          <router-link v-show="!isLogin" to="/login">Sign in</router-link>
         </li>
         <li class="topnav-item">
           <router-link to="/bag">Bag</router-link>
@@ -17,4 +18,20 @@
     </div>
   </nav>
 </template>
+<script>
+import Cookies from "js-cookie"
 
+export default{
+  data(){
+    return{
+
+    }
+  },
+  computed:{
+    isLogin(){
+      return Cookies.get("user") !== undefined ? true: false
+    },      
+  }
+
+}
+</script>
