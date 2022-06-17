@@ -2,7 +2,7 @@
   <!-- Footer元件 -->
   <div :class="[darkModeClass, greyModeClass]" class="footer-border container-fluid" style="justify-content: center;border:2px solid #CC0000;">
     <div class="row">
-      <div class="mt-5 py-md-3 py-sm-5">
+      <div class="py-md-3 py-sm-5">
         <nav>
           <ul class="media_links text-center ps-0">
             <li class="d-lg-inline px-3 d-sm-block">
@@ -44,3 +44,8 @@ computed: {
 }
 }
 </script>
+<style scoped lang="scss">
+  .footer-border {
+    margin-top: 120px;
+  }
+</style>

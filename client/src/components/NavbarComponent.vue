@@ -13,7 +13,8 @@
     <div class="item-list container-fluid p-0">
       <ul class="d-flex m-0">
         <li class="topnav-item">
-          <router-link to="/account">Sign in</router-link>
+          <router-link to="/login" v-if="unlogin === true">Sign in</router-link>
+          <router-link to="/account" v-if="unlogin === false">Account</router-link>
         </li>
         <li class="topnav-item">
           <router-link to="/bag">Bag</router-link>
@@ -70,6 +71,25 @@
 <script>
 export default {
   name: "NavbarComponent",
+  inject:['reload'],
+  data () {
+    return {
+      unlogin: true,
+    }
+  },
+  methods: {
+    loginStatus () {
+      let status = this.$store.state.loginUser
+      if (status === '') {
+        this.unlogin = true;
+        // this.reload();
+      } else {
+        this.unlogin = false;
+        // this.reload();
+        return;
+      }
+    }
+  },
   computed: {
     darkModeClass() {
       //console.log('darkModeClass')
@@ -83,6 +103,12 @@ export default {
         grey: !!this.$route.meta?.greyMode,
       };
     },
+    // computed() {
+    //   this.reload()
+    // }
   },
+  created () {
+    this.loginStatus ();
+  }
 };
 </script>

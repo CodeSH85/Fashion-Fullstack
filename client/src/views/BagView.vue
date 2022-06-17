@@ -1,7 +1,7 @@
 <template>
   <!-- 購物清單確認頁面 -->
   <!-- 購物車內沒東西時的畫面 (透過v-if判斷做畫面切換) -->
-  <div class="bagview container-fluid" v-if="productsInCart.length === 0">
+  <div class="bagView container-fluid" v-if="cartList.length === 0">
     <div class="row">
       <div class="empty_cart col-6 mx-auto text-center">
         <div class="h3 fw-bold my-3">購物車中尚無商品</div>
@@ -12,10 +12,10 @@
     </div>
   </div>
   <!-- 購物車內有商品時的顯示畫面 (透過v-if判斷做畫面切換) -->
-  <div class="container-fluid" v-if="productsInCart.length !== 0">
+  <div class="container-fluid" v-if="cartList.length !== 0">
     <div class="row">
       <div class="d-flex justify-content-center">
-        <div class="all_amount h3 fw-bold">
+        <div class="all_amount h3 fw-bold" data-allquantity="">
           <span>購物車內共 {{ currentQuantity }} 件商品</span>
         </div>
       </div>
@@ -24,7 +24,7 @@
         <!-- 在OrderListForm元件插入訂購商品資訊(ProductBox) -->
         <template v-slot:productBox>
           <!-- 使用ProductBox元件 -->
-          <template v-for="products in productsInCart" :key="products">
+          <template v-for="products in cartList" :key="products">
             <ProductBox v-bind="products">
               <template v-slot:amount>
                 <div class="amount_button d-flex justify-content-between align-items-center p-0 mx-md-0 mx-sm-4">
@@ -34,7 +34,7 @@
                 </div>
               </template>
               <template v-slot:delete>
-                <button class="h4 fw-bold text-center p-md-0 px-sm-4 m-md-0 mx-sm-0" @click="remove(products)">
+                <button class="delete_button h4 fw-bold text-center p-md-0 px-sm-4 m-md-0 mx-sm-0" @click="remove(products)">
                   X
                 </button>
               </template>
@@ -65,7 +65,8 @@
     },
     data () {
       return {
-        products: this.$store.state.cart,
+        products: this.$store.state.cartList,
+        cartList: [],
       }
     },
     methods: {
@@ -91,7 +92,7 @@
       },
       // 結帳功能
       check () {
-        if (this.productsInCart.length == 0) {
+        if (this.cartList.length == 0) {
           alert('購物車目前是空的，請先選擇商品');
           return;
         } else {
@@ -99,17 +100,18 @@
           this.$router.push (`/bag/${this.products.orderId}`);
         }
       },
-    },
-    computed: {
-      // 從store的getters取得currentQuantity已經加總後的購物車商品數量 (老師寫法)
-      currentQuantity () {
-        return this.$store.getters.currentQuantity
-      },
-      // 計算購物車內是哪些商品、各項商品小計
-      productsInCart () {
-        return this.products
-        // 只顯示購買數量 > 0 的項目
-          .filter (p => p.number)
+      // 預設進入購物車時會在localStorage存進購物車內的商品資料
+      savedGoods () {
+        const goodsKey = 'allInCart'
+        const goodsValue = this.$store.state.cartList
+        const cartItemKey = goodsKey
+        const cartItemValue = JSON.stringify(goodsValue)
+        localStorage.setItem(cartItemKey, cartItemValue)
+
+        const goodsData = localStorage.getItem('allInCart');
+        const goodsDataArr = JSON.parse(goodsData);
+        this.cartList = goodsDataArr;
+        return this.cartList
           // 算出每個產品的小計
           .map (p => {
             p.sum = p.number * p.price
@@ -117,11 +119,65 @@
           }
         )
       },
+    },
+    computed: {
+      // 從store的getters取得currentQuantity已經加總後的購物車商品數量 (老師寫法)
+      currentQuantity () {
+        return this.$store.getters.currentQuantity
+      },
       // 目前購物車中所有商品的總金額
       total () {
-        return this.productsInCart
+        return this.cartList
         .reduce ((sum, p) => (sum + p.sum), 0)
       },
     },
+    created () {
+      this.savedGoods ();
+    }
   }
 </script>
+
+<style scoped lang="scss">
+  // @import "../assets/scss/main.scss";
+
+  // .empty_cart {
+  //   margin: 220px 0;
+  // }
+
+  // .go_shopping {
+  //   margin-bottom: 0;
+  // }
+
+  // .all_amount {
+  //   margin: 120px 0 80px 0;
+  // }
+
+  // .amount_button {
+  //   border: solid 2px black;
+  // }
+
+  // .mark {
+  //   border: none;
+  //   background-color: transparent;
+  // }
+
+  // button {
+  //   border: none;
+  //   background-color: transparent;
+  // }
+
+  // .button_space {
+  //   margin-top: 40px;
+  // }
+
+  // .check_button {
+  //   border-top: solid 2px $redColor;
+  //   border-bottom: solid 2px $redColor;
+  //   // text-decoration: none;
+  //   margin-bottom: 100px;
+  // }
+
+  // .check_button:hover {
+  //   color: $redColor;
+  // }
+</style>

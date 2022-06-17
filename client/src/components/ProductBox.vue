@@ -17,7 +17,7 @@
               <span>{{ color }}</span>
             </div>
             <div class="table_cell py-3 mx-md-2 mx-sm-3">
-              <span class="h5 fw-bold me-4">尺寸 {{ size }}</span>
+              <span class="h5 fw-bold me-4">尺寸 {{ clothesSize }}</span>
               <span class="h4 fw-bold">NT$ {{ price }}</span>
             </div>
           </div>
@@ -67,7 +67,6 @@ export default {
     'price':Number,
     'description':String,
     'color':String,
-    'size':String,
     'specification':String,
     'clothesSize':String,
     'modelSize':String,
