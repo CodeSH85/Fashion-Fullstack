@@ -40,17 +40,28 @@
     name: 'ShopPageButtons',
     data () {
       return {
-        isShow: true,
-        unLogin: true,
+        unlogin: true,
         tab: categoryData,
       }
     },
     methods: {
+      loginStatus () {
+        let status = this.$store.state.loginUser
+        if (status === '') {
+          this.unlogin = true;
+        } else {
+          this.unlogin = false;
+          return;
+        }
+      },
       onTabs (index) {
         // 傳tab的字串值到外層ShopView
         this.$emit ('tabItem', this.tab[index])
       },
     },
+    created () {
+      this.loginStatus ();
+    }
   }
 </script>
 <style scoped lang="scss">

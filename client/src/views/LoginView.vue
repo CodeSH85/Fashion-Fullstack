@@ -36,7 +36,7 @@
           </div>
           <div to="/account" type="submit" class="d-block col-md-3 col-sm-7 mx-md-0 mx-sm-auto mt-md-0 mt-sm-3">
             <button class="sign_in_button h4 fw-bold link-dark text-center py-3 mb-0"
-              @click="login()">SIGN IN</button>
+              @click.prevent="login()">SIGN IN</button>
           </div>
         </div>
       </div>
@@ -54,6 +54,43 @@
       }
     },
     methods:{
+      // async login(){
+      //   let result = await axios.post("http://localhost:3001/post/login")
+      // }
+
+      signIn () {
+        // 將使用者輸入的email記到localStorage並傳值到store、導向到accountView頁面
+        const loginEmail = document.querySelector ('#account')
+        const loginPassword = document.querySelector ('#password')
+        const storageKey = 'userAccount' // 將帳號組成localStorage的key
+
+        // 建立localStorage (建立的key，要建立的value--將loginEmail的值設為value)
+        localStorage.setItem (storageKey, loginEmail.value) 
+        // 將userName (登入時輸入的email) 從localStorage裡面取出來
+        const userName = localStorage.getItem (storageKey) 
+        // 定義登入條件的判斷，若符合就在localStorage記下user帳號(userName = MemoryAccount)
+        const confirmMemory = (loginEmail.value !== '')
+
+        loginEmail.value = ''
+        loginPassword.value = ''
+
+        if (confirmMemory) {
+          // 這裡再儲存一次是為了重新整理或關掉頁面，可以維持登入狀態
+          alert ('登入成功')
+          localStorage.setItem ('memoryAccount', `${userName}`)
+          this.$router.push('/account'); 
+        } else {
+          alert ('請輸入E-mail帳號')
+          return;
+        }
+
+        const nowUser = localStorage.getItem('memoryAccount')
+        this.$store.commit ('getUser', {
+          memoryAccount: nowUser,
+        })
+      }
+    },
+    mounted() {
       login() {
         axios.post('http://localhost:3000/post/login',{
           email: this.email,

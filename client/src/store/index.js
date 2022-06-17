@@ -9,8 +9,8 @@ export default createStore ({
     data: productsData,
     productAllApi: "http://localhost:3000/api/getAllProducts",
     loginUser: '',
+    cartList: [],
     pressInfo,
-    cart: [],
     userOrder: [],
   },
   getters: {
@@ -22,8 +22,8 @@ export default createStore ({
     currentQuantity (state) {
       let sum = 0;
 
-      for(var i = 0; i < state.cart.length; i++) {
-        sum += state.cart[i].number
+      for(var i = 0; i < state.cartList.length; i++) {
+        sum += state.cartList[i].number
         // sum = sum(0) + "cart裡面每一組資料API中的number數量[後來自己新加的API資料]"
       }
       return sum
@@ -42,7 +42,7 @@ export default createStore ({
     // 加入購物車功能
     addCart (state, data) {
       let isNewProduct = true
-      state.cart.map (function (product) {
+      state.cartList.map (function (product) {
         if (product.id == data.product.id) {
           product.number += data.number
           isNewProduct = false
@@ -51,14 +51,12 @@ export default createStore ({
       })
       if (isNewProduct) {
         let newProduct = data.product
-        newProduct.color = data.color
-        newProduct.size = data.size
-        newProduct.number = data.number
-        state.cart.push (newProduct)
+        state.cartList.push (newProduct)
       }
     },
-    // 儲存登入User的帳號並顯示在accountView
-    saveAccount (state, data) {
+
+    // 將儲存在localStorage裡的登入中User存放在上面state的通用資料(loginUser)
+    getUser (state, data) {
       if (data) {
         state.loginUser = data
       }

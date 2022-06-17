@@ -1,13 +1,16 @@
-.img_container {
-  width: 500px;
+.actionImg_container {
+  width: 403px;
+  height: 604px;
 }
 
-.img_container img {
+.actionImg_container img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @media screen and ( max-width: 768px ) {
-  .img_container {
+  .actionImg_container {
     width: 90%;
   }
 
@@ -65,12 +68,7 @@
 }
 
 @media screen and ( max-width: 768px ) {
-  .dropdown button {
-    width: 100%;
-    font-size: 20px;
-  }
-
-  .dropdown-menu {
+  .dropdown-list {
     width: 100%;
   }
 }

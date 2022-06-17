@@ -70,9 +70,23 @@
 <script>
 export default {
   name: "NavbarComponent",
-  data(){
-    return{
-      login: false,
+  inject:['reload'],
+  data () {
+    return {
+      unlogin: true,
+    }
+  },
+  methods: {
+    loginStatus () {
+      let status = this.$store.state.loginUser
+      if (status === '') {
+        this.unlogin = true;
+        // this.reload();
+      } else {
+        this.unlogin = false;
+        // this.reload();
+        return;
+      }
     }
   },
   computed: {

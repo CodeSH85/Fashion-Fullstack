@@ -19,7 +19,7 @@
         <a href="#" class="px-3 link-dark">＞</a>
       </div>
       <!-- RWD頁面的頁面按鈕 -->
-      <div class="dropdown w-50 mx-auto d-md-none d-sm-flex justify-content-center my-4">
+      <div class="dropdown mx-auto d-md-none d-sm-flex justify-content-center my-4">
         <button class="btn dropdown-toggle fw-bold" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           1
         </button>

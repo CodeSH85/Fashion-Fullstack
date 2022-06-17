@@ -1,4 +1,14 @@
+.order_completed_title {
+  margin: 120px 0 80px 0;
+}
+
 .shopping_button {
+  border: none;
   border-top: solid 2px $redColor;
   border-bottom: solid 2px $redColor;
+  margin-bottom: 50px;
+}
+
+.shopping_button:hover {
+  color: $redColor;
 }
