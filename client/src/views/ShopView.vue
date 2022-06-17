@@ -1,8 +1,12 @@
 <template>
-  <ShopPageButtons />
+  <ShopPageButtons v-on:tabItem="getTab"></ShopPageButtons>
   <!-- 商品總覽分類頁面 -->
-  <!-- 使用ProductItem元件 -->
-  <ProductItem />
+  <CategoryAll v-if=" status === 'ALL' "></CategoryAll>
+  <CategoryTop v-if=" status === 'TOP' "></CategoryTop>
+  <CategoryBottom v-if=" status === 'BOTTOM' "></CategoryBottom>
+  <CategoryDress v-if=" status === 'DRESS' "></CategoryDress>
+  <CategoryJumpsuit v-if=" status === 'JUMPSUIT' "></CategoryJumpsuit>
+  <CategorySale v-if=" status === 'SALE' "></CategorySale>
   <div class="container-fluid">
     <div class="row">
       <!-- 一般頁面的頁面按鈕 -->
@@ -31,46 +35,44 @@
 </template>
 <script>
 // 引入元件(component)
+  // import axios from "axios";
+  
   import ShopPageButtons from "../components/ShopPageButtons.vue"
   import ProductItem from "../components/ProductItem.vue"
-
+  import CategoryAll from "../components/CategoryAll.vue"
+  import CategoryTop from "../components/CategoryTop.vue"
+  import CategoryBottom from "../components/CategoryBottom.vue"
+  import CategoryDress from "../components/CategoryDress.vue"
+  import CategoryJumpsuit from "../components/CategoryJumpsuit.vue"
+  import CategorySale from "../components/CategorySale.vue"
   export default {
     components: {
       ShopPageButtons,
-      ProductItem,
+      CategoryAll,
+      CategoryTop,
+      CategoryBottom,
+      CategoryDress,
+      CategoryJumpsuit,
+      CategorySale,
+    },
+    data () {
+      return {
+        data: this.$store.state.data,
+        productData: [],
+        status: 'ALL',
+      }
+    },
+    methods: {
+      getTab (status) {
+        this.status = status
+      },
+    },
+    mounted(){
+      axios.get("http://localhost:3000/api/getAllProducts")
+      .then( res => (this.productData = res.data) )
+      .catch(function (error) { 
+        console.log(error)
+      });
     }
   }
 </script>
-<style scoped lang="scss">
-  @import "../assets/scss/main.scss";
-  
-  .page_buttons {
-      margin-bottom: 50px;
-  }
-
-  .page_buttons a {
-      text-decoration: none;
-  }
-
-  .page_buttons a:hover {
-      color: $redColor;
-  }
-
-  .dropdown button {
-    width: 100%;
-    border: solid 1px black;
-    border-radius: 0;
-    box-shadow: none;
-    margin-bottom: 60px;
-  }
-
-  .dropdown-menu {
-    width: 92%;
-    border-radius: 0;
-  }
-
-  .dropdown-menu li > a:hover {
-    color: white;
-    background-color: black;
-  }
-</style>

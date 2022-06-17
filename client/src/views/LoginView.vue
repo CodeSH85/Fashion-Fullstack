@@ -1,5 +1,4 @@
 <template>
-  <TopNavbar />
   <!-- 登入頁面 -->
   <div class="container-fluid">
     <div class="row">
@@ -10,14 +9,14 @@
         </h1>
       </div>
       <!-- 表格 -->
-      <form action="" class="">
+      <form class="">
         <div class="email_block col-md-8 col-sm-10 mx-auto mt-5">
           <label for="email" class="email_title h5 mb-2">E-mail</label>
-          <input type="email" class="form-control lh-lg" id="account" placeholder="" required>
+          <input type="email" v-model="email" class="email_input form-control lh-lg" id="account" placeholder="" required>
         </div>
         <div class="password_block col-md-8 col-sm-10 mx-auto mt-5">
           <label for="password" class="password_title h5 mb-2">Password</label>
-          <input type="password" class="form-control lh-lg" id="password" placeholder="" required>
+          <input type="password" v-model="password" class="password_input form-control lh-lg" id="password" placeholder="" required>
         </div>
         <!-- 表格按鈕 (large_group是最外面那層，middle_group是另外包申請帳號/忘記密碼的那層) -->
         <div class="buttons_large_group col-8 mx-auto d-flex justify-content-md-between mt-5 
@@ -37,67 +36,31 @@
           </div>
           <router-link to="/account" type="submit" class="d-block col-md-3 col-sm-7 
           mx-md-0 mx-sm-auto mt-md-0 mt-sm-3">
-            <div class="sign_in_button h4 fw-bold link-dark text-center py-3 mb-0">SIGN IN</div>
+            <button class="sign_in_button h4 fw-bold link-dark text-center py-3 mb-0" type="submit">SIGN IN</button>
           </router-link>
         </div>
       </form>
     </div>
   </div>
-  <Footer />
+
 </template>
 <script>
+  import axios from "axios"
 
+  export default{
+    data () {
+      return{
+        email:'',
+        password:'',
+      }
+    },
+    method:{
+      async login(){
+        let result = await axios.post("http://localhost:3000/post/login")
+      }
+    },
+    mounted(){
+    }
+  }
 
 </script>
-<style scoped lang="scss">
-  @import "../assets/scss/main.scss";
-  
-  .h1_title {
-    margin-top: 180px;
-  }
-
-  input {
-    background-color: $bgColor;
-    border: solid 1px black;
-    border-radius: 0;
-  }
-
-  .buttons_large_group {
-    margin-bottom: 100px;
-  }
-
-  .new_account_button {
-    border: solid 2px transparent;
-  }
-
-  .new_account_button:hover {
-    border-bottom: solid 2px $redColor;
-  }
-
-  .forget_password_button {
-    border: solid 2px transparent;
-  }
-
-  .forget_password_button:hover {
-    border-bottom: solid 2px $redColor;
-  }
-
-  /* 要對router-link超連結下任何css要使用a標籤 */
-  a { 
-    text-decoration: none;
-  }
-
-  .sign_in_button {
-    border: solid 1px black;
-    border-left: none;
-    border-right: none;
-    background-color: $bgColor;
-  }
-
-  .sign_in_button:hover {
-    color: $redColor;
-    border: solid 1px $redColor;
-    border-left: none;
-    border-right: none;
-  }
-</style>

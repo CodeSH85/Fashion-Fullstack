@@ -1,46 +1,39 @@
 <template>
   <div id="presspage">
-    <section class="container-fluid">
-      <div class="heading-container flex">
-        <h1>This is an Press page</h1>
-      </div>
-      <div class="row row-cols-1 row-cols-md-3 g-3 my-5">
-        <template v-for="press in pressInfo" :key="press.id">
-          <PressCard v-bind="press">
-            <router-link
-              class="btn btn-warning"
-              :to="{ name: 'Press', params: { pressId: press.id } }"
-              >buy</router-link
-            >
-          </PressCard>
-        </template>
+    <section class="press container-fluid col-10">
+      <div class="row">
+        <div class="heading m-5">
+          <h2>PRESS /</h2>
+        </div>
+        <div class="press-row row-cols-3 row-cols-lg-5 g-2 g-lg-3">
+          <div
+            class="press-col col-md-6"
+            v-for="press in pressInfo"
+            :key="press.id"
+          >
+            <PressCard v-bind="press"></PressCard>
+          </div>
+        </div>
       </div>
     </section>
   </div>
 </template>
-
 <script>
-import PressCard from "../components/PressCard.vue"
+import PressCard from "../components/PressCard.vue";
 
 export default {
-  data () {
+  
+  data() { 
+    const pressInfo = this.$store.state.pressInfo
+    console.log(pressInfo)
     return {
       press: [],
       pressInfo: this.$store.state.pressInfo,
       id: this.$store.state.id,
     };
   },
-  methods: {
-    redirectProduct: function(id){
-      this.$router.push(`/press/${id}`)
-    },
-  },
-  computed: {
-    test () {
-      return this.$store.state.pressInfo
-    }
-  },
-  components: { PressCard }
-}
+ 
+  components: { PressCard },
+};
 
 </script>

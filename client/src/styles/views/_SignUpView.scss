@@ -1,0 +1,44 @@
+.h1_title {
+  margin-top: 150px;
+}
+
+.email_input {
+  background-color: transparent;
+  border: solid 1px black;
+  border-radius: 0;
+}
+
+.password_input {
+  background-color: transparent;
+  border: solid 1px black;
+  border-radius: 0;
+}
+
+.confirm_password_input {
+  background-color: transparent;
+  border: solid 1px black;
+  border-radius: 0;
+}
+
+.button_group {
+  margin-bottom: 100px;
+}
+
+/* 要對router-link超連結下任何css要使用a標籤 */
+a { 
+  text-decoration: none;
+}
+
+.sign_up_button {
+  border: solid 1px black;
+  border-left: none;
+  border-right: none;
+  background-color: transparent;
+}
+
+.sign_up_button:hover {
+  color: $redColor;
+  border: solid 1px $redColor;
+  border-left: none;
+  border-right: none;
+}
