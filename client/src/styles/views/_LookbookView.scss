@@ -71,6 +71,11 @@
   img {
     width: 250px;
     height: auto;
-    object-fit: contain;
+    // object-fit: contain;
+    transition: transform 0.3s;
+
+    &:hover{
+      transform: scale(2);
+    }
   }
 }

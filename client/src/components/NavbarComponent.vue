@@ -4,7 +4,16 @@
     class="topnav navbar-p-3 navbar-expand-lg px-5"
   >
     <!-- topnav -->
-    <div class="topnav-brand">
+    <router-link to="/" >
+    <div class="topnav-brand">    
+        <div class="logo-img"></div>      
+    </div>
+    </router-link>
+
+    <div class="item-list container-fluid p-0">
+      <ul class="d-flex m-0">
+        <li class="topnav-item">
+          <router-link to="/login">Sign in</router-link>
       <router-link to="/">
         <div class="logo-img"></div>
       </router-link>

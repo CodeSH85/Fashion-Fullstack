@@ -42,9 +42,10 @@
       </div>
     </div>
   </div>
+
 </template>
 <script>
-  import axios from "axios"
+  //import axios from "axios"
 
   export default {
     data () {
@@ -53,7 +54,15 @@
         password:'',
       }
     },
-    methods:{
+
+    // method:{
+    //   async login(){
+    //     let result = await axios.post("http://localhost:3000/post/login")
+    //   }
+    // },
+    // mounted(){
+
+    //methods:{
       // async login(){
       //   let result = await axios.post("http://localhost:3001/post/login")
       // }
@@ -111,6 +120,7 @@
           console.log(error);
         }) 
       }
+
     }
   }
 
