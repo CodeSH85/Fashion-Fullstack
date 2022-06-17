@@ -26,6 +26,7 @@
     </section>
     <hr />
     <hr />
+    <!-- press -->
     <section class="press container-fluid col-10">
       <div class="row">
         <div class="heading">
@@ -49,6 +50,7 @@
     </section>
     <hr />
     <hr />
+    <!-- about -->
     <section class="about container-fluid col-10 p-0">
       <div class="row justify-content-center">
       <div class="col-lg-5 col-md-10">
@@ -76,7 +78,7 @@
     </section>
     <hr />
     <hr />
-
+<!-- contact -->
     <section class="container-fluid col-8 p-0">
       <div class="contact">
         <div class="contact-form col-md-6 mb-3">
@@ -85,10 +87,10 @@
               Name</label
             >
             <input
-              type="email"
+              type="text"
               class="form-control col-3"
               id="exampleFormControlInput1"
-              placeholder="name@example.com"
+              placeholder="your name"
             />
           </div>
 
@@ -111,7 +113,7 @@
               type="email"
               class="form-control col-3"
               id="exampleFormControlInput1"
-              placeholder="name@example.com"
+              placeholder="mail title"
             />
           </div>
         </div>
@@ -146,6 +148,7 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/mousewheel";
 import { Pagination } from "swiper";
 import PressCard from "../components/PressCard.vue";
 
