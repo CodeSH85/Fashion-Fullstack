@@ -45,7 +45,7 @@
 
 </template>
 <script>
-  import axios from "axios"
+  //import axios from "axios"
 
   export default{
     data () {
@@ -54,11 +54,11 @@
         password:'',
       }
     },
-    method:{
-      async login(){
-        let result = await axios.post("http://localhost:3000/post/login")
-      }
-    },
+    // method:{
+    //   async login(){
+    //     let result = await axios.post("http://localhost:3000/post/login")
+    //   }
+    // },
     mounted(){
     }
   }

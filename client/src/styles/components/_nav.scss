@@ -4,11 +4,17 @@
   color: white;
   display: flex;
 
-  .logo-img {
-    //background-image:url(../../../public/images/logo.svg);
-    width: 100%;
-    height: 90px;
-    object-fit: contain;
+  .topnav-brand {
+    min-width: 427px;
+    margin: 0;
+
+    .logo-img {
+      background-image: url('https://i.imgur.com/eCQNv4N.png');
+      width: 100%;
+      height: 90px;
+      background-size: cover;
+      object-fit: contain;
+    }
   }
 
   .item-list {
@@ -83,7 +89,7 @@
     text-decoration: none;
     color: inherit;
     text-align: center;
-    padding: 2px 80px;
+
 
     &:active,
     &:visited,
@@ -128,11 +134,17 @@
   color: black;
   display: flex;
 
-  .logo-img {
-    //background-image:url(../../../public/images/logo.svg);
-    width: 100%;
-    height: 90px;
-    object-fit: contain;
+  .topnav-brand {
+    min-width: 427px;
+    margin: 0;
+
+    .logo-img {
+      background-image: url('https://i.imgur.com/eREBOK5.png');
+      width: 100%;
+      height: 90px;
+      background-size: cover;
+      object-fit: contain;
+    }
   }
 
   .item-list {
@@ -186,7 +198,6 @@
   }
 
   .navbar-nav {
-    //border: 2px solid #CC0000;
     width: 100%;
     justify-content: space-evenly;
   }

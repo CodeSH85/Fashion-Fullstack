@@ -29,8 +29,13 @@ div.press-card .image-box {
 }
 .press-img {
   width: 263px;
-  display: block;
-  margin: 1.5rem;
+  /* display: block; */
+ margin: 0 auto;
+  padding: 50px;
+  transition: transform .1s;
+}
+.press-img:hover {
+  transform: scale(3);
 }
 
 .press-card {

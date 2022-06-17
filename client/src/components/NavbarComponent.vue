@@ -3,12 +3,13 @@
     :class="[darkModeClass, greyModeClass]"
     class="topnav navbar-p-3 navbar-expand-lg px-5"
   >
-    <!-- topnav -->
+    <!-- topnav --><router-link to="/" >
     <div class="topnav-brand">
-      <router-link to="/">
-        <div class="logo-img" ></div>
-      </router-link>
+      
+        <div class="logo-img"></div>
+      
     </div>
+    </router-link>
 
     <div class="item-list container-fluid p-0">
       <ul class="d-flex m-0">

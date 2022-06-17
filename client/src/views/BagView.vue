@@ -42,7 +42,7 @@
           </template>
         </template>
       </OrderListForm>
-      <div class="cart_total col-md-10 h3 fw-bold mx-auto d-flex justify-content-md-end px-md-3 mb-4 justify-content-sm-center">
+      <div class="cart_total col-md-10 h3 fw-bold mx-auto d-flex justify-content-md-end px-md-3 m-4 justify-content-sm-center">
         <span class="me-3">合計：</span><span class="ms-3">NT$ {{ total }}</span>
       </div>
       <div class="button_space col-10 mx-auto d-flex justify-content-md-end justify-content-sm-center">
