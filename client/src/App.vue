@@ -13,6 +13,7 @@
       Navbar,
       Footer,
     },
+    // 用在自動刷新頁面(似乎無效)
     provide() {
       return {
         reload: this.reload,

@@ -21,7 +21,7 @@
       <!-- RWD頁面的頁面按鈕 -->
       <div class="dropdown d-md-none d-sm-flex justify-content-center mt-4">
         <button class="btn dropdown-toggle fw-bold" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          ALL
+          Categories
         </button>
         <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton1">
           <li class="dropdown-item" v-for="(item, index) in tab" :key="index" 

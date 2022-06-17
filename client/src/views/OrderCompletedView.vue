@@ -14,7 +14,7 @@
             <div class="col-10 h4 fw-bold mx-auto my-3 d-flex justify-content-md-start 
           justify-content-sm-between">
               <div>
-                <span>合計：</span><span class="py-0 px-4">{{ allAmount }}件商品</span>
+                <span>合計：</span><span class="py-0 px-4">{{ amountTotal }}件商品</span>
               </div>
               <div class="ps-5 pe-3">
                 <span>NT$ {{ total }}</span>
@@ -58,7 +58,7 @@
     data () {
       return {
         orderId: '',
-        products: this.$store.state.cart,
+        products: this.$store.state.cartList,
         checkList: [],
       }
     },
@@ -80,16 +80,16 @@
       this.$store.commit ('saveOrder', {
         orderItems: products,
         orderId: this.orderId,
-        allAmount: this.allAmount,
+        amountTotal: this.amountTotal,
         total: this.total,
       })
+      this.$router.push (`/shop`);
       }
     },
     computed: {
       // 計算訂單中的商品總數 (從陣列中取出資料，並使用for迴圈做加總)
-      allAmount () {
+      amountTotal () {
         let checkedAmount = this.checkList.length;
-        // console.log(productsAmount);
         let itemsTotal = 0;
         for (var i = 0; i < checkedAmount; i++ ) {
           itemsTotal += this.checkList[i].number;
