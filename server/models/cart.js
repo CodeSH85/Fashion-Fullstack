@@ -16,7 +16,7 @@ const Cart = database.define('cart', {
     allowNull: false,
     defaultValue: 0
   }
-});
+},{ timestamps: false });
   
 module.exports = Cart;
 

@@ -13,6 +13,11 @@
       Navbar,
       Footer,
     },
+    provide() {
+      return {
+        reload: this.reload,
+      }
+  },
   }
 </script>
 <style lang="scss">

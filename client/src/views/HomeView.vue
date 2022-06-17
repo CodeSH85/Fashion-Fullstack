@@ -166,6 +166,7 @@ import PressCard from "../components/PressCard.vue";
 
 export default {
   name: "HomeView",
+  // inject:['reload'],
   components: {
     PressCard,
     Swiper,
@@ -219,5 +220,8 @@ export default {
   beforeUnmount() {
     document.body.style.backgroundColor = "transparent";
   },
+  // created(){
+    
+  // }
 };
 </script>

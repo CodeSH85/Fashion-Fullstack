@@ -7,7 +7,7 @@
       <div class="main_information col-10 mx-auto d-flex justify-content-evenly 
       flex-md-nowrap flex-sm-wrap">
         <!-- Vue.js 的 transition 用法 -->
-        <transition-group tag="div" name="right-in" class="img_container my-md-0 my-sm-3"
+        <transition-group tag="div" name="right-in" class="actionImg_container my-md-0 my-sm-3"
         v-for="(image, index) in getProduct.imgUrl" :key="index" v-show="index === showImg">
           <img :src="image">
         </transition-group>
@@ -26,7 +26,7 @@
             </div>
             <!-- 下拉式選單 -->
             <div class="dropdown justify-content-center mt-2 mb-3">
-              <select v-model="color" name="" id="" class="dropdown-list text-start fw-bold py-md-2 py-sm-3">
+              <select v-model="color" name="" id="color" class="dropdown-list text-start fw-bold py-md-2 py-sm-3">
                 <option :value="''" class="d-none">請選擇</option>
                 <option :value="color" v-for="(color, key) in getProduct.color" :key="key">
                 {{ color }}
@@ -38,7 +38,7 @@
             </div>
             <!-- 下拉式選單 -->
             <div class="dropdown justify-content-center mt-2 mb-3">
-              <select v-model="size" name="" id="" class="dropdown-list text-start fw-bold py-md-2 py-sm-3">
+              <select v-model="size" name="" id="size" class="dropdown-list text-start fw-bold py-md-2 py-sm-3">
                 <option :value="''" class="d-none">請選擇</option>
                 <option :value="size" v-for="(size, key) in getProduct.clothesSize" :key="key">
                 {{ size }}
@@ -50,7 +50,7 @@
             </div>
             <!-- 下拉式選單 -->
             <div class="dropdown justify-content-center mt-2 mb-3">
-              <select v-model.number="selectedNumber" class="dropdown-list text-start fw-bold py-md-2 py-sm-3" name="" id="">
+              <select v-model.number="selectedNumber" class="dropdown-list text-start fw-bold py-md-2 py-sm-3" name="" id="number">
                 <option class="d-none" value="">請選擇</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -65,7 +65,7 @@
               </select>
             </div>
           </div>
-          <router-link to="" type="submit" class="link-dark w-75 d-block mx-md-0 mx-sm-auto" @click="addCart(getProduct)">
+          <router-link to="" type="submit" class="link-dark w-75 d-block mx-md-0 mx-sm-auto" @click="addCart (getProduct)">
             <div class="add_cart_button h3 fw-bold text-center py-3 px-3">
               加入購物車
             </div>
@@ -134,49 +134,58 @@
     },
     data () {
       return {
+        showImg: 0,
         color: '',
         size: '',
         selectedNumber: '',
-        showImg: 0,
       }
     },
     mounted () {
+
       // 圖片輪播器定時
       setInterval (this.setShowImg, 3000);
     },
     methods: {
-      // 判斷存貨、是否選擇規格之防呆提醒
+      // 判斷存貨、是否選擇規格之防呆提醒；將準備存到localStorage的商品資料定義好傳送到store做處理
       addCart: function (product) {
-        
-        product.color = this.color;
-        product.size = this.size;
-        product.number = this.selectedNumber;
-        
-        if (product.color === '' && product.size === '' && product.number === '') {
+        const inCart = product
+        const chosenColor = document.querySelector('#color')
+        const chosenSize = document.querySelector('#size')
+        const chosenNumber = document.querySelector('#number')
+
+        const storageGoodsDetails = 
+          { 
+            id: inCart.id,
+            name: inCart.name, 
+            price: inCart.price,
+            imgUrl: inCart.imgUrl,
+            color: chosenColor.value,
+            clothesSize: chosenSize.value,
+            number: chosenNumber.value
+          }
+
+        if (chosenColor.value === '' && chosenSize.value === '' && chosenNumber.value === '') {
           alert ('請選擇顏色、尺寸和數量')
           return;
-        } else if (product.color === '' && product.size === '') {
+        } else if (chosenColor.value === '' && chosenSize.value === '') {
           alert ('請選擇顏色和尺寸')
           return;
-        } else if (product.number === '') {
+        } else if (chosenNumber.value === '') {
           alert ('請選擇數量')
           return;
-        } else if (product.color === '') {
+        } else if (chosenColor.value === '') {
           alert ('請選擇顏色')
           return;
-        } else if (product.size === '') {
+        } else if (chosenSize.value === '') {
           alert ('請選擇尺寸')
           return;
-        } else if (product.quantity - product.number < 0) {
+        } else if (inCart.quantity - chosenNumber.value < 0) {
           alert ('存貨不足')
           return;
         } else {
           this.$store.commit ('addCart', {
-            product: product,
-            color: this.color,
-            size: this.size,
-            number: this.selectedNumber,
-        })
+            product: storageGoodsDetails,
+          })
           alert ('已加入購物車')
         }
       },
@@ -199,9 +208,10 @@
       // 取得點選商品的詳細資訊
       getProduct () {
         return this.$store.getters.getProduct (parseInt(this.$route.params.productId))
-      }
-    },
+      },
+    }
   }
+
 </script>
     <!-- mounted(){
         axios.post("http://localhost:3000/api/getProduct/:productId", data)
@@ -213,6 +223,19 @@
             }
           }
         }) 
+
+    mounted(){
+        // axios.post("http://localhost:3000/api/getProduct/:productId", data)
+        // .then(async(res)=>{
+        //   await function(item){
+        //     if(item.id == this.productId){
+        //       this.productInfo.number = item.productentry.number
+        //       this.productInfo.url = item.url
+        //     }
+        //   }
+        // }) 
+        setInterval (this.setShowImg, 3000);
+
     }
   } -->
 

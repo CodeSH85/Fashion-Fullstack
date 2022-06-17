@@ -8,21 +8,22 @@ export default createStore ({
   state: {
     data: productsData,
     productAllApi: "http://localhost:3000/api/getAllProducts",
+    loginUser: '',
+    cartList: [],
     pressInfo,
-    cart: [],
     userOrder: [],
   },
   getters: {
     // 取得點選商品的詳細資訊
     getProduct: state => id => {
-      return state.data.find (product => product.id === id)
+      return state.data.find ( product => product.id === id )
     },
     // 已經加總後的購物車商品數量
     currentQuantity (state) {
       let sum = 0;
 
-      for(var i = 0; i < state.cart.length; i++) {
-        sum += state.cart[i].number
+      for(var i = 0; i < state.cartList.length; i++) {
+        sum += state.cartList[i].number
         // sum = sum(0) + "cart裡面每一組資料API中的number數量[後來自己新加的API資料]"
       }
       return sum
@@ -41,32 +42,35 @@ export default createStore ({
     // 加入購物車功能
     addCart (state, data) {
       let isNewProduct = true
-      state.cart.map (function (product) {
+      state.cartList.map (function (product) {
         if (product.id == data.product.id) {
           product.number += data.number
           isNewProduct = false
         }
         return product
       })
-
       if (isNewProduct) {
         let newProduct = data.product
-        newProduct.color = data.color
-        newProduct.size = data.size
-        newProduct.number = data.number
-        state.cart.push (newProduct)
+        state.cartList.push (newProduct)
+      }
+    },
+
+    // 將儲存在localStorage裡的登入中User存放在上面state的通用資料(loginUser)
+    getUser (state, data) {
+      if (data) {
+        state.loginUser = data
       }
     },
     // 清空購物車功能
     resetCart (state, data) {
       if (data) {
-        state.cart = data;
+        state.cart = data
       }
     },
     // 紀錄已成立訂單功能
     saveOrder (state, data) {
       if (data) {
-        state.userOrder = data;
+        state.userOrder = data
       }
     }
   },

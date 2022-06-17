@@ -1,22 +1,17 @@
 [
   {
-    "size_id": 1,
     "size": 38
   },
   {
-    "size_id": 2,
     "size": 40
   },
   {
-    "size_id": 3,
     "size": 42
   },
   {
-    "size_id": 4,
     "size": "one size"
   },
   {
-    "size_id": 5,
     "size": "其他"
   }
 ]

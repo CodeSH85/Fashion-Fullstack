@@ -15,7 +15,7 @@ const Size = database.define('size', {
     type: Sequelize.STRING,
     allowNull: false,
   }
-});
+},{ timestamps: false });
   
 module.exports = Size;
 

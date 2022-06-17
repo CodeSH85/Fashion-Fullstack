@@ -1,6 +1,8 @@
 // @import "../assets/scss/main.scss";
   
-  .log_out_button {
+.log_out_button {
+  border: none;
+  background-color: transparent;
   border-top: solid 1px black;
   border-bottom: solid 1px black;
 }
@@ -15,6 +17,8 @@
 // 原class名稱是.delete_button換成.delete_account_button(避免交互影響)
 .delete_account_button { 
   color: $redColor;
+  border: none;
+  background-color: transparent;
   border-top: solid 1px $redColor;
   border-bottom: solid 1px $redColor;
 }
