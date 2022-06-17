@@ -209,16 +209,17 @@
     }
   }
 </script>
-    <!-- mounted(){
-        axios.post("http://localhost:3000/api/getProduct/:productId", data)
-        .then(async(res)=>{
-          await function(item){
-            if(item.id == this.productId){
-              this.productInfo.number = item.productentry.number
-              this.productInfo.url = item.url
-            }
-          }
-        }) 
+    mounted(){
+        // axios.post("http://localhost:3000/api/getProduct/:productId", data)
+        // .then(async(res)=>{
+        //   await function(item){
+        //     if(item.id == this.productId){
+        //       this.productInfo.number = item.productentry.number
+        //       this.productInfo.url = item.url
+        //     }
+        //   }
+        // }) 
+        setInterval (this.setShowImg, 3000);
     }
   }
 </script> -->

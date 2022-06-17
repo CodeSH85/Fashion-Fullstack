@@ -1,26 +1,20 @@
 [
   {
-    "color_id": 1,
     "color": "黑"
   },
   {
-    "color_id": 2,
     "color": "白"
   },
   {
-    "color_id": 3,
     "color": "灰"
   },
   {
-    "color_id": 4,
     "color": "紅"
   },
   {
-    "color_id": 5,
     "color": "單寧"
   },
   {
-    "color_id": 6,
     "color": "銀"
   }
 ]

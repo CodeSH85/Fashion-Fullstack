@@ -1,11 +1,18 @@
-const Products = require('../models/product');
+const Product = require('../models/product.js');
+const ProductEntry = require('../models/product_entry.js');
+const Size = require('../models/size.js');
+const Color = require('../models/color.js');
+const Category = require('../models/category.js');
+const Img = require('../models/img.js');
 
-//===========================================================
+// ===========================================================
 
 
 // 全部商品資料 api
 const getAllProducts = (req, res) => {
-  Products.findAll()
+  Product.findAll({
+    include:[ Color, Size, Category, Img ]
+  })
   .then((product) => {
     res.send((product));
   })
@@ -14,16 +21,17 @@ const getAllProducts = (req, res) => {
   });
 };
 
-// 個別商品資料 api
-const getProduct = (req, res) => {
-	const { id } = req.params['id'];
-	Products.findOne({
+// 分類商品資料 api
+const getCategoryProducts = (req, res) => {
+	const { categoryId } = req.body;
+	Products.findAll({
 		where: {
-			id: id
+			categoryId: categoryId 
 		},
+		include: [ Color, Img, Size ],
 	})
-	.then((product)=>{
-		return res.send(product);
+	.then((products)=>{
+		return res.send(products);
 	})
 	.catch((err)=>{
 		return res.send(err);
@@ -31,48 +39,25 @@ const getProduct = (req, res) => {
 };
 
 
-// 購物車
-// 取得使用者購物車
+// 購物車資料 api
 const getCart = (req, res) => {
-  req.user 
-    .getCart() 
-    .then((cart) => {
-      return cart.getProducts()
-        .then((products) => {
-          res.send(products);
-        })
-        .catch((err) => {
-          console.log('getCart - cart.getProducts error: ', err);
-        });
-    })
+	req.user
+  .getCart()
+	.then((cart)=>{
+		CartItem.findAll({
+			where: {
+				cartId: cart.id
+			},
+		})
+		.then((cart)=>{
+			return res.send(cart);
+		})
     .catch((err) => {
-      console.log('getCart - user.getCart error', err);
-    });
+      console.log('getCart - cart.getProducts error: ', err);
+		}) 
+	});
 };
 
-// 商品加入購物車
-const postCartAddItem = (req, res) => {
-  const { color, size, number } = req.body;
-  const { productId } = req.params.productId;
-  req.user
-    .getCart()
-    .then((cart) => {
-      return cart.getProductEntry({ 
-        // 規格處理
-        where: { 
-          id: productId,
-          color,
-          size,
-          number
-         }});
-    })
-    .then((product) => {
-      return res.send(product);
-    })
-    .catch((err) => {
-      console.log('postCartAddItem error: ', err);
-    })
-};
 
 // 刪除購物車商品
 const postCartDeleteItem = (req, res, next) => {
@@ -98,18 +83,6 @@ const postCartDeleteItem = (req, res, next) => {
     })
     .then(() => {
       res.redirect('/cart');
-    })
-    .catch((err) => console.log(err));
-};
-
-const getOrders = (req, res, next) => {
-  req.user
-    .getOrders({ include: ['products']})
-    .then((orders) => {
-      console.log('orders', orders)
-      res.render('shop/orders', {
-        orders,
-      });
     })
     .catch((err) => console.log(err));
 };
@@ -145,12 +118,95 @@ const postOrder = (req, res, next) => {
     .catch((err) => console.log(err));
 };
 
+// 創建訂單
+const postUserOrder = (req, res) => {
+	req.user.getCart()
+	.then((cart)=>{
+		CartItem.findAll({
+			where: {
+				cartId: cart.id
+			}
+		})
+		.then((cartItem)=>{
+			return req.user.createOrder()
+			.then((order)=>{
+				let orderItemArr = []
+				for(let i = 0; i <= cartItem.length - 1; i++){
+					orderItemArr.push({
+						quantity: cartItem[i].quantity,
+						orderId: order.id,
+						productentryId: cartItem[i].productentryId,
+						bananaproductId: cartItem[i].bananaproductId		
+					})
+				}			
+				// 建立訂單資料
+				OrderItem.bulkCreate(orderItemArr)
+
+			})
+			.then(()=>{
+				// 刪除使用者已建立訂單的購物車資料
+				CartItem.destroy({
+					where: {
+						cartId: cart.id
+					}
+				})
+				.then(()=>{
+					console.log("已刪除購物車")
+					return res.send({status: 1})
+				})
+				.catch((err)=>{
+					console.log(err)
+					return res.send({status: 0})
+				})
+			})
+		})
+		.catch((err)=>{
+			console.log(err)
+		})
+	})
+};
+
+// 取得使用者訂單
+const getUserOrders = (req, res) => {
+  req.user
+  .getOrders()
+  .then((orders) => {
+      // 將該筆使用者的所有訂單的id放入ordersArr
+      let ordersArr = []
+      for(let i = 0; i <= orders.length - 1; i++){
+          ordersArr.push({
+              orderId: orders[i].id
+          })
+      }
+      return ordersArr //回傳該筆陣列，尋找該名使用者所有訂單的商品明細
+  })
+  .then((result)=>{
+      let promises = [] //用來包裝OrderItem.findAll所有資料
+      // 尋找該名使用者每筆訂單的商品明細
+      for(let i = 0; i <= result.length - 1; i++){
+           promises.push(OrderItem.findAll({
+              where: {
+                  orderId: result[i].orderId
+              }
+          }))
+      }
+      // 等待該名使用者所有訂單明細都獲得後，回傳該名使用者所有訂單的明細
+      Promise.all(promises)
+      .then((resultArr)=>{
+          return res.send(JSON.stringify(resultArr))
+      })
+  })
+  .catch((err) => console.log(err));
+};
+
+
 module.exports = {
   getAllProducts,
-  getProduct,
+  getCategoryProducts,
+
+  getUserOrders,
+  postUserOrder,
+
   getCart,
-  getOrders,
-  postCartAddItem,
   postCartDeleteItem,
-  postOrder,
-}
+};
