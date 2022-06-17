@@ -19,9 +19,10 @@
   background-color: transparent;
 }
 
-.cart_total {
-  margin-top: -100px;
+.delete_button {
+  border: none;
 }
+
 
 .bagView {
   a {
@@ -37,18 +38,24 @@
     border: none;
     background-color: transparent;
   }
-
-  .check_button {
-    border-top: solid 2px $redColor;
-    border-bottom: solid 2px $redColor;
-    margin-bottom: 100px;
-  }
-
-  .check_button:hover {
-    color: $redColor;
-  }
 }
 
 .button_space {
   margin-top: 40px;
 }
+
+.check_button {
+  border: none;
+  border-top: solid 2px $redColor;
+  border-bottom: solid 2px $redColor;
+}
+
+.check_button:hover {
+  color: $redColor;
+
+}
+
+
+// .button_space button {
+//   border:
+// }

@@ -7,7 +7,7 @@
       <div class="main_information col-10 mx-auto d-flex justify-content-evenly 
       flex-md-nowrap flex-sm-wrap">
         <!-- Vue.js 的 transition 用法 -->
-        <transition-group tag="div" name="right-in" class="img_container my-md-0 my-sm-3"
+        <transition-group tag="div" name="right-in" class="actionImg_container my-md-0 my-sm-3"
         v-for="(image, index) in getProduct.imgUrl" :key="index" v-show="index === showImg">
           <img :src="image">
         </transition-group>
@@ -221,7 +221,7 @@
     }
   }
 </script>
-    mounted(){
+    <!-- mounted(){
         axios.post("http://localhost:3000/api/getProduct/:productId", data)
         .then(async(res)=>{
           await function(item){
@@ -233,4 +233,4 @@
         }) 
     }
   }
-</script>
+</script> -->

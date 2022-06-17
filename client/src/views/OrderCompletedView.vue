@@ -38,11 +38,9 @@
         </template>
       </OrderListForm>
       <div class="col-10 mx-auto d-flex justify-content-md-end justify-content-sm-center">
-        <router-link to="/shop" type="submit" class="shopping_button col-md-3 link-dark d-block col-sm-12" @click="saveOrder(checkList)">
-          <div class="h4 fw-bold text-center py-3 px-5 m-0">
-            繼續購物
-          </div>
-        </router-link>
+        <button class="shopping_button col-md-3 col-sm-12 h4 fw-bold text-center py-3 px-5 m-0" @click="saveOrder(checkList)">
+          繼續購物
+        </button>
       </div>
     </div>
   </div>
