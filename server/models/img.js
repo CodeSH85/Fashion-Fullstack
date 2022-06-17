@@ -11,7 +11,7 @@ const Img = database.define('img', {
     allowNull: false,
     primaryKey: true
   },
-  product_id: {
+  productId: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },

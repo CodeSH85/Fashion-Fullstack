@@ -2,7 +2,7 @@
   <!-- 商品總覽分類頁面上方的按鈕群組元件 -->
   <div class="container-fluid">
     <!-- 當判斷為登入狀態、切換成false時以下文字即會被隱藏，但還不清楚如何切換 -->
-    <div class="unlogin_words h5 fw-bold text-center lh-lg" v-if="unlogin === true">
+    <div class="unlogin_words h5 fw-bold text-center lh-lg" v-show="!isLogin">
       購買前請務必先加入會員並留下正資料，<br>
       會員將能夠檢查訂單狀態和歷史紀錄。
     </div>
