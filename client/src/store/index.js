@@ -49,7 +49,6 @@ export default createStore ({
         }
         return product
       })
-
       if (isNewProduct) {
         let newProduct = data.product
         state.cartList.push (newProduct)
@@ -59,19 +58,19 @@ export default createStore ({
     // 將儲存在localStorage裡的登入中User存放在上面state的通用資料(loginUser)
     getUser (state, data) {
       if (data) {
-        state.loginUser = data;
+        state.loginUser = data
       }
     },
     // 清空購物車功能
     resetCart (state, data) {
       if (data) {
-        state.cart = data;
+        state.cart = data
       }
     },
     // 紀錄已成立訂單功能
     saveOrder (state, data) {
       if (data) {
-        state.userOrder = data;
+        state.userOrder = data
       }
     }
   },

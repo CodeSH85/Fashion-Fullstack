@@ -55,86 +55,105 @@
 </template>
 <script>
 // 引入元件(component)
-  import OrderListForm from "../components/OrderListForm.vue"
-  import ProductBox from "../components/ProductBox.vue"
+import OrderListForm from "../components/OrderListForm.vue"
+import ProductBox from "../components/ProductBox.vue"
+// import axios from "axios"
 
-  export default {
-    components: {
-      OrderListForm,
-      ProductBox,
-    },
-    data () {
-      return {
-        products: this.$store.state.cartList,
-        cartList: [],
+export default {
+  components: {
+    OrderListForm,
+    ProductBox,
+  },
+  data () {
+    return {
+      products: this.$store.state.cart,
+    }
+  },
+  methods: {
+    // 加減修改商品數量及狀態
+    editCart (type, product) {
+      if (type === 'add') {
+        product.number++
+        // 判斷所選數量是否比庫存多，是的話顯示庫存量，不是的話顯示所選數量
+        product.number = (product.number > product.quantity) ? product.quantity : product.number
+        if (product.number === product.quantity) {
+          alert('已達庫存上限')
+          return
+        }
+      }
+      else if (type === 'minus') {
+        if (product.number == 0) return
+        product.number--
       }
     },
-    methods: {
-      // 加減修改商品數量及狀態
-      editCart (type, product) {
-        if (type === 'add') {
-          product.number++
-          // 判斷所選數量是否比庫存多，是的話顯示庫存量，不是的話顯示所選數量
-          product.number = (product.number > product.quantity) ? product.quantity : product.number
-          if (product.number === product.quantity) {
-            alert('已達庫存上限')
-            return;
-          }
+    // 移除商品
+    remove (product) {
+      product.number = 0
+    },
+    // 結帳功能
+    check () {
+      if (this.productsInCart.length == 0) {
+        alert('購物車目前是空的，請先選擇商品');
+        return;
+      } else {
+        this.products.orderId = new Date().getTime();
+        this.$router.push (`/bag/${this.products.orderId}`);
+      }
+    },
+  },
+  computed: {
+    // 頁面 購物車共{}件商品
+    // 從store的getters取得currentQuantity已經加總後的購物車商品數量 (老師寫法)
+    currentQuantity () {
+      return this.$store.getters.currentQuantity
+    },
+    // 計算購物車內是哪些商品、各項商品小計
+    productsInCart () {
+      return this.products
+      // 只顯示購買數量 > 0 的項目
+        .filter ( p => p.number)
+        // 算出每個產品的小計
+        .map (p => {
+          p.sum = p.number * p.price
+          return p
         }
-        else if (type === 'minus') {
-          if (product.number == 0) return
-          product.number--
-        }
-      },
-      // 移除商品
-      remove (product) {
-        product.number = 0
-      },
-      // 結帳功能
-      check () {
-        if (this.cartList.length == 0) {
-          alert('購物車目前是空的，請先選擇商品');
-          return;
-        } else {
-          this.products.orderId = new Date().getTime();
-          this.$router.push (`/bag/${this.products.orderId}`);
-        }
-      },
-      // 預設進入購物車時會在localStorage存進購物車內的商品資料
-      savedGoods () {
-        const goodsKey = 'allInCart'
-        const goodsValue = this.$store.state.cartList
-        const cartItemKey = goodsKey
-        const cartItemValue = JSON.stringify(goodsValue)
-        localStorage.setItem(cartItemKey, cartItemValue)
+      )
+    },
+    // 目前購物車中所有商品的總金額
+    total () {
+      return this.productsInCart
+      .reduce ((sum, p) => (sum + p.sum), 0)
+    },
+  },
+  mounted(){
+    let vm = this
 
-        const goodsData = localStorage.getItem('allInCart');
-        const goodsDataArr = JSON.parse(goodsData);
-        this.cartList = goodsDataArr;
-        return this.cartList
-          // 算出每個產品的小計
-          .map (p => {
-            p.sum = p.number * p.price
-            return p
-          }
-        )
-      },
-    },
-    computed: {
-      // 從store的getters取得currentQuantity已經加總後的購物車商品數量 (老師寫法)
-      currentQuantity () {
-        return this.$store.getters.currentQuantity
-      },
-      // 目前購物車中所有商品的總金額
-      total () {
-        return this.cartList
-        .reduce ((sum, p) => (sum + p.sum), 0)
-      },
-    },
-    created () {
-      this.savedGoods ();
+    if(vm.products.length > 0){
+      let dataArr = []
+      for(let value of vm.products){
+        let data = {
+          productsId: value.productsId,
+          productId: value.productId,
+          number: value.number
+        }
+        dataArr.push(data)
+      }
+      axios.post("/addCart", {data: JSON.stringify(dataArr)})
+      .then((res)=>{
+        vm.$store.commit('emptyCart') 
+        if(res.data.status == 1){
+          vm.getUserCart();
+        }
+        else{
+          alert("發生錯誤")
+        }
+      })      
+    }
+    else{
+      vm.getUserCart();   
     }
   }
+}
 </script>
 
 <style scoped lang="scss">

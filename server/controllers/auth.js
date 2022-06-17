@@ -58,6 +58,7 @@ const postLogin = (req, res) => {
         if (isMatch) {
           req.session.user = user;
           req.session.isLogin = true;
+          res.setHeader('Set-Cookie', cookie ='coolie-value');
           return res.send({ status : 1 });
         } else {
           // 帳密錯誤

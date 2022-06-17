@@ -6,15 +6,14 @@
     <!-- topnav -->
     <div class="topnav-brand">
       <router-link to="/">
-        <div class="logo-img" ></div>
+        <div class="logo-img"></div>
       </router-link>
     </div>
-
     <div class="item-list container-fluid p-0">
       <ul class="d-flex m-0">
         <li class="topnav-item">
-          <router-link to="/login" v-if="unlogin === true">Sign in</router-link>
-          <router-link to="/account" v-if="unlogin === false">Account</router-link>
+          <router-link to="/account" v-if="login">Account</router-link>
+          <router-link to="/login" v-else >Sign in</router-link>
         </li>
         <li class="topnav-item">
           <router-link to="/bag">Bag</router-link>
@@ -92,23 +91,20 @@ export default {
   },
   computed: {
     darkModeClass() {
-      //console.log('darkModeClass')
       return {
         dark: !!this.$route.meta?.darkMode,
       };
     },
     greyModeClass() {
-      //console.log('greyModeClass')
       return {
         grey: !!this.$route.meta?.greyMode,
       };
     },
-    // computed() {
-    //   this.reload()
+    // isLogin(){
+    //   if(localStorage.isLogin){
+    //     return this.login == true
+    //   }
     // }
   },
-  created () {
-    this.loginStatus ();
-  }
-};
+}
 </script>
