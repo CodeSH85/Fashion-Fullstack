@@ -30,12 +30,8 @@
       </form>
         <!-- 表格按鈕 -->
         <div class="button_group col-8 mx-auto d-flex justify-content-md-end mt-5">
-<<<<<<< HEAD
-          <button class="sign_up_button h4 fw-bold link-dark text-center py-3 mb-0" @click="confirmPassword(),signUp()">SIGN UP</button>
-=======
           <button class="sign_up_button col-md-3 col-sm-7 h4 fw-bold link-dark text-center py-3 mb-0 mx-md-0 mx-sm-auto" 
           type="submit" @click="signUp">SIGN UP</button>
->>>>>>> ed0714ed322c074154b67777f4bd9e7d2f64d3ca
         </div>
     </div>
   </div>

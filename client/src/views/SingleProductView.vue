@@ -209,7 +209,7 @@
     }
   }
 </script>
-    mounted(){
+    <!-- mounted(){
         // axios.post("http://localhost:3000/api/getProduct/:productId", data)
         // .then(async(res)=>{
         //   await function(item){
@@ -222,4 +222,4 @@
         setInterval (this.setShowImg, 3000);
     }
   }
-</script> -->
+</script> --> -->
