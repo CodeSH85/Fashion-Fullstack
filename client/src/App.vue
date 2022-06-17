@@ -12,7 +12,7 @@
     components: {
       Navbar,
       Footer,
-    }
+    },
   }
 </script>
 <style lang="scss">
