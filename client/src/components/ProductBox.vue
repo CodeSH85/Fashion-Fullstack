@@ -75,12 +75,6 @@ export default {
     'imgUrl':String,
     'sum': Number,
   },
-  methods: {
-
-  },
-  computed: {
-        
-  }
 }
 </script>
 <style scoped lang="scss">

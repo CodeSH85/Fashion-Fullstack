@@ -67,11 +67,11 @@
       },
     },
     mounted(){
-      axios.get("http://localhost:3001/api/getAllProducts")
-      .then( res => (this.productData = res.data) )
-      .catch(function (error) { 
-        console.log(error)
-      });
+      // axios.get("http://localhost:3001/api/getAllProducts")
+      // .then( res => (this.productData = res.data) )
+      // .catch(function (error) { 
+      //   console.log(error)
+      // });
     }
   }
 </script>

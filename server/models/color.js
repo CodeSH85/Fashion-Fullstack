@@ -15,7 +15,7 @@ const Color = database.define('color', {
     type: Sequelize.STRING,
     allowNull: false,
   }
-});
+},{ timestamps: false });
   
 module.exports = Color;
 

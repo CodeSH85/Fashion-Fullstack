@@ -18,6 +18,6 @@ const CartItem = database.define('cartItem', {
     allowNull: false,
     defaultValue: 0
   }
-});
+},{ timestamps: false });
 
 module.exports = CartItem;

@@ -49,7 +49,6 @@ export default createStore ({
         }
         return product
       })
-
       if (isNewProduct) {
         let newProduct = data.product
         newProduct.color = data.color
@@ -61,19 +60,19 @@ export default createStore ({
     // 儲存登入User的帳號並顯示在accountView
     saveAccount (state, data) {
       if (data) {
-        state.loginUser = data;
+        state.loginUser = data
       }
     },
     // 清空購物車功能
     resetCart (state, data) {
       if (data) {
-        state.cart = data;
+        state.cart = data
       }
     },
     // 紀錄已成立訂單功能
     saveOrder (state, data) {
       if (data) {
-        state.userOrder = data;
+        state.userOrder = data
       }
     }
   },
