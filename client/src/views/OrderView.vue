@@ -21,7 +21,7 @@
               <div class="col-10 h4 fw-bold mx-auto my-3 d-flex justify-content-md-start 
           justify-content-sm-between">
                 <div>
-                  <span>合計：</span><span class="py-0 px-4">{{ order.allAmount }}件商品</span>
+                  <span>合計：</span><span class="py-0 px-4">{{ order.amountTotal }}件商品</span>
                 </div>
                 <div class="ps-5 pe-3">
                   <span>NT$ {{ order.total }}</span>

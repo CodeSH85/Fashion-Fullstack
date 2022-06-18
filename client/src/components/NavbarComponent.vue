@@ -79,7 +79,6 @@
 <script>
 export default {
   name: "NavbarComponent",
-  inject:['reload'],
   data () {
     return {
       unlogin: true,
@@ -90,10 +89,8 @@ export default {
       let status = this.$store.state.loginUser
       if (status === '') {
         this.unlogin = true;
-        // this.reload();
       } else {
         this.unlogin = false;
-        // this.reload();
         return;
       }
     }
@@ -109,11 +106,6 @@ export default {
         grey: !!this.$route.meta?.greyMode,
       };
     },
-    // isLogin(){
-    //   if(localStorage.isLogin){
-    //     return this.login == true
-    //   }
-    // }
   },
 }
 </script>

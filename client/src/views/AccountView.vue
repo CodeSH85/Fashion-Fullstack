@@ -36,7 +36,6 @@
   import AccountPageButtons from "../components/AccountPageButtons.vue"
 
   export default {
-    // inject:['reload'],
     components: {
       AccountPageButtons,
     },
@@ -52,13 +51,16 @@
         this.email = loginUser
       },
       logout () {
-        localStorage.clear();
-        this.$router.push('/');
-        this.reload();
+        localStorage.clear ();
+        this.$router.push ('/');
       }
     },
     computed:{
 
+    },
+    // 用來監聽切換路由時自動刷新頁面，但刷新後的部分物件仍沒有異動(例如Navbar的login變account)
+    watch:{
+      '$route':"reload"
     },
     created () {
       this.showAccount ();

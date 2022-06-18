@@ -1,8 +1,8 @@
 <template>
   <!-- 商品總覽分類頁面上方的按鈕群組元件 -->
   <div class="container-fluid">
-    <!-- 當判斷為登入狀態、切換成false時以下文字即會被隱藏，但還不清楚如何切換 -->
-    <div class="unlogin_words h5 fw-bold text-center lh-lg" v-show="!isLogin">
+    <!-- 當判斷為登入狀態，以下文字即會被隱藏 -->
+    <div class="unlogin_words h5 fw-bold text-center lh-lg" v-if="unlogin === true">
       購買前請務必先加入會員並留下正資料，<br>
       會員將能夠檢查訂單狀態和歷史紀錄。
     </div>
@@ -21,7 +21,7 @@
       <!-- RWD頁面的頁面按鈕 -->
       <div class="dropdown d-md-none d-sm-flex justify-content-center mt-4">
         <button class="btn dropdown-toggle fw-bold" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          ALL
+          Categories
         </button>
         <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton1">
           <li class="dropdown-item" v-for="(item, index) in tab" :key="index" 
@@ -45,6 +45,7 @@
       }
     },
     methods: {
+      // 依登入狀態控制是否顯示頁面上方非會員之提醒文字
       loginStatus () {
         let status = this.$store.state.loginUser
         if (status === '') {

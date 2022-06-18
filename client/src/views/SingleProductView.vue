@@ -1,5 +1,4 @@
 <template>
-  <ShopPageButtons @backToPage="backToCategoryPage"></ShopPageButtons>
   <!-- 商品單一詳情頁面 -->
   <div class="singleproduct container-fluid">
     <div class="row">
@@ -124,12 +123,10 @@
 </template>
 <script>
 // 引入元件(component)
-  import ShopPageButtons from "../components/ShopPageButtons.vue"
   import SuggestedProduct from "../components/SuggestedProduct.vue"
   // import axios from "axios"
   export default {
     components: {
-      ShopPageButtons,
       SuggestedProduct,
     },
     data () {
@@ -146,45 +143,36 @@
       setInterval (this.setShowImg, 3000);
     },
     methods: {
-      // 判斷存貨、是否選擇規格之防呆提醒；將準備存到localStorage的商品資料定義好傳送到store做處理
+      // 判斷存貨、是否選擇規格之防呆提醒
       addCart: function (product) {
-        const inCart = product
-        const chosenColor = document.querySelector('#color')
-        const chosenSize = document.querySelector('#size')
-        const chosenNumber = document.querySelector('#number')
+        product.color = this.color
+        product.clothesSize = this.size
+        product.number = this.selectedNumber
 
-        const storageGoodsDetails = 
-          { 
-            id: inCart.id,
-            name: inCart.name, 
-            price: inCart.price,
-            imgUrl: inCart.imgUrl,
-            color: chosenColor.value,
-            clothesSize: chosenSize.value,
-            number: chosenNumber.value
-          }
-
-        if (chosenColor.value === '' && chosenSize.value === '' && chosenNumber.value === '') {
+        if (product.color === '' && product.clothesSize === '' && product.number === '') {
           alert ('請選擇顏色、尺寸和數量')
           return;
-        } else if (chosenColor.value === '' && chosenSize.value === '') {
+        } else if (product.color === '' && product.clothesSize === '') {
           alert ('請選擇顏色和尺寸')
           return;
-        } else if (chosenNumber.value === '') {
+        } else if (product.number === '') {
           alert ('請選擇數量')
           return;
-        } else if (chosenColor.value === '') {
+        } else if (product.color === '') {
           alert ('請選擇顏色')
           return;
-        } else if (chosenSize.value === '') {
+        } else if (product.clothesSize === '') {
           alert ('請選擇尺寸')
           return;
-        } else if (inCart.quantity - chosenNumber.value < 0) {
+        } else if (product.quantity - product.number < 0) {
           alert ('存貨不足')
           return;
         } else {
           this.$store.commit ('addCart', {
-            product: storageGoodsDetails,
+            product: product,
+            color: this.color,
+            clothesSize: this.size,
+            number: this.selectedNumber,
           })
           alert ('已加入購物車')
         }
@@ -211,20 +199,7 @@
       },
     }
   }
-
-</script>
-    <!-- mounted(){
-        axios.post("http://localhost:3000/api/getProduct/:productId", data)
-        .then(async(res)=>{
-          await function(item){
-            if(item.id == this.productId){
-              this.productInfo.number = item.productentry.number
-              this.productInfo.url = item.url
-            }
-          }
-        }) 
-
-    mounted(){
+  mounted(){
         // axios.post("http://localhost:3000/api/getProduct/:productId", data)
         // .then(async(res)=>{
         //   await function(item){
@@ -237,5 +212,5 @@
         setInterval (this.setShowImg, 3000);
 
     }
-  } -->
-
+  }
+</script> 

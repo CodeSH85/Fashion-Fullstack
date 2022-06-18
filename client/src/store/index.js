@@ -9,9 +9,9 @@ export default createStore ({
     data: productsData,
     productAllApi: "http://localhost:3000/api/getAllProducts",
     loginUser: '',
-    cartList: [],
+    cartList: [], // 購物車資料
     pressInfo,
-    userOrder: [],
+    userOrder: [], // 使用者的已成立訂單資料
   },
   getters: {
     // 取得點選商品的詳細資訊
@@ -45,6 +45,8 @@ export default createStore ({
       state.cartList.map (function (product) {
         if (product.id == data.product.id) {
           product.number += data.number
+          product.color = data.color
+          product.clothesSize = data.clothesSize
           isNewProduct = false
         }
         return product
@@ -54,25 +56,26 @@ export default createStore ({
         state.cartList.push (newProduct)
       }
     },
-
     // 將儲存在localStorage裡的登入中User存放在上面state的通用資料(loginUser)
     getUser (state, data) {
       if (data) {
         state.loginUser = data
       }
     },
-    // 清空購物車功能
-    resetCart (state, data) {
-      if (data) {
-        state.cart = data
-      }
-    },
-    // 紀錄已成立訂單功能
+    // 紀錄已成立訂單到orderView使用 (目前只能記一組訂單)
     saveOrder (state, data) {
       if (data) {
-        state.userOrder = data
+        state.userOrder = data;
+
       }
-    }
+    },
+    // 訂單成立之後清空購物車功能
+    resetCart (state, data) {
+      if (data) {
+        state.cartList = data;
+
+      }
+    },
   },
   actions: {
   },
