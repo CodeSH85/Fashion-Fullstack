@@ -15,7 +15,7 @@ const Category = database.define('category', {
     type: Sequelize.STRING,
     allowNull: false,
   }
-});
+},{ timestamps: false });
   
 module.exports = Category;
 

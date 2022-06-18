@@ -99,11 +99,13 @@
 }
 
 .contact-form {
+  
   label {
     color: white;
   }
 
   .form-control {
+    color: white;
     background-color: transparent;
     border: solid 1px white;
     border-radius: 0;
@@ -121,5 +123,6 @@
     background-color: transparent;
     border: solid 1px white;
     border-radius: 0;
+    color: white;
   }
 }

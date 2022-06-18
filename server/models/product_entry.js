@@ -11,22 +11,22 @@ const Product_entry = database.define('product_entry', {
     allowNull: false, // 是否接受 null 值
     primaryKey: true
   },
-  categoryId: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-  sizeId: {
-    type: Sequelize.INTEGER,
-    allowNull: true,
-  },
-  colorId: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
+  // categoryId: {
+  //   type: Sequelize.INTEGER,
+  //   allowNull: false,
+  // },
+  // sizeId: {
+  //   type: Sequelize.INTEGER,
+  //   allowNull: true,
+  // },
+  // colorId: {
+  //   type: Sequelize.INTEGER,
+  //   allowNull: false,
+  // },
   quantity: {
     type: Sequelize.DOUBLE,
     allowNull: false,
   }
-});
+},{ timestamps: false });
 
 module.exports = Product_entry;

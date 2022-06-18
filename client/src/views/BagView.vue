@@ -42,7 +42,7 @@
           </template>
         </template>
       </OrderListForm>
-      <div class="cart_total col-md-10 h3 fw-bold mx-auto d-flex justify-content-md-end px-md-3 mb-4 justify-content-sm-center">
+      <div class="cart_total col-md-10 h3 fw-bold mx-auto d-flex justify-content-md-end px-md-3 m-4 justify-content-sm-center">
         <span class="me-3">合計：</span><span class="ms-3">NT$ {{ total }}</span>
       </div>
       <div class="button_space col-10 mx-auto d-flex justify-content-md-end justify-content-sm-center">
@@ -55,13 +55,36 @@
 </template>
 <script>
 // 引入元件(component)
-  import OrderListForm from "../components/OrderListForm.vue"
-  import ProductBox from "../components/ProductBox.vue"
+import OrderListForm from "../components/OrderListForm.vue"
+import ProductBox from "../components/ProductBox.vue"
+// import axios from "axios"
 
-  export default {
-    components: {
-      OrderListForm,
-      ProductBox,
+export default {
+  components: {
+    OrderListForm,
+    ProductBox,
+  },
+  data () {
+    return {
+      products: this.$store.state.cart,
+    }
+  },
+  methods: {
+    // 加減修改商品數量及狀態
+    editCart (type, product) {
+      if (type === 'add') {
+        product.number++
+        // 判斷所選數量是否比庫存多，是的話顯示庫存量，不是的話顯示所選數量
+        product.number = (product.number > product.quantity) ? product.quantity : product.number
+        if (product.number === product.quantity) {
+          alert('已達庫存上限')
+          return
+        }
+      }
+      else if (type === 'minus') {
+        if (product.number == 0) return
+        product.number--
+      }
     },
     data () {
       return {
@@ -125,6 +148,7 @@
       },
     },
   }
+}
 </script>
 
 <style scoped lang="scss">

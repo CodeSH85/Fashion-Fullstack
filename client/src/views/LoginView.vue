@@ -42,9 +42,10 @@
       </div>
     </div>
   </div>
+
 </template>
 <script>
-  // import axios from "axios"
+  //import axios from "axios"
 
   export default {
     data () {
@@ -53,7 +54,15 @@
         password:'',
       }
     },
-    methods:{
+
+    // method:{
+    //   async login(){
+    //     let result = await axios.post("http://localhost:3000/post/login")
+    //   }
+    // },
+    // mounted(){
+
+    //methods:{
       // async login(){
       //   let result = await axios.post("http://localhost:3001/post/login")
       // }
@@ -99,6 +108,8 @@
         .then((res)=>{
           if( res.data.status == 1 ){
             alert('登入成功')
+            // 將後端傳回來的狀態儲存至 localStorage( isLogin : "status:1" )
+            localStorage.setItem("isLogin",JSON.stringify(res.data)) 
             return this.$router.push('/shop')
           } else if( res.data.status == 0 ) {
             alert('帳號或密碼錯誤')
@@ -109,6 +120,7 @@
           console.log(error);
         }) 
       }
+
     }
   }
 

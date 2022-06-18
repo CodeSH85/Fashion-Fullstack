@@ -35,10 +35,11 @@ const Product = database.define('product', {
     type: Sequelize.STRING,
     allowNull: true,
   },
-  categoryId: {    
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  }
-});
+  // categoryId: {    
+  //   type: Sequelize.INTEGER,
+  //   allowNull: false,
+  // },
+},{ timestamps: false }
+);
 
 module.exports = Product;

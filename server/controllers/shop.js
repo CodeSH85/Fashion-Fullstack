@@ -4,6 +4,7 @@ const Size = require('../models/size.js');
 const Color = require('../models/color.js');
 const Category = require('../models/category.js');
 const Img = require('../models/img.js');
+const CartItem = require('../models/cart-item.js');
 
 // ===========================================================
 
@@ -144,7 +145,6 @@ const postUserOrder = (req, res) => {
 
 			})
 			.then(()=>{
-				// 刪除使用者已建立訂單的購物車資料
 				CartItem.destroy({
 					where: {
 						cartId: cart.id
@@ -171,30 +171,27 @@ const getUserOrders = (req, res) => {
   req.user
   .getOrders()
   .then((orders) => {
-      // 將該筆使用者的所有訂單的id放入ordersArr
-      let ordersArr = []
-      for(let i = 0; i <= orders.length - 1; i++){
-          ordersArr.push({
-              orderId: orders[i].id
-          })
-      }
-      return ordersArr //回傳該筆陣列，尋找該名使用者所有訂單的商品明細
+    let ordersArr = []
+    for(let i = 0; i <= orders.length - 1; i++){
+      ordersArr.push({
+        orderId: orders[i].id
+      })
+    }
+    return ordersArr
   })
   .then((result)=>{
-      let promises = [] //用來包裝OrderItem.findAll所有資料
-      // 尋找該名使用者每筆訂單的商品明細
-      for(let i = 0; i <= result.length - 1; i++){
-           promises.push(OrderItem.findAll({
-              where: {
-                  orderId: result[i].orderId
-              }
-          }))
-      }
-      // 等待該名使用者所有訂單明細都獲得後，回傳該名使用者所有訂單的明細
-      Promise.all(promises)
-      .then((resultArr)=>{
-          return res.send(JSON.stringify(resultArr))
-      })
+    let promises = [] 
+    for(let i = 0; i <= result.length - 1; i++){
+      promises.push(OrderItem.findAll({
+        where: {
+          orderId: result[i].orderId
+        }
+      }))
+    }
+    Promise.all(promises)
+    .then((resultArr)=>{
+      return res.send(JSON.stringify(resultArr))
+    })
   })
   .catch((err) => console.log(err));
 };
