@@ -27,3 +27,12 @@ border-radius: 0;
 color: white;
 background-color: black;
 }
+
+@media screen and ( max-width: 768px ) {
+  // .dropdown button{
+  //   width: 100%;
+  // }
+  .dropdown-toggle {
+    width: 100%;
+  }
+}

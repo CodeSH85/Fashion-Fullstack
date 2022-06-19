@@ -9,23 +9,23 @@
           <h4>E-mail</h4>
         </div>
         <div class="account_email">
-          <h4>example@test.com</h4>
+          <h4>{{ email }}</h4>
         </div>
       </div>
       <!-- 按鈕 (buttons_center用來給寬度和置中) -->
       <div class="buttons_center col-md-12 my-sm-5">
         <div class="buttons_list mx-sm-auto d-flex flex-sm-wrap justify-content-sm-center 
         col-md-4 col-sm-6">
-          <router-link to="/login" class="link-dark d-md-block col-md-5 text-center my-sm-5 col-sm-10">
-            <div class="log_out_button h4 py-3 px-4 mx-auto mb-0">
+          <!-- <router-link to="/login" class="link-dark d-md-block"> -->
+            <button class="log_out_button col-md-5 text-center my-sm-5 col-sm-10 h4 py-3 px-4 mx-auto mb-0" @click="logout()">
               Log Out
-            </div>
-          </router-link>
-          <router-link to="#" class="link-dark d-md-block col-md-8 text-center my-5">
-            <div class="delete_account_button h4 py-3 px-4 mx-auto mb-0">
+            </button>
+          <!-- </router-link> -->
+          <!-- <router-link to="#" class="link-dark d-md-block "> -->
+            <button class="delete_account_button col-md-8 text-center my-5 h4 py-3 px-4 mx-auto mb-0">
               DELETE ACCOUNT
-            </div>
-          </router-link>
+            </button>
+          <!-- </router-link> -->
         </div>
       </div>
     </div>
@@ -36,8 +36,32 @@
   import AccountPageButtons from "../components/AccountPageButtons.vue"
 
   export default {
+    // inject:['reload'],
     components: {
       AccountPageButtons,
+    },
+    data () {
+      return {
+        email: '',
+      }
+    },
+    methods: {
+      // 在accountView上的email欄位後方顯示登入中user的帳號
+      showAccount () {
+        const loginUser = this.$store.state.loginUser.memoryAccount
+        this.email = loginUser
+      },
+      logout () {
+        localStorage.clear();
+        this.$router.push('/');
+        this.reload();
+      }
+    },
+    computed:{
+
+    },
+    created () {
+      this.showAccount ();
     }
   }
 </script>

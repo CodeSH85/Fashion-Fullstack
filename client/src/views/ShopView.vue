@@ -19,7 +19,7 @@
         <a href="#" class="px-3 link-dark">＞</a>
       </div>
       <!-- RWD頁面的頁面按鈕 -->
-      <div class="dropdown w-50 mx-auto d-md-none d-sm-flex justify-content-center my-4">
+      <div class="dropdown mx-auto d-md-none d-sm-flex justify-content-center my-4">
         <button class="btn dropdown-toggle fw-bold" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           1
         </button>
@@ -38,7 +38,8 @@
   // import axios from "axios";
   
   import ShopPageButtons from "../components/ShopPageButtons.vue"
-  //import ProductItem from "../components/ProductItem.vue"
+
+  import ProductItem from "../components/ProductItem.vue"
   import CategoryAll from "../components/CategoryAll.vue"
   import CategoryTop from "../components/CategoryTop.vue"
   import CategoryBottom from "../components/CategoryBottom.vue"
@@ -67,6 +68,7 @@
         this.status = status
       },
     },
+
     // mounted(){
     //   axios.get("http://localhost:3000/api/getAllProducts")
     //   .then( res => (this.productData = res.data) )
@@ -74,5 +76,14 @@
     //     console.log(error)
     //   });
     // }
+
+    mounted(){
+      // axios.get("http://localhost:3001/api/getAllProducts")
+      // .then( res => (this.productData = res.data) )
+      // .catch(function (error) { 
+      //   console.log(error)
+      // });
+    }
+
   }
 </script>

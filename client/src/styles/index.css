@@ -1,0 +1,579 @@
+@charset "UTF-8";
+.button_white {
+  color: white;
+  border: solid 1px #fdfcfc;
+  border-left: none;
+  border-right: none;
+  background-color: black;
+  padding: 13px 111px;
+  text-decoration: none;
+}
+
+.button_white:active, .button_white:visited, .button_white:focus {
+  color: white;
+}
+
+.button_white:hover {
+  color: red;
+  border: solid 1px red;
+  border-left: none;
+  border-right: none;
+}
+
+.button_black {
+  color: #040000;
+  border: solid 1px #070000;
+  border-left: none;
+  border-right: none;
+  background-color: #f9f6f6;
+  padding: 17px 111px;
+}
+
+.button_black a {
+  text-decoration: none;
+}
+
+.button_black a:active, .button_black a:visited, .button_black a:focus {
+  color: inherit;
+}
+
+.button_black:hover {
+  color: red;
+  border: solid 1px red;
+  border-left: none;
+  border-right: none;
+}
+
+ul {
+  margin-left: 0;
+}
+
+ul,
+ol,
+li {
+  list-style-type: none;
+}
+
+hr {
+  color: red;
+  margin: 1.6rem;
+}
+
+.heading {
+  color: white;
+}
+
+.heading p {
+  color: white;
+}
+
+.top-nav {
+  padding: 0 57px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.top-nav .logo-img {
+  height: 90px;
+}
+
+.top-nav .navbar-p-0 {
+  height: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.top-nav .item-list {
+  margin: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.top-nav .item-list ul {
+  -webkit-column-gap: 15px;
+          column-gap: 15px;
+}
+
+.top-nav .topnav-brand {
+  width: 100%;
+  margin: auto 20px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.top-nav .topnav-item {
+  position: relative;
+}
+
+.top-nav .topnav-item:before, .top-nav .topnav-item:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  width: 1px;
+  background-color: white;
+  -webkit-transform: rotate(15deg);
+          transform: rotate(15deg);
+}
+
+.top-nav .topnav-item:after {
+  right: 0;
+}
+
+.top-nav .topnav-item a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  text-align: center;
+  padding: 1px 8px;
+}
+
+.top-nav .topnav-item a:hover {
+  text-decoration: none;
+  color: #ef0202;
+}
+
+.nav_black {
+  background-color: black;
+  color: white;
+}
+
+.nav_black ul li .nav-link {
+  text-decoration: none;
+  color: inherit;
+  /* display: block; */
+  text-align: center;
+  padding: 2px 80px;
+}
+
+.nav_black ul li .nav-link:active, .nav_black ul li .nav-link:visited, .nav_black ul li .nav-link:focus {
+  color: inherit;
+}
+
+.nav_black ul li .nav-link:hover {
+  text-decoration: none;
+  color: #ef0202;
+}
+
+.navbar-collapse .navbar-nav {
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.navbar-p-3 {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-top: 2px solid #CC0000;
+  border-bottom: 2px solid #CC0000;
+}
+
+.navbar-toggler {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  color: #f7f2f2;
+}
+
+.navbar-toggler .navbar-toggler-icon:hover {
+  color: #f40404;
+}
+
+#homepage {
+  background-color: black;
+}
+
+.swiper-container {
+  margin-right: 0;
+  margin-left: 0;
+  padding: 0;
+  height: 30rem;
+  margin-bottom: 5rem;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #060000;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.press {
+  padding: 0rem 5rem;
+  margin-bottom: 5rem;
+}
+
+.press-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.press-row .press-col {
+  width: 250px;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+.press-row .press-col img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.home_buttons_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.about {
+  margin-bottom: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.about .about-img {
+  width: 100%;
+}
+
+.contact {
+  margin-bottom: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.text-end {
+  color: white;
+}
+
+.contact-form label {
+  color: white;
+}
+
+.contact-form .form-control {
+  background-color: transparent;
+  border: solid 1px white;
+  border-radius: 0;
+}
+
+.message label {
+  color: white;
+}
+
+.message .form-control {
+  background-color: transparent;
+  border: solid 1px white;
+  border-radius: 0;
+}
+
+.log_out_button {
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+}
+
+.log_out_button:hover {
+  color: #CC0000;
+  border: solid 1px #CC0000;
+  border-left: none;
+  border-right: none;
+}
+
+.delete_account_button {
+  color: #CC0000;
+  border-top: solid 1px #CC0000;
+  border-bottom: solid 1px #CC0000;
+}
+
+.delete_account_button:hover {
+  text-decoration: underline;
+}
+
+.h1_title {
+  margin-top: 150px;
+}
+
+.email_input {
+  background-color: transparent;
+  border: solid 1px black;
+  border-radius: 0;
+}
+
+.password_input {
+  background-color: transparent;
+  border: solid 1px black;
+  border-radius: 0;
+}
+
+.buttons_large_group {
+  margin-bottom: 100px;
+}
+
+.new_account_button {
+  border: solid 2px transparent;
+}
+
+.new_account_button:hover {
+  border-bottom: solid 2px #CC0000;
+}
+
+.forget_password_button {
+  border: solid 2px transparent;
+}
+
+.forget_password_button:hover {
+  border-bottom: solid 2px #CC0000;
+}
+
+/* 要對router-link超連結下任何css要使用a標籤 */
+a {
+  text-decoration: none;
+}
+
+.sign_in_button {
+  border: solid 1px black;
+  border-left: none;
+  border-right: none;
+  background-color: transparent;
+}
+
+.sign_in_button:hover {
+  color: #CC0000;
+  border: solid 1px #CC0000;
+  border-left: none;
+  border-right: none;
+}
+
+#lookbookpage {
+  background-color: black;
+}
+
+.lookbook {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.l_aside {
+  margin-right: 20px;
+}
+
+.l_aside li a {
+  display: block;
+  padding: 10px;
+  color: #faf7f7;
+  border-left: 4px solid transparent;
+}
+
+.l_aside li ahover {
+  font-weight: bold;
+  background: #020000;
+  text-decoration: none;
+  color: red;
+}
+
+.r_aside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+@media screen and (max-width: 768px) {
+  .lookbook {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .l_aside ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .l_aside ul li {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    text-align: center;
+  }
+  .l_aside ul li a {
+    border: none;
+    border-bottom: 4px transparent solid;
+  }
+  .l_aside ul li ahover {
+    border: none;
+    color: red;
+  }
+}
+
+.lookbook-col {
+  width: 250px;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+.lookbook-col img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+#presspage {
+  background-color: black;
+}
+
+.page_buttons {
+  margin-bottom: 50px;
+}
+
+.page_buttons a {
+  text-decoration: none;
+}
+
+.page_buttons a:hover {
+  color: #CC0000;
+}
+
+.dropdown button {
+  width: 100%;
+  border: solid 1px black;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin-bottom: 60px;
+}
+
+.dropdown-menu {
+  width: 92%;
+  border-radius: 0;
+}
+
+.dropdown-menu li > a:hover {
+  color: white;
+  background-color: black;
+}
+
+.h1_title {
+  margin-top: 150px;
+}
+
+.email_input {
+  background-color: transparent;
+  border: solid 1px black;
+  border-radius: 0;
+}
+
+.password_input {
+  background-color: transparent;
+  border: solid 1px black;
+  border-radius: 0;
+}
+
+.confirm_password_input {
+  background-color: transparent;
+  border: solid 1px black;
+  border-radius: 0;
+}
+
+.button_group {
+  margin-bottom: 100px;
+}
+
+/* 要對router-link超連結下任何css要使用a標籤 */
+a {
+  text-decoration: none;
+}
+
+.sign_up_button {
+  border: solid 1px black;
+  border-left: none;
+  border-right: none;
+  background-color: transparent;
+}
+
+.sign_up_button:hover {
+  color: #CC0000;
+  border: solid 1px #CC0000;
+  border-left: none;
+  border-right: none;
+}
+/*# sourceMappingURL=index.css.map */

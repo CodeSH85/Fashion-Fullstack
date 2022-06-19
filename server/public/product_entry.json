@@ -1,0 +1,450 @@
+[
+  {
+    "productId": 1,
+  
+    "sizeId": 1,
+    "colorId": 2,
+    "quantity": 10
+  },
+  {
+    "productId": 1,
+  
+    "sizeId": 5,
+    "colorId": 2,
+    "quantity": 10
+  },
+  {
+    "productId": 2,
+  
+    "sizeId": 1,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 2,
+  
+    "sizeId": 5,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 3,
+    
+    "sizeId": 1,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 3,
+    
+    "sizeId": 5,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 4,
+    
+    "sizeId": 1,
+    "colorId": 3,
+    "quantity": 10
+  },
+  {
+    "productId": 4,
+    
+    "sizeId": 5,
+    "colorId": 3,
+    "quantity": 10
+  },
+  {
+    "productId": 5,
+    
+    "sizeId": 1,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 5,
+    
+    "sizeId": 5,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 6,
+    
+    "sizeId": 1,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 6,
+    
+    "sizeId": 5,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 7,
+    
+    "sizeId": 1,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 7,
+    
+    "sizeId": 5,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 8,
+  
+    "sizeId": 4,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 9,
+  
+    "sizeId": 1,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 9,
+  
+    "sizeId": 5,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 10,
+    
+    "sizeId": 1,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 10,
+    
+    "sizeId": 5,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 11,
+    
+    "sizeId": 1,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 11,
+    
+    "sizeId": 5,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 12,
+    
+    "sizeId": 4,
+    "colorId": 4,
+    "quantity": 10
+  },
+  {
+    "productId": 13,
+    
+    "sizeId": 1,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 13,
+    
+    "sizeId": 5,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 14,
+    
+    "sizeId": 1,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 14,
+    
+    "sizeId": 5,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 15,
+    
+    "sizeId": 1,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 15,
+    
+    "sizeId": 5,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 16,
+  
+    "sizeId": 1,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 16,
+  
+    "sizeId": 5,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 16,
+  
+    "sizeId": 1,
+    "colorId": 2,
+    "quantity": 10
+  },
+  {
+    "productId": 16,
+  
+    "sizeId": 2,
+    "colorId": 2,
+    "quantity": 10
+  },
+  {
+    "productId": 16,
+  
+    "sizeId": 5,
+    "colorId": 2,
+    "quantity": 10
+  },
+  {
+    "productId": 17,
+  
+    "sizeId": 4,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 17,
+  
+    "sizeId": 1,
+    "colorId": 2,
+    "quantity": 10
+  },
+  {
+    "productId": 17,
+  
+    "sizeId": 5,
+    "colorId": 2,
+    "quantity": 10
+  },
+  {
+    "productId": 18,
+  
+    "sizeId": 1,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 18,
+  
+    "sizeId": 5,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 19,
+  
+    "sizeId": 1,
+    "colorId": 3,
+    "quantity": 10
+  },
+  {
+    "productId": 19,
+  
+    "sizeId": 5,
+    "colorId": 3,
+    "quantity": 10
+  },
+  {
+    "productId": 20,
+  
+    "sizeId": 1,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 20,
+  
+    "sizeId": 5,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 20,
+  
+    "sizeId": 4,
+    "colorId": 2,
+    "quantity": 10
+  },
+  {
+    "productId": 21,
+  
+    "sizeId": 4,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 22,
+  
+    "sizeId": 1,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 22,
+  
+    "sizeId": 2,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 23,
+  
+    "sizeId": 1,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 23,
+  
+    "sizeId": 2,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 23,
+  
+    "sizeId": 3,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 24,
+    
+    "sizeId": 4,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 25,
+    
+    "sizeId": 1,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 26,
+    
+    "sizeId": 4,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 27,
+    
+    "sizeId": 1,
+    "colorId": 5,
+    "quantity": 10
+  },
+  {
+    "productId": 27,
+    
+    "sizeId": 5,
+    "colorId": 5,
+    "quantity": 10
+  },
+  {
+    "productId": 28,
+    
+    "sizeId": 4,
+    "colorId": 6,
+    "quantity": 10
+  },
+  {
+    "productId": 29,
+    
+    "sizeId": 1,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 29,
+    
+    "sizeId": 2,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 29,
+    
+    "sizeId": 3,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 30,
+    
+    "sizeId": 4,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 31,
+    
+    "sizeId": 4,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 32,
+    
+    "sizeId": 4,
+    "colorId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 33,
+    
+    "sizeId": null,
+    "colorId": 6,
+    "quantity": 1
+  },
+  {
+    "productId": 34,
+    
+    "sizeId": null,
+    "colorId": 1,
+    "quantity": 1
+  },
+  {
+    "productId": 35,
+    
+    "sizeId": null,
+    "colorId": 3,
+    "quantity": 1
+  }
+]

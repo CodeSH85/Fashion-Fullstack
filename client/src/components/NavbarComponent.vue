@@ -3,11 +3,10 @@
     :class="[darkModeClass, greyModeClass]"
     class="topnav navbar-p-3 navbar-expand-lg px-5"
   >
-    <!-- topnav --><router-link to="/" >
-    <div class="topnav-brand">
-      
-        <div class="logo-img"></div>
-      
+    <!-- topnav -->
+    <router-link to="/" >
+    <div class="topnav-brand">    
+        <div class="logo-img"></div>      
     </div>
     </router-link>
 
@@ -15,6 +14,15 @@
       <ul class="d-flex m-0">
         <li class="topnav-item">
           <router-link to="/login">Sign in</router-link>
+      <router-link to="/">
+        <div class="logo-img"></div>
+      </router-link>
+    </div>
+    <div class="item-list container-fluid p-0">
+      <ul class="d-flex m-0">
+        <li class="topnav-item">
+          <router-link to="/account" v-if="login">Account</router-link>
+          <router-link to="/login" v-else >Sign in</router-link>
         </li>
         <li class="topnav-item">
           <router-link to="/bag">Bag</router-link>
@@ -71,19 +79,41 @@
 <script>
 export default {
   name: "NavbarComponent",
+  inject:['reload'],
+  data () {
+    return {
+      unlogin: true,
+    }
+  },
+  methods: {
+    loginStatus () {
+      let status = this.$store.state.loginUser
+      if (status === '') {
+        this.unlogin = true;
+        // this.reload();
+      } else {
+        this.unlogin = false;
+        // this.reload();
+        return;
+      }
+    }
+  },
   computed: {
     darkModeClass() {
-      //console.log('darkModeClass')
       return {
         dark: !!this.$route.meta?.darkMode,
       };
     },
     greyModeClass() {
-      //console.log('greyModeClass')
       return {
         grey: !!this.$route.meta?.greyMode,
       };
     },
+    // isLogin(){
+    //   if(localStorage.isLogin){
+    //     return this.login == true
+    //   }
+    // }
   },
-};
+}
 </script>

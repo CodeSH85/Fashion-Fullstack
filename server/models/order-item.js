@@ -18,6 +18,6 @@ const OrderItem = database.define('orderItem', {
     allowNull: false,
     defaultValue: 0
   }
-});
+},{ timestamps: false });
 
 module.exports = OrderItem;
