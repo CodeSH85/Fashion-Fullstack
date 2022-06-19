@@ -4,15 +4,12 @@
       <aside class="l_aside col-md-3">
         <div class="heading m-5">
           <h2><router-link to="/lookbook/0">LOOKBOOK/</router-link></h2>
+
         </div>
         <ul class="nav flex-column m-5">
-          <li
-            v-for="(lookbookInfo, i) in lookbookInfos"
-            :key="i"
-            class="nav-item"
-          >
+          <li v-for="(item, i) in lookbookInfos" :key="i" class="nav-item">
             <router-link :to="`/lookbook/${i}`" aria-current="page"
-              >{{ lookbookInfo.title }} - CAMPAIGN</router-link
+              >{{ item.title }} - CAMPAIGN</router-link
             >
           </li>
         </ul>
@@ -22,9 +19,7 @@
         <figure class="heading m-5">
           <h2>{{ lookbookInfo.title }} /</h2>
         </figure>
-        <div
-          class="row g-3 lookbook-col col-md-6 col-lg-6"
-        >
+        <div class="row g-3 lookbook-col col-md-6 col-lg-6">
           <img
             v-for="(imgsrc, index) in lookbookInfo.images"
             :key="`${index}lookbookInfo.image`"
@@ -46,8 +41,24 @@ export default {
       lookbookId: this.$route.params.id,
       lookbookInfos,
       lookbookInfo: lookbookInfos[this.$route.params.id],
-      
     };
+  },
+  watch: {
+    "$route.params.id": {
+      handler: function (id) {
+        this.lookbookInfo = lookbookInfos[id];
+      },
+      deep: true, //用巢狀就要watch+handler、deep、immediate（option）
+      immediate: true,
+    },
+    // "lookbookInfo.title": {
+    //   handler: function (title, oldTitle) {
+    //     console.log(title);
+    //     console.log(oldTitle);
+    //   },
+    //   deep: true,
+    //   immediate: true,
+    // },
   },
 };
 </script>
